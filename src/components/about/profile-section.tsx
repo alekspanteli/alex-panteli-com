@@ -8,15 +8,16 @@ export function ProfileSection() {
   return (
     <div className="grid gap-16 md:grid-cols-[300px_1fr] md:items-center">
       <ScrollReveal direction="left">
-        <div className="relative aspect-square w-full max-w-[300px] overflow-hidden rounded-lg border border-border">
+        <div className="group relative aspect-square w-full max-w-[300px] overflow-hidden rounded-lg border border-border">
           <Image
-            src="/avatar2.avif"
+            src="/avatar3.avif"
             alt={cvData.personal.name}
             fill
-            sizes="(min-width: 768px) 300px, 100vw"
-            className="object-cover"
+            sizes="300px"
+            className="object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105"
             priority
           />
+          <div className="absolute inset-0 bg-primary/10 mix-blend-overlay transition-opacity duration-500 group-hover:opacity-0" />
         </div>
       </ScrollReveal>
 
