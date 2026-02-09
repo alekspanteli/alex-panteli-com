@@ -121,10 +121,10 @@ export const cvData: CVData = {
   ],
   education: [
     {
-      institution: "University of Cyprus",
-      degree: "BSc in Computer Science",
+      institution: "Abertay University",
+      degree: "BSc (Hons) Web Design & Development",
       period: "2010 – 2014",
-      location: "Nicosia, Cyprus",
+      location: "Dundee, Scotland",
     },
   ],
   stats: [
