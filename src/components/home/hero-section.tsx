@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "motion/react";
-import { MapPin } from "lucide-react";
+import { MapPin, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { cvData } from "@/data/cv-data";
@@ -11,41 +11,30 @@ const nameLetters = cvData.personal.name.split("");
 
 export function HeroSection() {
   return (
-    <section className="relative flex min-h-[calc(100svh-4rem)] items-center justify-center overflow-hidden">
-      {/* Animated background shapes */}
-      <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        <motion.div
-          className="absolute -top-40 -right-40 h-96 w-96 rounded-full bg-primary/5 blur-3xl"
-          animate={{ x: [0, 30, 0], y: [0, -20, 0] }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div
-          className="absolute -bottom-40 -left-40 h-96 w-96 rounded-full bg-primary/5 blur-3xl"
-          animate={{ x: [0, -30, 0], y: [0, 20, 0] }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div
-          className="absolute top-1/2 left-1/2 h-64 w-64 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/3 blur-3xl"
-          animate={{ scale: [1, 1.2, 1] }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-        />
-      </div>
+    <section className="relative flex min-h-[calc(100svh-3.5rem)] items-center justify-center overflow-hidden">
+      {/* Subtle grid background — nextjs.org style */}
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,var(--border)_1px,transparent_1px),linear-gradient(to_bottom,var(--border)_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-40" />
+      {/* Radial fade overlay */}
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_20%,var(--background)_70%)]" />
 
-      <div className="relative z-10 mx-auto max-w-5xl px-4 text-center">
+      <div className="relative z-10 mx-auto max-w-4xl px-4 text-center">
         {/* Location badge */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.5 }}
         >
-          <Badge variant="secondary" className="mb-6 gap-1.5 px-3 py-1.5">
-            <MapPin className="h-3.5 w-3.5" />
+          <Badge
+            variant="outline"
+            className="mb-8 gap-1.5 border-border/60 px-3 py-1.5 text-xs font-medium text-muted-foreground"
+          >
+            <MapPin className="h-3 w-3" />
             {cvData.personal.location}
           </Badge>
         </motion.div>
 
         {/* Name with letter-by-letter reveal */}
-        <h1 className="mb-4 text-5xl font-bold tracking-tight sm:text-6xl lg:text-7xl">
+        <h1 className="mb-6 text-5xl font-bold tracking-tighter sm:text-6xl lg:text-8xl">
           {nameLetters.map((letter, i) => (
             <motion.span
               key={i}
@@ -63,28 +52,36 @@ export function HeroSection() {
           ))}
         </h1>
 
-        {/* Title */}
+        {/* Title — muted, slightly larger */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1, duration: 0.5 }}
-          className="mb-8 text-xl text-muted-foreground sm:text-2xl"
+          className="mx-auto mb-10 max-w-xl text-lg text-muted-foreground sm:text-xl"
         >
           {cvData.personal.title}
         </motion.p>
 
-        {/* CTA Buttons */}
+        {/* CTA Buttons — nextjs.org style: filled primary + ghost with arrow */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.3, duration: 0.5 }}
-          className="flex flex-col items-center justify-center gap-4 sm:flex-row"
+          className="flex flex-col items-center justify-center gap-3 sm:flex-row"
         >
-          <Button asChild size="lg">
+          <Button asChild size="lg" className="rounded-full px-8 font-medium">
             <Link href="/experience">View My Experience</Link>
           </Button>
-          <Button asChild variant="outline" size="lg">
-            <Link href="/contact">Get In Touch</Link>
+          <Button
+            asChild
+            variant="ghost"
+            size="lg"
+            className="gap-2 rounded-full px-8 font-medium text-muted-foreground hover:text-foreground"
+          >
+            <Link href="/contact">
+              Get In Touch
+              <ArrowRight className="h-4 w-4" />
+            </Link>
           </Button>
         </motion.div>
       </div>

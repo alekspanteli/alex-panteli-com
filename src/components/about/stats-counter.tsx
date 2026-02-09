@@ -9,11 +9,11 @@ function StatCard({ stat }: { stat: Stat }) {
 
   return (
     <div className="text-center">
-      <p className="text-4xl font-bold tracking-tight">
+      <p className="text-4xl font-bold tracking-tighter">
         <span ref={ref}>{display}</span>
         {stat.suffix}
       </p>
-      <p className="mt-1 text-sm text-muted-foreground">{stat.label}</p>
+      <p className="mt-1.5 text-xs text-muted-foreground">{stat.label}</p>
     </div>
   );
 }

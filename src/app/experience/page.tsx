@@ -40,18 +40,18 @@ export default function ExperiencePage() {
           <div className="space-y-6">
             {cvData.education.map((edu) => (
               <ScrollReveal key={edu.institution}>
-                <Card className="transition-shadow hover:shadow-lg">
+                <Card className="border-border/60 bg-card/50 transition-colors hover:bg-card">
                   <CardHeader>
                     <div className="flex flex-wrap items-center gap-2">
-                      <GraduationCap className="h-5 w-5 text-primary" />
-                      <Badge variant="outline">{edu.period}</Badge>
+                      <GraduationCap className="h-4 w-4 text-muted-foreground" />
+                      <Badge variant="outline" className="border-border/60 text-xs font-normal">{edu.period}</Badge>
                       <span className="flex items-center gap-1 text-xs text-muted-foreground">
                         <MapPin className="h-3 w-3" />
                         {edu.location}
                       </span>
                     </div>
-                    <CardTitle className="text-lg">{edu.degree}</CardTitle>
-                    <CardDescription>{edu.institution}</CardDescription>
+                    <CardTitle className="text-base font-semibold tracking-tight">{edu.degree}</CardTitle>
+                    <CardDescription className="text-sm">{edu.institution}</CardDescription>
                   </CardHeader>
                 </Card>
               </ScrollReveal>

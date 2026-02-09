@@ -14,15 +14,14 @@ export function SectionHeading({ title, subtitle }: SectionHeadingProps) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.5 }}
-      className="mb-12 text-center"
+      className="mb-12"
     >
-      <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+      <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">
         {title}
       </h2>
       {subtitle && (
-        <p className="mt-2 text-muted-foreground">{subtitle}</p>
+        <p className="mt-2 text-sm text-muted-foreground">{subtitle}</p>
       )}
-      <div className="mx-auto mt-4 h-1 w-12 rounded-full bg-primary" />
     </motion.div>
   );
 }
