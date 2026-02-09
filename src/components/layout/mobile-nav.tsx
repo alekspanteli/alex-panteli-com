@@ -31,16 +31,16 @@ export function MobileNav() {
         <SheetHeader>
           <SheetTitle className="text-left text-sm font-medium">Navigation</SheetTitle>
         </SheetHeader>
-        <nav className="mt-6 flex flex-col gap-1">
+        <nav className="mt-6 flex flex-col gap-0.5">
           {NAV_LINKS.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               onClick={() => setOpen(false)}
               className={cn(
-                "rounded-md px-3 py-2 text-sm transition-colors hover:text-foreground",
+                "rounded-md px-3 py-2.5 text-[14px] font-medium transition-colors duration-200 hover:bg-accent hover:text-foreground",
                 pathname === link.href
-                  ? "text-foreground"
+                  ? "bg-accent text-foreground"
                   : "text-muted-foreground"
               )}
             >

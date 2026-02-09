@@ -11,19 +11,22 @@ export function Navbar() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border/40 bg-background/60 backdrop-blur-xl backdrop-saturate-150">
-      <nav className="mx-auto flex h-14 max-w-5xl items-center justify-between px-4">
-        <Link href="/" className="text-base font-semibold tracking-tight">
+    <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-lg">
+      <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
+        <Link
+          href="/"
+          className="text-[15px] font-semibold tracking-tight text-foreground transition-colors hover:text-foreground/80"
+        >
           AP<span className="text-muted-foreground">.</span>
         </Link>
 
-        <div className="hidden items-center gap-0.5 md:flex">
+        <div className="hidden items-center gap-1 md:flex">
           {NAV_LINKS.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               className={cn(
-                "rounded-md px-3 py-1.5 text-sm transition-colors hover:text-foreground",
+                "rounded-md px-3 py-1.5 text-[14px] font-medium transition-colors duration-200 hover:text-foreground",
                 pathname === link.href
                   ? "text-foreground"
                   : "text-muted-foreground"

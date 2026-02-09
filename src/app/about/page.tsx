@@ -4,7 +4,6 @@ import { SectionHeading } from "@/components/shared/section-heading";
 import { ProfileSection } from "@/components/about/profile-section";
 import { StatsCounter } from "@/components/about/stats-counter";
 import { SkillsGrid } from "@/components/about/skills-grid";
-import { Separator } from "@/components/ui/separator";
 
 export const metadata: Metadata = {
   title: "About",
@@ -15,16 +14,17 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <PageTransition>
-      <div className="mx-auto max-w-5xl space-y-20 px-4 py-20">
+        <div className="mx-auto max-w-7xl px-6 py-24">
         <SectionHeading
           title="About Me"
           subtitle="Get to know who I am and what I do"
         />
-        <ProfileSection />
-        <Separator />
-        <StatsCounter />
-        <Separator />
-        <SkillsGrid />
+
+        <div className="mt-16 space-y-24">
+          <ProfileSection />
+          <StatsCounter />
+          <SkillsGrid />
+        </div>
       </div>
     </PageTransition>
   );

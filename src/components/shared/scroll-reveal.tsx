@@ -6,10 +6,10 @@ import { cn } from "@/lib/utils";
 type Direction = "up" | "down" | "left" | "right";
 
 const directionOffset: Record<Direction, { x: number; y: number }> = {
-  up: { x: 0, y: 40 },
-  down: { x: 0, y: -40 },
-  left: { x: 40, y: 0 },
-  right: { x: -40, y: 0 },
+  up: { x: 0, y: 16 },
+  down: { x: 0, y: -16 },
+  left: { x: 16, y: 0 },
+  right: { x: -16, y: 0 },
 };
 
 interface ScrollRevealProps {
@@ -31,8 +31,8 @@ export function ScrollReveal({
     <motion.div
       initial={{ opacity: 0, x: offset.x, y: offset.y }}
       whileInView={{ opacity: 1, x: 0, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.6, delay, ease: "easeOut" }}
+      viewport={{ once: true, margin: "-80px" }}
+      transition={{ duration: 0.4, delay, ease: "easeOut" }}
       className={cn(className)}
     >
       {children}

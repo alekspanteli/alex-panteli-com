@@ -1,14 +1,6 @@
 "use client";
 
 import { motion } from "motion/react";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { MapPin } from "lucide-react";
 
 interface TimelineItemProps {
@@ -30,50 +22,40 @@ export function TimelineItem({
   highlights,
   index,
 }: TimelineItemProps) {
-  const isEven = index % 2 === 0;
-
   return (
-    <div className="relative grid gap-4 md:grid-cols-2 md:gap-8">
-      {/* Timeline dot and line */}
-      <div className="absolute top-8 left-4 hidden h-full w-px bg-border md:left-1/2 md:block md:-translate-x-1/2" />
-      <div className="absolute top-8 left-4 hidden h-3 w-3 rounded-full bg-primary md:left-1/2 md:block md:-translate-x-1/2" />
+    <motion.div
+      initial={{ opacity: 0, y: 16 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.4, delay: index * 0.08 }}
+      className="relative grid grid-cols-[24px_1fr] gap-6 pb-12 last:pb-0"
+    >
+      {/* Timeline dot */}
+      <div className="relative flex justify-center pt-1.5">
+        <div className="z-10 h-2.25 w-2.25 rounded-full border-2 border-foreground bg-background" />
+      </div>
 
-      {/* Card - alternating sides */}
-      <motion.div
-        initial={{ opacity: 0, x: isEven ? -40 : 40 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true, margin: "-50px" }}
-        transition={{ duration: 0.6, delay: 0.1 }}
-        className={isEven ? "md:col-start-1" : "md:col-start-2"}
-      >
-        <Card className="border-border/60 bg-card/50 transition-colors hover:bg-card">
-          <CardHeader>
-            <div className="flex flex-wrap items-center gap-2">
-              <Badge variant="outline" className="border-border/60 text-xs font-normal">{period}</Badge>
-              <span className="flex items-center gap-1 text-xs text-muted-foreground">
-                <MapPin className="h-3 w-3" />
-                {location}
-              </span>
-            </div>
-            <CardTitle className="text-base font-semibold tracking-tight">{title}</CardTitle>
-            <CardDescription className="text-sm">{subtitle}</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <p className="mb-3 text-sm text-muted-foreground">{description}</p>
-            <ul className="space-y-1.5 text-sm text-muted-foreground">
-              {highlights.map((highlight, i) => (
-                <li key={i} className="flex gap-2">
-                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-foreground/20" />
-                  {highlight}
-                </li>
-              ))}
-            </ul>
-          </CardContent>
-        </Card>
-      </motion.div>
-
-      {/* Empty spacer for alternating layout */}
-      <div className={isEven ? "hidden md:col-start-2 md:block" : "hidden md:col-start-1 md:block"} />
-    </div>
+      {/* Content */}
+      <div className="rounded-lg border border-border bg-card p-6 transition-colors duration-200 hover:border-border/80">
+        <div className="flex flex-wrap items-center gap-3 text-[14px] text-muted-foreground">
+          <span className="font-medium">{period}</span>
+          <span className="flex items-center gap-1">
+            <MapPin className="h-3.5 w-3.5" />
+            {location}
+          </span>
+        </div>
+        <h4 className="mt-3 text-[18px] font-semibold tracking-tight">{title}</h4>
+        <p className="mt-1 text-[14px] text-muted-foreground">{subtitle}</p>
+        <p className="mt-4 text-[14px] leading-[1.6] text-muted-foreground">{description}</p>
+        <ul className="mt-4 space-y-2">
+          {highlights.map((highlight, i) => (
+            <li key={i} className="flex gap-2.5 text-[14px] leading-[1.6] text-muted-foreground">
+              <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-muted-foreground/30" />
+              {highlight}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </motion.div>
   );
 }
