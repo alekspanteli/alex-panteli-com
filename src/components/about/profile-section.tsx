@@ -1,7 +1,9 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { ScrollReveal } from "@/components/shared/scroll-reveal";
+import { Button } from "@/components/ui/button";
 import { cvData } from "@/data/cv-data";
 
 export function ProfileSection() {
@@ -29,6 +31,11 @@ export function ProfileSection() {
           <p className="text-[18px] leading-[1.6] text-muted-foreground">
             {cvData.personal.summary}
           </p>
+          <Button asChild variant="outline">
+            <Link href="/Alex_Panteli_Frontend_Developer_CV.pdf" download>
+              Download CV
+            </Link>
+          </Button>
         </div>
       </ScrollReveal>
     </div>
