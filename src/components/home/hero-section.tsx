@@ -41,6 +41,7 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.4 }}
+          style={{ fontFamily: "var(--font-display)" }}
           className="mx-auto mb-12 max-w-140 text-[18px] leading-[1.6] text-muted-foreground"
         >
           Building modern, performant web applications with React, TypeScript,
