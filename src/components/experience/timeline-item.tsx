@@ -122,7 +122,7 @@ function TimelineCard({
       >
         <span className="font-medium">{period}</span>
         <span className="flex items-center gap-1">
-          <MapPin className="h-3.5 w-3.5" />
+          <MapPin className="h-3.5 w-3.5" aria-hidden="true" />
           {location}
         </span>
       </div>

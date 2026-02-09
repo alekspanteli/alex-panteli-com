@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { Inter } from "next/font/google";
 import { Geist_Mono } from "next/font/google";
 import { Sora } from "next/font/google";
@@ -26,11 +27,25 @@ const sora = Sora({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_CONFIG.url),
   title: {
     default: SITE_CONFIG.title,
     template: `%s — ${SITE_CONFIG.name}`,
   },
   description: SITE_CONFIG.description,
+  openGraph: {
+    title: SITE_CONFIG.title,
+    description: SITE_CONFIG.description,
+    url: SITE_CONFIG.url,
+    siteName: SITE_CONFIG.name,
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: SITE_CONFIG.title,
+    description: SITE_CONFIG.description,
+  },
 };
 
 export default function RootLayout({
@@ -44,7 +59,9 @@ export default function RootLayout({
         className={`${inter.variable} ${geistMono.variable} ${sora.variable} font-sans antialiased`}
       >
         <ThemeProvider>
-          <NavigationProgress />
+          <Suspense fallback={null}>
+            <NavigationProgress />
+          </Suspense>
           <div className="relative min-h-svh">
             <div className="pointer-events-none absolute inset-0 bg-[repeating-linear-gradient(135deg,rgba(15,23,42,0.05)_0,rgba(15,23,42,0.05)_1px,transparent_1px,transparent_10px)] dark:bg-[repeating-linear-gradient(135deg,rgba(255,255,255,0.06)_0,rgba(255,255,255,0.06)_1px,transparent_1px,transparent_12px)] opacity-60" />
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_35%,var(--background)_75%)]" />

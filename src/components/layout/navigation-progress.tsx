@@ -6,13 +6,13 @@ import { usePathname, useSearchParams } from "next/navigation";
 export function NavigationProgress() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const [isNavigating, setIsNavigating] = useState(false);
   const [progress, setProgress] = useState(0);
   const [visible, setVisible] = useState(false);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const isNavigatingRef = useRef(false);
 
   const startProgress = useCallback(() => {
-    setIsNavigating(true);
+    isNavigatingRef.current = true;
     setVisible(true);
     setProgress(0);
 
@@ -32,8 +32,8 @@ export function NavigationProgress() {
       clearInterval(intervalRef.current);
       intervalRef.current = null;
     }
+    isNavigatingRef.current = false;
     setProgress(100);
-    setIsNavigating(false);
 
     // Fade out after reaching 100%
     setTimeout(() => {
@@ -44,11 +44,11 @@ export function NavigationProgress() {
 
   // Complete when route changes
   useEffect(() => {
-    if (isNavigating) {
-      completeProgress();
+    if (isNavigatingRef.current) {
+      const id = requestAnimationFrame(() => completeProgress());
+      return () => cancelAnimationFrame(id);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [pathname, searchParams]);
+  }, [pathname, searchParams, completeProgress]);
 
   // Intercept link clicks to detect navigation start
   useEffect(() => {

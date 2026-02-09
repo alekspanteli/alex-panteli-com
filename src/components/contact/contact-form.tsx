@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, type FormEvent } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
 import { motion } from "motion/react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -15,7 +15,13 @@ type Status = "idle" | "submitting" | "success" | "error";
 export function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
   const [guardError, setGuardError] = useState<string | null>(null);
-  const startedAtRef = useRef<number>(Date.now());
+  const startedAtRef = useRef<number>(0);
+
+  useEffect(() => {
+    if (startedAtRef.current === 0) {
+      startedAtRef.current = Date.now();
+    }
+  }, []);
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -140,12 +146,14 @@ export function ContactForm() {
                 <Input id="company" name="company" autoComplete="off" tabIndex={-1} />
               </div>
 
-              {(status === "error" || guardError) && (
-                <div className="flex items-center gap-2 text-[14px] text-destructive">
-                  <AlertCircle className="h-4 w-4" />
-                  {guardError ?? "Something went wrong. Please try again."}
-                </div>
-              )}
+              <div aria-live="polite">
+                {(status === "error" || guardError) && (
+                  <div className="flex items-center gap-2 text-[14px] text-destructive">
+                    <AlertCircle className="h-4 w-4" aria-hidden="true" />
+                    {guardError ?? "Something went wrong. Please try again."}
+                  </div>
+                )}
+              </div>
 
               <Button
                 type="submit"
