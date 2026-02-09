@@ -23,6 +23,7 @@ export function Navbar() {
             alt="Logo"
             width={80}
             height={28}
+            sizes="80px"
             className="transition-[filter] duration-200 dark:brightness-0 dark:invert"
           />
         </Link>

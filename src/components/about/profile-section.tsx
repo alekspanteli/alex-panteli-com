@@ -13,6 +13,7 @@ export function ProfileSection() {
             src="/avatar2.avif"
             alt={cvData.personal.name}
             fill
+            sizes="(min-width: 768px) 300px, 100vw"
             className="object-cover"
             priority
           />
