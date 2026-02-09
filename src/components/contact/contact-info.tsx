@@ -56,7 +56,7 @@ export function ContactInfo() {
                 {item.href ? (
                   <a
                     href={item.href}
-                    className="text-[14px] font-medium text-link transition-colors duration-200 hover:text-link-hover hover:underline"
+                    className="text-[14px] font-medium text-foreground transition-colors duration-200 hover:underline"
                   >
                     {item.value}
                   </a>

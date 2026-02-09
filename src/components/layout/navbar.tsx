@@ -27,10 +27,10 @@ export function Navbar() {
               key={link.href}
               href={link.href}
               className={cn(
-                "rounded-md px-3 py-1.5 text-[14px] font-medium transition-colors duration-200 hover:text-foreground",
+                "rounded-md px-3 py-1.5 text-[14px] font-medium transition-colors duration-200",
                 pathname === link.href
                   ? "text-foreground"
-                  : "text-muted-foreground"
+                  : "text-foreground"
               )}
             >
               {link.label}

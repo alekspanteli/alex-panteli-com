@@ -10,7 +10,7 @@ export function ProfileSection() {
       <ScrollReveal direction="left">
         <div className="relative aspect-square w-full max-w-[400px] overflow-hidden rounded-lg border border-border">
           <Image
-            src="/avatar.jpg"
+            src="/avatar2.avif"
             alt={cvData.personal.name}
             fill
             className="object-cover"
