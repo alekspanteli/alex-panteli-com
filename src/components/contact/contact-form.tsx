@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useRef, useState, type FormEvent } from "react";
 import { motion } from "motion/react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -14,13 +14,29 @@ type Status = "idle" | "submitting" | "success" | "error";
 
 export function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
+  const [guardError, setGuardError] = useState<string | null>(null);
+  const startedAtRef = useRef<number>(Date.now());
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setStatus("submitting");
+    setGuardError(null);
 
     const form = e.currentTarget;
     const data = new FormData(form);
+    const honey = (data.get("company") ?? "").toString().trim();
+    const elapsedMs = Date.now() - startedAtRef.current;
+
+    if (honey.length > 0) {
+      setGuardError("Please remove the extra field before submitting.");
+      return;
+    }
+
+    if (elapsedMs < 4000) {
+      setGuardError("Please take a moment before submitting.");
+      return;
+    }
+
+    setStatus("submitting");
 
     try {
       const res = await fetch(FORMSPREE_URL, {
@@ -32,6 +48,7 @@ export function ContactForm() {
       if (res.ok) {
         setStatus("success");
         form.reset();
+        startedAtRef.current = Date.now();
       } else {
         setStatus("error");
       }
@@ -62,7 +79,11 @@ export function ContactForm() {
               <Button
                 variant="outline"
                 className="mt-3 rounded-lg"
-                onClick={() => setStatus("idle")}
+                onClick={() => {
+                  setStatus("idle");
+                  setGuardError(null);
+                  startedAtRef.current = Date.now();
+                }}
               >
                 Send another message
               </Button>
@@ -114,10 +135,15 @@ export function ContactForm() {
                 />
               </div>
 
-              {status === "error" && (
+              <div className="sr-only" aria-hidden="true">
+                <Label htmlFor="company">Company</Label>
+                <Input id="company" name="company" autoComplete="off" tabIndex={-1} />
+              </div>
+
+              {(status === "error" || guardError) && (
                 <div className="flex items-center gap-2 text-[14px] text-destructive">
                   <AlertCircle className="h-4 w-4" />
-                  Something went wrong. Please try again.
+                  {guardError ?? "Something went wrong. Please try again."}
                 </div>
               )}
 
