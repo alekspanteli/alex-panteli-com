@@ -47,7 +47,7 @@ export const cvData: CVData = {
     name: "Alex Panteli",
     title: "Senior Frontend Developer",
     location: "Cyprus",
-    email: "alex.panteli@example.com",
+    email: "alekspanteli@gmail.com",
     phone: "+35799121577",
     summary:
       "Passionate Senior Frontend Developer with over 10 years of experience building modern, performant web applications. Specializing in React, TypeScript, and Next.js, I create elegant user interfaces that delight users and drive business results. Based in Cyprus, I bring a global perspective to every project.",
