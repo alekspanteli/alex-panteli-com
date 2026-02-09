@@ -4,6 +4,7 @@ import { Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "@/providers/theme-provider";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
+import { NavigationProgress } from "@/components/layout/navigation-progress";
 import { SITE_CONFIG } from "@/lib/constants";
 import "./globals.css";
 
@@ -36,6 +37,7 @@ export default function RootLayout({
         className={`${inter.variable} ${geistMono.variable} font-sans antialiased`}
       >
         <ThemeProvider>
+          <NavigationProgress />
           <div className="flex min-h-svh flex-col">
             <Navbar />
             <main className="flex-1">{children}</main>
