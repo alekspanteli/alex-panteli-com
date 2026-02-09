@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { NAV_LINKS } from "@/lib/constants";
@@ -15,9 +16,9 @@ export function Navbar() {
       <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
         <Link
           href="/"
-          className="text-[15px] font-semibold tracking-tight text-foreground transition-colors hover:text-foreground/80"
+          className="transition-opacity hover:opacity-80"
         >
-          AP<span className="text-muted-foreground">.</span>
+          <Image src="/logo.svg" alt="Logo" width={160} height={160} />
         </Link>
 
         <div className="hidden items-center gap-1 md:flex">
