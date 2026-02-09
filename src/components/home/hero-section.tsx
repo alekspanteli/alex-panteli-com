@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "motion/react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cvData } from "@/data/cv-data";
 
@@ -16,9 +16,13 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1, duration: 0.4 }}
-          className="mb-6 text-[14px] font-medium text-muted-foreground"
+          className="mb-6 inline-flex items-center gap-2 text-[14px] font-medium text-muted-foreground"
         >
-          {cvData.personal.title} &middot; {cvData.personal.location}
+          {cvData.personal.title} &middot;
+          <span className="inline-flex items-center gap-1 rounded-full bg-muted px-2 py-0.5 text-[12px] text-muted-foreground">
+            <MapPin className="h-3.5 w-3.5" aria-hidden="true" />
+            {cvData.personal.location}
+          </span>
         </motion.p>
 
         {/* Name — large, bold, confident */}
