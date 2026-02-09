@@ -22,6 +22,11 @@ export function HeroSection() {
           <span className="inline-flex items-center gap-1 rounded-full bg-muted px-2 py-0.5 text-[12px] text-muted-foreground">
             <MapPin className="h-3.5 w-3.5" aria-hidden="true" />
             {cvData.personal.location}
+            <img
+              src="/cyprus-flag.svg"
+              alt="Cyprus flag"
+              className="h-[1.5em] w-auto aspect-[3/2]"
+            />
           </span>
         </motion.p>
 
@@ -44,8 +49,9 @@ export function HeroSection() {
           style={{ fontFamily: "var(--font-display)" }}
           className="mx-auto mb-12 max-w-140 text-[18px] leading-[1.6] text-muted-foreground"
         >
-          Building modern, performant web applications with React, TypeScript,
-          and Next.js. Focused on clarity and craft.
+          Building accessible, high-performance interfaces with Angular, React,
+          TypeScript, and modern CSS. Focused on semantic HTML, WCAG compliance,
+          and scalable UI architecture with pixel-perfect craft.
         </motion.p>
 
         {/* CTA Buttons — primary blue + ghost with arrow */}

@@ -38,7 +38,7 @@ export function SkillsGrid() {
                   >
                     <Badge
                       variant="outline"
-                      className="border-border font-normal transition-colors duration-200 hover:bg-accent hover:text-foreground"
+                      className="border-border px-3 py-1 text-sm font-normal transition-colors duration-200 hover:bg-accent hover:text-foreground"
                     >
                       {skill.name}
                     </Badge>
