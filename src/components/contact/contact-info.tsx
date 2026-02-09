@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
 import { cvData } from "@/data/cv-data";
 
 const contactItems = [
@@ -11,12 +11,7 @@ const contactItems = [
     value: cvData.personal.email,
     href: `mailto:${cvData.personal.email}`,
   },
-  {
-    icon: Phone,
-    label: "Phone",
-    value: cvData.personal.phone,
-    href: `tel:${cvData.personal.phone.replace(/\s/g, "")}`,
-  },
+
   {
     icon: MapPin,
     label: "Location",
@@ -47,7 +42,7 @@ export function ContactInfo() {
           >
             <div className="flex items-center gap-4 rounded-lg border border-border bg-card p-4 transition-colors duration-200 hover:border-border/80">
               <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-accent">
-                <item.icon className="h-4 w-4 text-muted-foreground" />
+                <item.icon className="h-4 w-4 text-muted-foreground" aria-hidden="true" />
               </div>
               <div>
                 <p className="text-[12px] font-medium uppercase tracking-wider text-muted-foreground">

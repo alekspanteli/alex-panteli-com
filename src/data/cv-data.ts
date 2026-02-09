@@ -3,7 +3,7 @@ export interface PersonalInfo {
   title: string;
   location: string;
   email: string;
-  phone: string;
+
   summary: string;
 }
 
@@ -48,7 +48,7 @@ export const cvData: CVData = {
     title: "Senior Frontend Developer",
     location: "Cyprus",
     email: "alekspanteli@gmail.com",
-    phone: "+35799121577",
+
     summary:
       "Passionate Senior Frontend Developer with over 10 years of experience building modern, performant web applications. Specializing in React, TypeScript, and Next.js, I create elegant user interfaces that delight users and drive business results. Based in Cyprus, I bring a global perspective to every project.",
   },
@@ -60,6 +60,7 @@ export const cvData: CVData = {
     { name: "HTML5", category: "frontend" },
     { name: "CSS3", category: "frontend" },
     { name: "Tailwind CSS", category: "frontend" },
+    { name: "Angular", category: "frontend" },
     { name: "Framer Motion", category: "frontend" },
     { name: "Node.js", category: "backend" },
     { name: "GraphQL", category: "backend" },
