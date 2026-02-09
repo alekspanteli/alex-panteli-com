@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "motion/react";
-import { Card, CardContent } from "@/components/ui/card";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { cvData } from "@/data/cv-data";
 
@@ -28,37 +27,47 @@ const contactItems = [
 
 export function ContactInfo() {
   return (
-    <div className="grid gap-4 sm:grid-cols-3">
-      {contactItems.map((item, i) => (
-        <motion.div
-          key={item.label}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: i * 0.1, duration: 0.5 }}
-        >
-          <Card className="group transition-shadow hover:shadow-lg">
-            <CardContent className="flex flex-col items-center gap-3 p-6 text-center">
-              <div className="rounded-full bg-primary/10 p-3 transition-colors group-hover:bg-primary/20">
-                <item.icon className="h-5 w-5 text-primary" />
+    <div className="space-y-6">
+      <div>
+        <h3 className="text-[20px] font-semibold tracking-tight">Let&apos;s connect</h3>
+        <p className="mt-2 text-[14px] leading-[1.6] text-muted-foreground">
+          Have a project in mind or want to discuss an opportunity? Reach out
+          through any of the channels below.
+        </p>
+      </div>
+
+      <div className="space-y-3">
+        {contactItems.map((item, i) => (
+          <motion.div
+            key={item.label}
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.08, duration: 0.3 }}
+          >
+            <div className="flex items-center gap-4 rounded-lg border border-border bg-card p-4 transition-colors duration-200 hover:border-border/80">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-accent">
+                <item.icon className="h-4 w-4 text-muted-foreground" />
               </div>
-              <p className="text-sm font-medium text-muted-foreground">
-                {item.label}
-              </p>
-              {item.href ? (
-                <a
-                  href={item.href}
-                  className="text-sm font-semibold transition-colors hover:text-primary"
-                >
-                  {item.value}
-                </a>
-              ) : (
-                <p className="text-sm font-semibold">{item.value}</p>
-              )}
-            </CardContent>
-          </Card>
-        </motion.div>
-      ))}
+              <div>
+                <p className="text-[12px] font-medium uppercase tracking-wider text-muted-foreground">
+                  {item.label}
+                </p>
+                {item.href ? (
+                  <a
+                    href={item.href}
+                    className="text-[14px] font-medium text-link transition-colors duration-200 hover:text-link-hover hover:underline"
+                  >
+                    {item.value}
+                  </a>
+                ) : (
+                  <p className="text-[14px] font-medium">{item.value}</p>
+                )}
+              </div>
+            </div>
+          </motion.div>
+        ))}
+      </div>
     </div>
   );
 }
