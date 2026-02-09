@@ -4,6 +4,7 @@ import { SectionHeading } from "@/components/shared/section-heading";
 import { Timeline } from "@/components/experience/timeline";
 import { ScrollReveal } from "@/components/shared/scroll-reveal";
 import { GraduationCap, MapPin } from "lucide-react";
+
 import { cvData } from "@/data/cv-data";
 
 export const metadata: Metadata = {

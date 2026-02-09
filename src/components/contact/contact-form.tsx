@@ -8,6 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Send, CheckCircle2, AlertCircle } from "lucide-react";
 
+
 const FORMSPREE_URL = "https://formspree.io/f/xaqdnolv";
 
 type Status = "idle" | "submitting" | "success" | "error";

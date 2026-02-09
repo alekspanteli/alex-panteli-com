@@ -4,6 +4,7 @@ import { SectionHeading } from "@/components/shared/section-heading";
 import { ContactInfo } from "@/components/contact/contact-info";
 import { ContactForm } from "@/components/contact/contact-form";
 
+
 export const metadata: Metadata = {
   title: "Contact",
   description:

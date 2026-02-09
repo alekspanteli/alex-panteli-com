@@ -2,6 +2,7 @@
 
 import { motion } from "motion/react";
 import { Mail, MapPin } from "lucide-react";
+
 import { cvData } from "@/data/cv-data";
 
 const contactItems = [
