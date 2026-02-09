@@ -3,6 +3,7 @@
 import { motion } from "motion/react";
 import { MapPin } from "lucide-react";
 
+
 interface TimelineItemProps {
   title: string;
   subtitle: string;

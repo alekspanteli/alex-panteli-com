@@ -18,7 +18,7 @@ export function HeroSection() {
           transition={{ delay: 0.1, duration: 0.4 }}
           className="mb-6 inline-flex items-center gap-2 text-[14px] font-medium text-muted-foreground"
         >
-          {cvData.personal.title} &middot;
+          {cvData.personal.title}
           <span className="inline-flex items-center gap-1 rounded-full bg-muted px-2 py-0.5 text-[12px] text-muted-foreground">
             <MapPin className="h-3.5 w-3.5" aria-hidden="true" />
             {cvData.personal.location}
