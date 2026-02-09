@@ -8,7 +8,7 @@ import { SkillsGrid } from "@/components/about/skills-grid";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Learn more about Alex Panteli — a Senior Frontend Developer with 10+ years of experience based in Cyprus.",
+    "!Learn more about Alex Panteli — a Senior Frontend Developer with 10+ years of experience based in Cyprus.",
 };
 
 export default function AboutPage() {
