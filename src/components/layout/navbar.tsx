@@ -18,7 +18,7 @@ export function Navbar() {
           href="/"
           className="transition-opacity hover:opacity-80"
         >
-          <Image src="/logo.svg" alt="Logo" width={160} height={160} />
+          <Image src="/logo.svg" alt="Logo" width={80} height={28} />
         </Link>
 
         <div className="hidden items-center gap-1 md:flex">

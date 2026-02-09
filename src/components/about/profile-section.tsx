@@ -6,9 +6,9 @@ import { cvData } from "@/data/cv-data";
 
 export function ProfileSection() {
   return (
-    <div className="grid gap-16 md:grid-cols-2 md:items-center">
+    <div className="grid gap-16 md:grid-cols-[400px_1fr] md:items-center">
       <ScrollReveal direction="left">
-        <div className="relative aspect-square max-w-[400px] overflow-hidden rounded-lg border border-border">
+        <div className="relative aspect-square w-full max-w-[400px] overflow-hidden rounded-lg border border-border">
           <Image
             src="/avatar.jpg"
             alt={cvData.personal.name}
