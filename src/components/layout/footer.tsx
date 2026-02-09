@@ -12,14 +12,14 @@ export function Footer() {
         <div className="flex items-center gap-5">
           <a
             href="mailto:alekspanteli@gmail.com"
-            className="text-muted-foreground transition-colors duration-200 hover:text-foreground"
+            className="text-foreground transition-colors duration-200"
             aria-label="Email"
           >
             <Mail className="size-4" />
           </a>
           <a
             href="https://github.com/alekspanteli"
-            className="text-muted-foreground transition-colors duration-200 hover:text-foreground"
+            className="text-foreground transition-colors duration-200"
             aria-label="GitHub"
             target="_blank"
             rel="noreferrer"
@@ -28,7 +28,7 @@ export function Footer() {
           </a>
           <a
             href="https://www.linkedin.com/in/alexpanteli/"
-            className="text-muted-foreground transition-colors duration-200 hover:text-foreground"
+            className="text-foreground transition-colors duration-200"
             aria-label="LinkedIn"
             target="_blank"
             rel="noreferrer"
