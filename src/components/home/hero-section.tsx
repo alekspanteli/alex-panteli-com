@@ -9,12 +9,6 @@ import { cvData } from "@/data/cv-data";
 export function HeroSection() {
   return (
     <section className="relative flex flex-1 items-center justify-center overflow-hidden">
-      {/* Soft dot texture instead of lines */}
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle,rgba(15,23,42,0.08)_1px,transparent_1px)] dark:bg-[radial-gradient(circle,rgba(255,255,255,0.08)_1px,transparent_1px)] [background-size:26px_26px] opacity-40" />
-      {/* Subtle gradient wash for depth */}
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(59,130,246,0.18),transparent_60%),radial-gradient(ellipse_at_bottom,rgba(14,165,233,0.12),transparent_60%)]" />
-      {/* Radial fade overlay */}
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_15%,var(--background)_70%)]" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 py-16 text-center sm:py-20">
         {/* Role badge */}
