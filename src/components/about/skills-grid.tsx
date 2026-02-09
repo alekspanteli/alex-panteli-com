@@ -24,7 +24,7 @@ export function SkillsGrid() {
           if (skills.length === 0) return null;
           return (
             <div key={category.key}>
-              <h4 className="mb-3 text-sm font-semibold uppercase tracking-wider text-muted-foreground">
+              <h4 className="mb-3 text-xs font-medium uppercase tracking-widest text-muted-foreground">
                 {category.label}
               </h4>
               <div className="flex flex-wrap gap-2">
@@ -37,8 +37,8 @@ export function SkillsGrid() {
                     transition={{ delay: i * 0.05, duration: 0.3 }}
                   >
                     <Badge
-                      variant="secondary"
-                      className="transition-colors hover:bg-primary hover:text-primary-foreground"
+                      variant="outline"
+                      className="border-border/60 font-normal transition-colors hover:bg-accent hover:text-foreground"
                     >
                       {skill.name}
                     </Badge>

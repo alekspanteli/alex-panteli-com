@@ -46,24 +46,24 @@ export function TimelineItem({
         transition={{ duration: 0.6, delay: 0.1 }}
         className={isEven ? "md:col-start-1" : "md:col-start-2"}
       >
-        <Card className="transition-shadow hover:shadow-lg">
+        <Card className="border-border/60 bg-card/50 transition-colors hover:bg-card">
           <CardHeader>
             <div className="flex flex-wrap items-center gap-2">
-              <Badge variant="outline">{period}</Badge>
+              <Badge variant="outline" className="border-border/60 text-xs font-normal">{period}</Badge>
               <span className="flex items-center gap-1 text-xs text-muted-foreground">
                 <MapPin className="h-3 w-3" />
                 {location}
               </span>
             </div>
-            <CardTitle className="text-lg">{title}</CardTitle>
-            <CardDescription>{subtitle}</CardDescription>
+            <CardTitle className="text-base font-semibold tracking-tight">{title}</CardTitle>
+            <CardDescription className="text-sm">{subtitle}</CardDescription>
           </CardHeader>
           <CardContent>
             <p className="mb-3 text-sm text-muted-foreground">{description}</p>
-            <ul className="space-y-1.5 text-sm">
+            <ul className="space-y-1.5 text-sm text-muted-foreground">
               {highlights.map((highlight, i) => (
                 <li key={i} className="flex gap-2">
-                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-foreground/20" />
                   {highlight}
                 </li>
               ))}
