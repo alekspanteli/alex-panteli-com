@@ -8,13 +8,13 @@ import { cvData } from "@/data/cv-data";
 
 export function HeroSection() {
   return (
-    <section className="relative flex min-h-[calc(100svh-4rem)] items-center justify-center overflow-hidden">
+    <section className="relative flex flex-1 items-center justify-center overflow-hidden">
       {/* Subtle grid background */}
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,var(--border)_1px,transparent_1px),linear-gradient(to_bottom,var(--border)_1px,transparent_1px)] bg-size-[4rem_4rem] opacity-30" />
       {/* Radial fade overlay */}
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_20%,var(--background)_70%)]" />
 
-      <div className="relative z-10 mx-auto max-w-7xl px-6 text-center">
+      <div className="relative z-10 mx-auto max-w-7xl px-6 py-16 text-center sm:py-20">
         {/* Role badge */}
         <motion.p
           initial={{ opacity: 0, y: 12 }}
