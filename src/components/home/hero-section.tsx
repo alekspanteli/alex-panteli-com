@@ -30,7 +30,8 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.5, ease: "easeOut" }}
-          className="mb-6 text-[48px] font-bold leading-[1.1] tracking-tighter sm:text-[64px] lg:text-[80px]"
+          style={{ fontFamily: "var(--font-display)" }}
+          className="mb-6 text-[48px] font-bold leading-[1.1] tracking-[0.02em] sm:text-[64px] lg:text-[80px]"
         >
           {cvData.personal.name}
         </motion.h1>
