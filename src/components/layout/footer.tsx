@@ -11,7 +11,7 @@ export function Footer() {
         </p>
         <div className="flex items-center gap-2">
           <a
-            href="mailto:alekspanteli@gmail.com"
+            href={`mailto:${cvData.personal.email}`}
             className="group relative inline-flex h-9 w-9 items-center justify-center rounded-full bg-muted/70 text-foreground/80 ring-1 ring-border/70 transition-all duration-200 hover:-translate-y-0.5 hover:bg-muted hover:text-foreground hover:ring-border/80 hover:shadow-[0_8px_20px_rgba(15,23,42,0.12)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring dark:hover:shadow-[0_8px_20px_rgba(0,0,0,0.5)]"
             aria-label="Email"
           >

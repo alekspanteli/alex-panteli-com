@@ -47,7 +47,7 @@ export function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.4 }}
           style={{ fontFamily: "var(--font-display)" }}
-          className="mx-auto mb-12 max-w-140 text-[18px] leading-[1.6] text-muted-foreground"
+          className="mx-auto mb-12 max-w-[560px] text-[18px] leading-[1.6] text-muted-foreground"
         >
           Building accessible, high-performance interfaces with Angular, React,
           TypeScript, and modern CSS. Focused on semantic HTML, WCAG compliance,

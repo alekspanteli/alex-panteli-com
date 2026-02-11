@@ -9,7 +9,7 @@ import { Label } from "@/components/ui/label";
 import { Send, CheckCircle2, AlertCircle } from "lucide-react";
 
 
-const FORMSPREE_URL = "https://formspree.io/f/xaqdnolv";
+const FORMSPREE_URL = process.env.NEXT_PUBLIC_FORMSPREE_URL ?? "";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
@@ -27,6 +27,11 @@ export function ContactForm() {
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setGuardError(null);
+
+    if (!FORMSPREE_URL) {
+      setGuardError("Contact form is not configured.");
+      return;
+    }
 
     const form = e.currentTarget;
     const data = new FormData(form);
@@ -159,7 +164,7 @@ export function ContactForm() {
               <Button
                 type="submit"
                 className="h-11 w-full gap-2 rounded-lg text-[14px] font-medium"
-                disabled={status === "submitting"}
+                disabled={status === "submitting" || !FORMSPREE_URL}
               >
                 <Send className="h-4 w-4" />
                 {status === "submitting" ? "Sending..." : "Send Message"}
