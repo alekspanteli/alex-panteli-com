@@ -44,10 +44,10 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/og-image.png",
+        url: `${SITE_CONFIG.url}/og-image.png`,
         width: 1200,
         height: 630,
-        alt: "Alex Panteli — Senior Frontend Developer",
+        alt: "Alex Panteli — Senior Frontend Developer | React & Next.js",
       },
     ],
   },
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: SITE_CONFIG.title,
     description: SITE_CONFIG.description,
-    images: ["/twitter-image.png"],
+    images: [`${SITE_CONFIG.url}/twitter-image.png`],
   },
 };
 

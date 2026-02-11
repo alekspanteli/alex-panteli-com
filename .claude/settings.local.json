@@ -5,7 +5,8 @@
       "Bash(ls:*)",
       "Bash(npx next build:*)",
       "Bash(npx sharp-cli:*)",
-      "Bash(npx @aspect-build/rules_js//js:run_node:*)"
+      "Bash(npx @aspect-build/rules_js//js:run_node:*)",
+      "Bash(npx tsx:*)"
     ]
   }
 }
