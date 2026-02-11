@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import { motion } from "motion/react";
+import Script from "next/script";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -10,6 +11,7 @@ import { Send, CheckCircle2, AlertCircle } from "lucide-react";
 
 
 const FORMSPREE_URL = process.env.NEXT_PUBLIC_FORMSPREE_URL ?? "";
+const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_FORMSPREE_RECAPTCHA_SITE_KEY ?? "";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
@@ -48,6 +50,14 @@ export function ContactForm() {
       return;
     }
 
+    if (RECAPTCHA_SITE_KEY) {
+      const token = (data.get("g-recaptcha-response") ?? "").toString().trim();
+      if (!token) {
+        setGuardError("Please complete the CAPTCHA check.");
+        return;
+      }
+    }
+
     setStatus("submitting");
 
     try {
@@ -61,6 +71,10 @@ export function ContactForm() {
         setStatus("success");
         form.reset();
         startedAtRef.current = Date.now();
+        if (typeof window !== "undefined") {
+          const grecaptcha = (window as typeof window & { grecaptcha?: { reset: () => void } }).grecaptcha;
+          grecaptcha?.reset();
+        }
       } else {
         setStatus("error");
       }
@@ -76,6 +90,9 @@ export function ContactForm() {
       viewport={{ once: true }}
       transition={{ delay: 0.15, duration: 0.4 }}
     >
+      {RECAPTCHA_SITE_KEY && (
+        <Script src="https://www.google.com/recaptcha/api.js" strategy="afterInteractive" />
+      )}
       <div className="rounded-lg border border-border bg-card p-6 sm:p-8">
         <h3 className="text-[18px] font-semibold tracking-tight">Send a message</h3>
         <p className="mt-1 text-[14px] text-muted-foreground">I&apos;ll get back to you as soon as possible.</p>
@@ -151,6 +168,16 @@ export function ContactForm() {
                 <Label htmlFor="company">Company</Label>
                 <Input id="company" name="company" autoComplete="off" tabIndex={-1} />
               </div>
+
+              {RECAPTCHA_SITE_KEY ? (
+                <div className="flex justify-center">
+                  <div className="g-recaptcha" data-sitekey={RECAPTCHA_SITE_KEY} />
+                </div>
+              ) : (
+                <div className="text-[14px] text-muted-foreground">
+                  CAPTCHA is enabled in Formspree, but the site key is missing.
+                </div>
+              )}
 
               <div aria-live="polite">
                 {(status === "error" || guardError) && (
