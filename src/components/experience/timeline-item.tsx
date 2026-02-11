@@ -127,7 +127,7 @@ function TimelineCard({
           {location}
         </span>
       </div>
-      <h4 className="mt-3 text-[18px] font-semibold tracking-tight">{title}</h4>
+      <h3 className="mt-3 text-[18px] font-semibold tracking-tight">{title}</h3>
       <p className="mt-1 text-[14px] text-muted-foreground">{subtitle}</p>
       <p className="mt-4 text-[14px] leading-[1.6] text-muted-foreground">{description}</p>
       <ul className={`mt-4 space-y-2 ${align === "right" ? "flex flex-col items-end" : ""}`}>
