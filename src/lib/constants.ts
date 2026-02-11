@@ -10,5 +10,5 @@ export const SITE_CONFIG = {
   title: "Alex Panteli — Senior Frontend Developer | React & Next.js",
   description:
     "Portfolio of Alex Panteli, a Senior Frontend Developer based in Cyprus specializing in React, TypeScript, and Next.js.",
-  url: "https://alexpanteli.dev",
+  url: "https://alex-panteli-com.vercel.app",
 } as const;
