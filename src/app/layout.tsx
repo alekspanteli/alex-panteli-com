@@ -83,8 +83,14 @@ export default function RootLayout({
             <div className="pointer-events-none absolute inset-0 bg-[repeating-linear-gradient(135deg,rgba(15,23,42,0.05)_0,rgba(15,23,42,0.05)_1px,transparent_1px,transparent_10px)] dark:bg-[repeating-linear-gradient(135deg,rgba(255,255,255,0.06)_0,rgba(255,255,255,0.06)_1px,transparent_1px,transparent_12px)] opacity-60" />
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_35%,var(--background)_75%)]" />
             <div className="relative z-10 flex min-h-svh flex-col">
+              <a
+                href="#main-content"
+                className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-100 focus:rounded-lg focus:bg-primary focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-primary-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
+              >
+                Skip to content
+              </a>
               <Navbar />
-              <main className="flex flex-1 flex-col">{children}</main>
+              <main id="main-content" className="flex flex-1 flex-col">{children}</main>
               <Footer />
             </div>
           </div>
