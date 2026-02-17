@@ -42,6 +42,11 @@ export interface CVData {
   stats: Stat[];
 }
 
+const CAREER_START = new Date(2015, 3); // April 2015
+const yearsExperience = Math.floor(
+  (Date.now() - CAREER_START.getTime()) / (365.25 * 24 * 60 * 60 * 1000),
+);
+
 export const cvData: CVData = {
   personal: {
     name: "Alex Panteli",
@@ -123,7 +128,7 @@ export const cvData: CVData = {
     },
   ],
   stats: [
-    { label: "Years Experience", value: 10, suffix: "+" },
+    { label: "Years Experience", value: yearsExperience, suffix: "+" },
     { label: "Companies", value: 3, suffix: "" },
     { label: "Technologies", value: 15, suffix: "+" },
   ],

@@ -4,11 +4,13 @@ import { SectionHeading } from "@/components/shared/section-heading";
 import { ProfileSection } from "@/components/about/profile-section";
 import { StatsCounter } from "@/components/about/stats-counter";
 import { SkillsGrid } from "@/components/about/skills-grid";
+import { cvData } from "@/data/cv-data";
+
+const yearsExp = cvData.stats.find((s) => s.label === "Years Experience")!.value;
 
 export const metadata: Metadata = {
   title: "About",
-  description:
-    "Learn more about Alex Panteli — a Senior Frontend Developer with 10+ years of experience based in Cyprus.",
+  description: `Learn more about Alex Panteli — a Senior Frontend Developer with ${yearsExp}+ years of experience based in Cyprus.`,
   alternates: { canonical: "/about" },
 };
 
