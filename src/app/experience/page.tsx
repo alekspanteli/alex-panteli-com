@@ -27,7 +27,7 @@ export default function ExperiencePage() {
         </div>
 
         <div className="mt-24">
-          <h3 className="mb-2 text-[24px] font-semibold tracking-tight">Education!</h3>
+          <h3 className="mb-2 text-[24px] font-semibold tracking-tight">Education</h3>
           <p className="mb-8 text-[14px] text-muted-foreground">Academic background</p>
 
           <div className="space-y-4">
