@@ -9,6 +9,7 @@ import { Footer } from "@/components/layout/footer";
 import { NavigationProgress } from "@/components/layout/navigation-progress";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { CookieConsent } from "@/components/shared/cookie-consent";
 import { SITE_CONFIG } from "@/lib/constants";
 import "./globals.css";
 
@@ -88,6 +89,7 @@ export default function RootLayout({
             </div>
           </div>
         </ThemeProvider>
+        <CookieConsent />
         <Analytics />
         <SpeedInsights />
       </body>
