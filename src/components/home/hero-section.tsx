@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { motion } from "motion/react";
 import { ArrowRight, MapPin } from "lucide-react";
@@ -22,9 +23,11 @@ export function HeroSection() {
           <span className="inline-flex items-center gap-1 rounded-full bg-muted px-2 py-0.5 text-[12px] text-muted-foreground">
             <MapPin className="h-3.5 w-3.5" aria-hidden="true" />
             {cvData.personal.location}
-            <img
+            <Image
               src="/cyprus-flag.svg"
               alt="Cyprus flag"
+              width={21}
+              height={14}
               className="h-[1.5em] w-auto aspect-[3/2]"
             />
           </span>
