@@ -5,6 +5,7 @@ import { SITE_CONFIG } from "@/lib/constants";
 export const metadata: Metadata = {
   title: SITE_CONFIG.title,
   description: SITE_CONFIG.description,
+  alternates: { canonical: "/" },
 };
 
 export default function HomePage() {

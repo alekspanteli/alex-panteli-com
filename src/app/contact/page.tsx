@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   title: "Contact",
   description:
     "Get in touch with Alex Panteli for frontend development projects, collaborations, or opportunities.",
+  alternates: { canonical: "/contact" },
 };
 
 export default function ContactPage() {

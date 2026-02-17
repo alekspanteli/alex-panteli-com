@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   title: "About",
   description:
     "Learn more about Alex Panteli — a Senior Frontend Developer with 10+ years of experience based in Cyprus.",
+  alternates: { canonical: "/about" },
 };
 
 export default function AboutPage() {
