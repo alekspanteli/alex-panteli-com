@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
-import { Inter } from "next/font/google";
-import { Geist_Mono } from "next/font/google";
-import { Sora } from "next/font/google";
+import { Inter, Sora } from "next/font/google";
 import { ThemeProvider } from "@/providers/theme-provider";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
@@ -15,11 +13,6 @@ import "./globals.css";
 
 const inter = Inter({
   variable: "--font-inter",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
   subsets: ["latin"],
 });
 
@@ -73,7 +66,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.variable} ${geistMono.variable} ${sora.variable} font-sans antialiased`}
+        className={`${inter.variable} ${sora.variable} font-sans antialiased`}
       >
         <ThemeProvider>
           <Suspense fallback={null}>
