@@ -1,11 +1,19 @@
 "use client";
 
 import { motion } from "motion/react";
+import type { LucideIcon } from "lucide-react";
 import { Mail, MapPin } from "lucide-react";
 
 import { cvData } from "@/data/cv-data";
 
-const contactItems = [
+interface ContactItem {
+  icon: LucideIcon;
+  label: string;
+  value: string;
+  href: string | undefined;
+}
+
+const contactItems: ContactItem[] = [
   {
     icon: Mail,
     label: "Email",

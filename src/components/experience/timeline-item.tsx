@@ -93,6 +93,16 @@ export function TimelineItem({
   );
 }
 
+interface TimelineCardProps {
+  title: string;
+  subtitle: string;
+  period: string;
+  location: string;
+  description: string;
+  highlights: string[];
+  align: "left" | "right";
+}
+
 function TimelineCard({
   title,
   subtitle,
@@ -101,15 +111,7 @@ function TimelineCard({
   description,
   highlights,
   align,
-}: {
-  title: string;
-  subtitle: string;
-  period: string;
-  location: string;
-  description: string;
-  highlights: string[];
-  align: "left" | "right";
-}) {
+}: TimelineCardProps) {
   return (
     <div
       className={`rounded-lg border border-border bg-card p-6 transition-colors duration-200 hover:border-border/80 ${

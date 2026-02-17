@@ -21,7 +21,14 @@ function LinkedInIcon(props: SVGProps<SVGSVGElement>) {
 
 type IconComponent = ComponentType<{ className?: string; strokeWidth?: number }>;
 
-const socialLinks: { href: string; label: string; icon: IconComponent; external?: boolean }[] = [
+interface SocialLink {
+  href: string;
+  label: string;
+  icon: IconComponent;
+  external?: boolean;
+}
+
+const socialLinks: SocialLink[] = [
   { href: `mailto:${cvData.personal.email}`, label: "Email", icon: Mail },
   { href: "https://github.com/alekspanteli", label: "GitHub", icon: GitHubIcon, external: true },
   { href: "https://www.linkedin.com/in/alexpanteli/", label: "LinkedIn", icon: LinkedInIcon, external: true },

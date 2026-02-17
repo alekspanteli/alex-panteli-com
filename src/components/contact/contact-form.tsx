@@ -20,7 +20,7 @@ export function ContactForm() {
   const startedAtRef = useRef(Date.now());
   const recaptcha = useRecaptcha(RECAPTCHA_SITE_KEY);
 
-  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>): Promise<void> {
     e.preventDefault();
     setGuardError(null);
 

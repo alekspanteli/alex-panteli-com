@@ -5,7 +5,11 @@ import { SpotlightContainer, SpotlightCard } from "@/components/shared/spotlight
 import { cvData } from "@/data/cv-data";
 import type { Stat } from "@/data/cv-data";
 
-function StatCard({ stat }: { stat: Stat }) {
+interface StatCardProps {
+  stat: Stat;
+}
+
+function StatCard({ stat }: StatCardProps) {
   const { ref, display } = useCounterAnimation(stat.value);
 
   return (
