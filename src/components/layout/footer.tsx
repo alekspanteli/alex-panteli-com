@@ -22,7 +22,7 @@ export function Footer() {
             className="group relative inline-flex h-9 w-9 items-center justify-center rounded-full bg-muted/70 text-foreground/80 ring-1 ring-border/70 transition-all duration-200 hover:-translate-y-0.5 hover:bg-muted hover:text-foreground hover:ring-border/80 hover:shadow-[0_8px_20px_rgba(15,23,42,0.12)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring dark:hover:shadow-[0_8px_20px_rgba(0,0,0,0.5)]"
             aria-label="GitHub"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
           >
             <Github className="size-[18px] transition-transform duration-200 group-hover:scale-105" strokeWidth={1.8} />
           </a>
@@ -31,7 +31,7 @@ export function Footer() {
             className="group relative inline-flex h-9 w-9 items-center justify-center rounded-full bg-muted/70 text-foreground/80 ring-1 ring-border/70 transition-all duration-200 hover:-translate-y-0.5 hover:bg-muted hover:text-foreground hover:ring-border/80 hover:shadow-[0_8px_20px_rgba(15,23,42,0.12)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring dark:hover:shadow-[0_8px_20px_rgba(0,0,0,0.5)]"
             aria-label="LinkedIn"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
           >
             <Linkedin className="size-[18px] transition-transform duration-200 group-hover:scale-105" strokeWidth={1.8} />
           </a>
