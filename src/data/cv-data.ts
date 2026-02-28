@@ -80,6 +80,18 @@ export const cvData: CVData = {
   ],
   experience: [
     {
+      company: "NDA",
+      role: "Frontend Developer",
+      period: "Jul 2025 – Present",
+      location: "Remote",
+      description:
+        "Self-employed. Develop iGaming and trading-related web applications using React and TypeScript, enhancing user experience.",
+      highlights: [
+        "Built accessible and reusable UI, focusing on semantic HTML and WCAG compliance.",
+        "Collaborate with designers and engineers to create performant and maintainable frontends, improving overall application quality.",
+      ],
+    },
+    {
       company: "XM / Trading.com",
       role: "Senior Frontend Developer",
       period: "Aug 2019 – Jun 2025",
