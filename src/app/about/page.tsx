@@ -10,7 +10,7 @@ const yearsExp = cvData.stats.find((s) => s.label === "Years Experience")!.value
 
 export const metadata: Metadata = {
   title: "About",
-  description: `Learn more about Alex Panteli — a Senior Frontend Developer with ${yearsExp}+ years of experience based in Cyprus.`,
+  description: `Alex Panteli — ${yearsExp}+ years crafting accessible, performant web interfaces with React, TypeScript, and modern CSS.`,
   alternates: { canonical: "/about" },
 };
 
@@ -20,7 +20,7 @@ export default function AboutPage() {
         <div className="mx-auto max-w-7xl px-6 py-24">
         <SectionHeading
           title="About Me"
-          subtitle="Get to know who I am and what I do"
+          subtitle="The person behind the pixels"
         />
 
         <div className="mt-16 space-y-24">

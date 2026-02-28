@@ -55,7 +55,7 @@ export const cvData: CVData = {
     email: "alekspanteli@gmail.com",
 
     summary:
-      "Senior Frontend Developer with extensive experience building accessible, high-performance interfaces, with a strong focus on semantic HTML, WCAG compliance, and scalable UI architecture. Known for translating design systems into pixel-perfect, reusable components and collaborating closely with designers and engineers. Modern CSS, Angular, React, TypeScript.",
+      "I craft fast, accessible web interfaces that users love and teams can scale. Over a decade of shipping production UIs — from design-system foundations to complex trading platforms — I bring deep expertise in React, TypeScript, and modern CSS, with a relentless focus on performance, WCAG compliance, and pixel-perfect execution.",
   },
   skills: [
     { name: "React", category: "frontend" },
@@ -85,10 +85,10 @@ export const cvData: CVData = {
       period: "Jul 2025 – Present",
       location: "Remote",
       description:
-        "Self-employed. Develop iGaming and trading-related web applications using React and TypeScript, enhancing user experience.",
+        "Delivering high-performance iGaming and trading web applications as an independent contractor, working directly with product and design teams.",
       highlights: [
-        "Built accessible and reusable UI, focusing on semantic HTML and WCAG compliance.",
-        "Collaborate with designers and engineers to create performant and maintainable frontends, improving overall application quality.",
+        "Architecting component libraries with full WCAG AA compliance and semantic markup, enabling rapid feature delivery across products.",
+        "Driving frontend quality through close collaboration with designers and backend engineers, reducing UI bugs and accelerating release cycles.",
       ],
     },
     {
@@ -97,12 +97,12 @@ export const cvData: CVData = {
       period: "Aug 2019 – Jun 2025",
       location: "Limassol, Cyprus",
       description:
-        "Led frontend development for Trading.com's web trader platform and public website using React, Angular, and TypeScript.",
+        "Owned the frontend architecture for Trading.com's web trader and public-facing site, leading a cross-functional team through a multi-year platform evolution.",
       highlights: [
-        "Designed and maintained a scalable design system adopted across multiple teams",
-        "Delivered WCAG-compliant, high-performance UIs and pixel-perfect landing pages",
-        "Improved code quality through reviews, mentoring, and Agile practices",
-        "Contributed to hiring, onboarding, and team leadership",
+        "Built and maintained a design system used by 4+ teams, standardising UI patterns and cutting new-feature delivery time",
+        "Shipped WCAG AA-compliant trading dashboards handling real-time data with sub-second render performance",
+        "Established code-review culture, mentored junior developers, and drove adoption of Agile best practices",
+        "Led technical interviews and shaped the hiring pipeline that grew the frontend team",
       ],
     },
     {
@@ -111,11 +111,11 @@ export const cvData: CVData = {
       period: "Aug 2017 – Jul 2019",
       location: "Limassol, Cyprus",
       description:
-        "Built and maintained main sites, microsites, and landing pages using HTML, CSS (BEM), and React.",
+        "Developed the company's main website, campaign microsites, and conversion-focused landing pages across a fast-paced fintech environment.",
       highlights: [
-        "Led responsive HTML email development",
-        "Migrated UI from Bootstrap 3 to 4, improving maintainability",
-        "Improved SEO and cross-browser performance through semantic markup",
+        "Owned the responsive HTML email system, delivering pixel-perfect campaigns across 30+ email clients",
+        "Led the Bootstrap 3-to-4 migration, reducing CSS bundle size and improving long-term maintainability",
+        "Boosted organic traffic through semantic markup overhaul and structured data implementation",
       ],
     },
     {
@@ -124,10 +124,10 @@ export const cvData: CVData = {
       period: "Apr 2015 – Jun 2017",
       location: "Limassol, Cyprus",
       description:
-        "Developed IB websites, partner portals, and widgets using responsive HTML/CSS and WordPress.",
+        "Built partner-facing portals, introducing-broker websites, and marketing widgets for one of the world's largest forex brokers.",
       highlights: [
-        "Led WordPress theme development from PSD to production",
-        "Collaborated with SEO teams on best practices and site structure",
+        "Delivered custom WordPress themes end-to-end — from PSD comps to production-ready, mobile-first code",
+        "Partnered with the SEO team to implement site-wide structural improvements that increased search visibility",
       ],
     },
   ],

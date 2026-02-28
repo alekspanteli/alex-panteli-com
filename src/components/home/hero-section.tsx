@@ -52,9 +52,9 @@ export function HeroSection() {
           style={{ fontFamily: "var(--font-display)" }}
           className="mx-auto mb-12 max-w-[560px] text-[18px] leading-[1.6] text-muted-foreground"
         >
-          Building accessible, high-performance interfaces with Angular, React,
-          TypeScript, and modern CSS. Focused on semantic HTML, WCAG compliance,
-          and scalable UI architecture with pixel-perfect craft.
+          I build fast, accessible interfaces that scale. A decade of
+          shipping production UIs — from design systems to trading
+          platforms — with React, TypeScript, and modern CSS.
         </motion.p>
 
         {/* CTA Buttons — primary blue + ghost with arrow */}

@@ -10,7 +10,7 @@ import { cvData } from "@/data/cv-data";
 export const metadata: Metadata = {
   title: "Experience",
   description:
-    "Explore Alex Panteli's professional experience and education as a Senior Frontend Developer.",
+    "From fintech startups to global trading platforms — a decade of frontend engineering experience.",
   alternates: { canonical: "/experience" },
 };
 
@@ -20,7 +20,7 @@ export default function ExperiencePage() {
         <div className="mx-auto max-w-7xl px-6 py-24">
         <SectionHeading
           title="Experience"
-          subtitle="My professional journey so far"
+          subtitle="A decade of building for the web"
         />
 
         <div className="mt-16">

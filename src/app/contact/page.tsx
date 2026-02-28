@@ -8,7 +8,7 @@ import { ContactForm } from "@/components/contact/contact-form";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Get in touch with Alex Panteli for frontend development projects, collaborations, or opportunities.",
+    "Looking for a senior frontend developer? Get in touch to discuss your next project or collaboration.",
   alternates: { canonical: "/contact" },
 };
 
@@ -18,7 +18,7 @@ export default function ContactPage() {
         <div className="mx-auto max-w-7xl px-6 py-24">
         <SectionHeading
           title="Get In Touch"
-          subtitle="I'd love to hear from you"
+          subtitle="Let's build something great together"
         />
 
         <div className="mt-16 grid gap-16 lg:grid-cols-[1fr_1.2fr]">

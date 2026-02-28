@@ -35,8 +35,8 @@ export function ContactInfo() {
       <div>
         <h3 className="text-[20px] font-semibold tracking-tight">Let&apos;s connect</h3>
         <p className="mt-2 text-[14px] leading-[1.6] text-muted-foreground">
-          Have a project in mind or want to discuss an opportunity? Reach out
-          through any of the channels below.
+          Whether you need a frontend developer for your next project or want to
+          explore a collaboration, I&apos;d love to hear from you.
         </p>
       </div>
 
