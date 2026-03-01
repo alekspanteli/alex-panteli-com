@@ -141,7 +141,7 @@ export const cvData: CVData = {
   ],
   stats: [
     { label: "Years Experience", value: yearsExperience, suffix: "+" },
-    { label: "Companies", value: 3, suffix: "" },
+    { label: "Companies", value: 4, suffix: "" },
     { label: "Technologies", value: 15, suffix: "+" },
   ],
 };

@@ -8,7 +8,9 @@
       "Bash(npx @aspect-build/rules_js//js:run_node:*)",
       "Bash(npx tsx:*)",
       "Bash(curl:*)",
-      "Bash(npx tsc:*)"
+      "Bash(npx tsc:*)",
+      "mcp__next-devtools-mcp__nextjs_index",
+      "mcp__next-devtools-mcp__nextjs_call"
     ]
   }
 }

@@ -20,7 +20,7 @@ export function Navbar() {
         >
           <Image
             src="/logo.svg"
-            alt="Logo"
+            alt="Alex Panteli"
             width={80}
             height={28}
             sizes="80px"

@@ -87,8 +87,8 @@ export default function RootLayout({
               <Footer />
             </div>
           </div>
+          <CookieConsent />
         </ThemeProvider>
-        <CookieConsent />
         <Analytics />
         <SpeedInsights />
       </body>
