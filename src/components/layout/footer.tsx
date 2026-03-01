@@ -35,12 +35,12 @@ const socialLinks: SocialLink[] = [
 ];
 
 const linkClass =
-  "group relative inline-flex h-9 w-9 items-center justify-center rounded-full bg-muted/70 text-foreground/80 ring-1 ring-border/70 transition-all duration-200 hover:-translate-y-0.5 hover:bg-muted hover:text-foreground hover:ring-border/80 hover:shadow-[0_8px_20px_rgba(15,23,42,0.12)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring dark:hover:shadow-[0_8px_20px_rgba(0,0,0,0.5)]";
+  "group relative inline-flex h-9 w-9 items-center justify-center rounded-full text-muted-foreground transition-all duration-200 hover:text-foreground hover:bg-secondary";
 
 export function Footer() {
   return (
-    <footer className="border-t border-border">
-      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 py-8 sm:flex-row">
+    <footer className="border-t border-border/50">
+      <div className="mx-auto flex max-w-5xl flex-col items-center justify-between gap-4 px-6 py-8 sm:flex-row">
         <p className="text-sm text-muted-foreground">
           &copy; {new Date().getFullYear()} {cvData.personal.name}
         </p>
@@ -53,7 +53,7 @@ export function Footer() {
               aria-label={label}
               {...(external && { target: "_blank", rel: "noopener noreferrer" })}
             >
-              <Icon className="size-[18px] transition-transform duration-200 group-hover:scale-105" />
+              <Icon className="size-[16px] transition-colors duration-200" />
             </a>
           ))}
         </div>

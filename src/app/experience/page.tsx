@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 export default function ExperiencePage() {
   return (
     <PageTransition>
-        <div className="mx-auto max-w-7xl px-6 py-24">
+        <div className="mx-auto max-w-5xl px-6 py-24">
         <SectionHeading
           title="Experience"
           subtitle="A decade of building for the web"
@@ -28,13 +28,16 @@ export default function ExperiencePage() {
         </div>
 
         <div className="mt-24">
-          <h3 className="mb-2 text-[24px] font-semibold tracking-tight">Education</h3>
+          <h3 className="mb-2 text-[22px] font-semibold tracking-[-0.02em]">
+            Education
+            <span className="text-primary">.</span>
+          </h3>
           <p className="mb-8 text-[14px] text-muted-foreground">Academic background</p>
 
           <div className="space-y-4">
             {cvData.education.map((edu) => (
               <ScrollReveal key={edu.institution}>
-                <div className="rounded-lg border border-border bg-card p-6 transition-colors duration-200 hover:border-border/80">
+                <div className="rounded-xl border border-border bg-card p-6 transition-all duration-300 hover:border-primary/20">
                   <div className="flex flex-wrap items-center gap-3 text-[14px] text-muted-foreground">
                     <GraduationCap className="h-4 w-4" />
                     <span>{edu.period}</span>

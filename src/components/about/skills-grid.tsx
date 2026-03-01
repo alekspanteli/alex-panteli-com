@@ -14,8 +14,11 @@ const categories = [
 export function SkillsGrid() {
   return (
     <div>
-      <h3 className="mb-2 text-[24px] font-semibold tracking-tight">Skills</h3>
-      <p className="mb-8 text-[14px] text-muted-foreground">Technologies I work with</p>
+      <h3 className="mb-2 text-[22px] font-semibold tracking-[-0.02em]">
+        Skills
+        <span className="text-primary">.</span>
+      </h3>
+      <p className="mb-10 text-[14px] text-muted-foreground">Technologies I work with</p>
       <div className="grid gap-10 sm:grid-cols-2">
         {categories.map((category) => {
           const skills = cvData.skills.filter(
@@ -24,7 +27,7 @@ export function SkillsGrid() {
           if (skills.length === 0) return null;
           return (
             <div key={category.key}>
-              <h4 className="mb-4 text-[12px] font-medium uppercase tracking-widest text-muted-foreground">
+              <h4 className="mb-4 text-[11px] font-semibold uppercase tracking-[0.15em] text-muted-foreground">
                 {category.label}
               </h4>
               <div className="flex flex-wrap gap-2">
@@ -38,7 +41,7 @@ export function SkillsGrid() {
                   >
                     <Badge
                       variant="outline"
-                      className="border-border px-3 py-1 text-sm font-normal transition-colors duration-200 hover:bg-accent hover:text-foreground"
+                      className="border-border bg-card px-3 py-1.5 text-[13px] font-normal transition-all duration-200 hover:border-primary/30 hover:text-foreground"
                     >
                       {skill.name}
                     </Badge>

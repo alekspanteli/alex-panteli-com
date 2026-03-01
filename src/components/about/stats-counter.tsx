@@ -13,12 +13,12 @@ function StatCard({ stat }: StatCardProps) {
   const { ref, display } = useCounterAnimation(stat.value);
 
   return (
-    <SpotlightCard className="rounded-lg border border-border bg-card p-8 text-center">
-      <p className="text-[40px] font-bold tracking-tighter">
+    <SpotlightCard className="rounded-xl border border-border bg-card p-8 text-center transition-colors duration-300 hover:border-primary/20">
+      <p className="text-[clamp(2.5rem,5vw,3.5rem)] font-bold tracking-[-0.04em] text-foreground">
         <span ref={ref}>{display}</span>
-        {stat.suffix}
+        <span className="text-primary">{stat.suffix}</span>
       </p>
-      <p className="mt-2 text-[14px] text-muted-foreground">
+      <p className="mt-2 text-[13px] font-medium uppercase tracking-widest text-muted-foreground">
         {stat.label}
       </p>
     </SpotlightCard>

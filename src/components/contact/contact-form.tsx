@@ -82,8 +82,8 @@ export function ContactForm() {
       transition={{ delay: 0.15, duration: 0.4 }}
     >
       {recaptcha.script}
-      <div className="rounded-lg border border-border bg-card p-6 sm:p-8">
-        <h3 className="text-[18px] font-semibold tracking-tight">Send a message</h3>
+      <div className="rounded-xl border border-border bg-card p-6 sm:p-8">
+        <h3 className="text-[18px] font-semibold tracking-[-0.01em]">Send a message</h3>
         <p className="mt-1 text-[14px] text-muted-foreground">I&apos;ll get back to you as soon as possible.</p>
 
         <div className="mt-6">

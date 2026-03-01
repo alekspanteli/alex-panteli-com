@@ -15,11 +15,12 @@ export function SectionHeading({ title, subtitle }: SectionHeadingProps) {
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.4 }}
     >
-      <h2 className="text-[40px] font-bold tracking-tighter">
+      <h2 className="text-[clamp(2rem,5vw,3rem)] font-bold tracking-[-0.03em]">
         {title}
+        <span className="text-primary">.</span>
       </h2>
       {subtitle && (
-        <p className="mt-3 text-[18px] text-muted-foreground">{subtitle}</p>
+        <p className="mt-3 text-[16px] text-muted-foreground">{subtitle}</p>
       )}
     </motion.div>
   );

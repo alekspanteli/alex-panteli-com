@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <PageTransition>
-        <div className="mx-auto max-w-7xl px-6 py-24">
+        <div className="mx-auto max-w-5xl px-6 py-24">
         <SectionHeading
           title="Get In Touch"
           subtitle="Let's build something great together"

@@ -38,10 +38,10 @@ export function MobileNav() {
               href={link.href}
               onClick={() => setOpen(false)}
               className={cn(
-                "rounded-md px-3 py-2.5 text-[14px] font-medium transition-colors duration-200 hover:bg-accent",
+                "rounded-lg px-3 py-2.5 text-[14px] font-medium transition-colors duration-200 hover:bg-secondary",
                 pathname === link.href
-                  ? "bg-accent text-foreground"
-                  : "text-foreground"
+                  ? "bg-secondary text-foreground"
+                  : "text-muted-foreground"
               )}
             >
               {link.label}

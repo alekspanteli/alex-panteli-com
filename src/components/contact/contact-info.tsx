@@ -31,10 +31,13 @@ const contactItems: ContactItem[] = [
 
 export function ContactInfo() {
   return (
-    <div className="space-y-6">
+    <div className="space-y-8">
       <div>
-        <h3 className="text-[20px] font-semibold tracking-tight">Let&apos;s connect</h3>
-        <p className="mt-2 text-[14px] leading-[1.6] text-muted-foreground">
+        <h3 className="text-[20px] font-semibold tracking-[-0.02em]">
+          {"Let's connect"}
+          <span className="text-primary">.</span>
+        </h3>
+        <p className="mt-3 text-[15px] leading-[1.7] text-muted-foreground">
           Whether you need a frontend developer for your next project or want to
           explore a collaboration, I&apos;d love to hear from you.
         </p>
@@ -49,18 +52,18 @@ export function ContactInfo() {
             viewport={{ once: true }}
             transition={{ delay: i * 0.08, duration: 0.3 }}
           >
-            <div className="flex items-center gap-4 rounded-lg border border-border bg-card p-4 transition-colors duration-200 hover:border-border/80">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-accent">
+            <div className="flex items-center gap-4 rounded-xl border border-border bg-card p-4 transition-all duration-300 hover:border-primary/20">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-secondary">
                 <item.icon className="h-4 w-4 text-muted-foreground" aria-hidden="true" />
               </div>
               <div>
-                <p className="text-[12px] font-medium uppercase tracking-wider text-muted-foreground">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-muted-foreground">
                   {item.label}
                 </p>
                 {item.href ? (
                   <a
                     href={item.href}
-                    className="text-[14px] font-medium text-foreground transition-colors duration-200 hover:underline"
+                    className="text-[14px] font-medium text-foreground underline decoration-border underline-offset-4 transition-colors duration-200 hover:decoration-primary"
                   >
                     {item.value}
                   </a>
