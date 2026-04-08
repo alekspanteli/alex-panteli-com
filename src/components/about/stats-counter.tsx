@@ -13,12 +13,12 @@ function StatCard({ stat }: StatCardProps) {
   const { ref, display } = useCounterAnimation(stat.value);
 
   return (
-    <SpotlightCard className="rounded-lg border border-border bg-card p-8 text-center">
-      <p className="text-[40px] font-bold tracking-tighter">
+    <SpotlightCard className="rounded-xl border border-border/60 bg-card p-7 text-center transition-colors duration-200 hover:border-border">
+      <p className="text-[38px] font-bold tracking-[-0.04em] text-heading">
         <span ref={ref}>{display}</span>
         {stat.suffix}
       </p>
-      <p className="mt-2 text-[14px] text-muted-foreground">
+      <p className="mt-1.5 text-[13px] tracking-[-0.01em] text-muted-foreground">
         {stat.label}
       </p>
     </SpotlightCard>
@@ -27,7 +27,7 @@ function StatCard({ stat }: StatCardProps) {
 
 export function StatsCounter() {
   return (
-    <SpotlightContainer className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+    <SpotlightContainer className="grid grid-cols-1 gap-3 sm:grid-cols-3">
       {cvData.stats.map((stat) => (
         <StatCard key={stat.label} stat={stat} />
       ))}

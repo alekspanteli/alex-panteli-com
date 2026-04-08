@@ -17,13 +17,13 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <PageTransition>
-        <div className="mx-auto max-w-7xl px-6 py-24">
+        <div className="mx-auto max-w-4xl px-6 py-16">
         <SectionHeading
           title="About Me"
           subtitle="The person behind the pixels"
         />
 
-        <div className="mt-16 space-y-24">
+        <div className="mt-14 space-y-20">
           <ProfileSection />
           <StatsCounter />
           <SkillsGrid />

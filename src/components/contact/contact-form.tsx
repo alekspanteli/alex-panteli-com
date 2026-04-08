@@ -79,24 +79,31 @@ export function ContactForm() {
       initial={{ opacity: 0, y: 12 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ delay: 0.15, duration: 0.4 }}
+      transition={{ delay: 0.1, duration: 0.4, ease: "easeOut" }}
     >
       {recaptcha.script}
-      <div className="rounded-lg border border-border bg-card p-6 sm:p-8">
-        <h3 className="text-[18px] font-semibold tracking-tight">Send a message</h3>
-        <p className="mt-1 text-[14px] text-muted-foreground">I&apos;ll get back to you as soon as possible.</p>
+      <div className="rounded-xl border border-border/60 bg-card p-6 sm:p-8">
+        <h3 className="text-[16px] font-semibold tracking-[-0.02em] text-heading">
+          Send a message
+        </h3>
+        <p className="mt-1 text-[13px] tracking-[-0.01em] text-muted-foreground">
+          I&apos;ll get back to you as soon as possible.
+        </p>
 
         <div className="mt-6">
           {status === "success" ? (
-            <div className="flex flex-col items-center gap-3 py-12 text-center">
-              <CheckCircle2 className="h-10 w-10 text-green-500" />
-              <h4 className="text-[18px] font-semibold">Message sent!</h4>
-              <p className="text-[14px] text-muted-foreground">
+            <div className="flex flex-col items-center gap-3 py-10 text-center">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-card">
+                <CheckCircle2 className="h-5 w-5 text-green-500" />
+              </div>
+              <h4 className="text-[15px] font-semibold tracking-[-0.02em]">Message sent!</h4>
+              <p className="text-[13px] text-muted-foreground">
                 Thanks for reaching out. I&apos;ll get back to you soon.
               </p>
               <Button
                 variant="outline"
-                className="mt-3 rounded-lg"
+                size="sm"
+                className="mt-2 rounded-lg border-border/60 text-[13px] font-medium shadow-none"
                 onClick={() => {
                   recaptcha.resetWidgetId();
                   setStatus("idle");
@@ -108,48 +115,56 @@ export function ContactForm() {
               </Button>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-5">
-              <div className="grid gap-5 sm:grid-cols-2">
-                <div className="space-y-2">
-                  <Label htmlFor="name" className="text-[14px]">Name</Label>
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div className="grid gap-4 sm:grid-cols-2">
+                <div className="space-y-1.5">
+                  <Label htmlFor="name" className="text-[12px] font-medium tracking-[-0.005em] text-muted-foreground">
+                    Name
+                  </Label>
                   <Input
                     id="name"
                     name="name"
                     placeholder="Your name"
-                    className="rounded-lg"
+                    className="h-9 rounded-lg border-border/60 bg-background text-[13px] shadow-none placeholder:text-muted-foreground/40 focus-visible:border-border focus-visible:ring-0"
                     required
                   />
                 </div>
-                <div className="space-y-2">
-                  <Label htmlFor="email" className="text-[14px]">Email</Label>
+                <div className="space-y-1.5">
+                  <Label htmlFor="email" className="text-[12px] font-medium tracking-[-0.005em] text-muted-foreground">
+                    Email
+                  </Label>
                   <Input
                     id="email"
                     name="email"
                     type="email"
                     placeholder="your@email.com"
-                    className="rounded-lg"
+                    className="h-9 rounded-lg border-border/60 bg-background text-[13px] shadow-none placeholder:text-muted-foreground/40 focus-visible:border-border focus-visible:ring-0"
                     required
                   />
                 </div>
               </div>
-              <div className="space-y-2">
-                <Label htmlFor="subject" className="text-[14px]">Subject</Label>
+              <div className="space-y-1.5">
+                <Label htmlFor="subject" className="text-[12px] font-medium tracking-[-0.005em] text-muted-foreground">
+                  Subject
+                </Label>
                 <Input
                   id="subject"
                   name="subject"
                   placeholder="What's this about?"
-                  className="rounded-lg"
+                  className="h-9 rounded-lg border-border/60 bg-background text-[13px] shadow-none placeholder:text-muted-foreground/40 focus-visible:border-border focus-visible:ring-0"
                   required
                 />
               </div>
-              <div className="space-y-2">
-                <Label htmlFor="message" className="text-[14px]">Message</Label>
+              <div className="space-y-1.5">
+                <Label htmlFor="message" className="text-[12px] font-medium tracking-[-0.005em] text-muted-foreground">
+                  Message
+                </Label>
                 <Textarea
                   id="message"
                   name="message"
                   placeholder="Tell me about your project..."
                   rows={5}
-                  className="rounded-lg"
+                  className="rounded-lg border-border/60 bg-background text-[13px] shadow-none placeholder:text-muted-foreground/40 focus-visible:border-border focus-visible:ring-0"
                   required
                 />
               </div>
@@ -163,8 +178,8 @@ export function ContactForm() {
 
               <div aria-live="polite">
                 {(status === "error" || guardError) && (
-                  <div className="flex items-center gap-2 text-[14px] text-destructive">
-                    <AlertCircle className="h-4 w-4" aria-hidden="true" />
+                  <div className="flex items-center gap-2 text-[13px] text-destructive">
+                    <AlertCircle className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
                     {guardError ?? "Something went wrong. Please try again."}
                   </div>
                 )}
@@ -172,10 +187,11 @@ export function ContactForm() {
 
               <Button
                 type="submit"
-                className="h-11 w-full gap-2 rounded-lg text-[14px] font-medium"
+                size="sm"
+                className="w-full gap-2 rounded-lg text-[13px] font-medium shadow-none"
                 disabled={status === "submitting" || !FORMSPREE_URL}
               >
-                <Send className="h-4 w-4" />
+                <Send className="h-3.5 w-3.5" />
                 {status === "submitting" ? "Sending..." : "Send Message"}
               </Button>
             </form>

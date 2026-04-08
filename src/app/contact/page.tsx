@@ -15,14 +15,16 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <PageTransition>
-        <div className="mx-auto max-w-7xl px-6 py-24">
+        <div className="mx-auto max-w-4xl px-6 py-16">
         <SectionHeading
           title="Get In Touch"
           subtitle="Let's build something great together"
         />
 
-        <div className="mt-16 grid gap-16 lg:grid-cols-[1fr_1.2fr]">
-          <ContactInfo />
+        <div className="mt-14 grid gap-12 lg:grid-cols-[1fr_1.4fr] lg:items-start">
+          <div className="lg:sticky lg:top-24">
+            <ContactInfo />
+          </div>
           <ContactForm />
         </div>
       </div>

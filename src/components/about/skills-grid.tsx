@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "motion/react";
-import { Badge } from "@/components/ui/badge";
 import { cvData } from "@/data/cv-data";
 
 const categories = [
@@ -14,35 +13,35 @@ const categories = [
 export function SkillsGrid() {
   return (
     <div>
-      <h3 className="mb-2 text-[24px] font-semibold tracking-tight">Skills</h3>
-      <p className="mb-8 text-[14px] text-muted-foreground">Technologies I work with</p>
-      <div className="grid gap-10 sm:grid-cols-2">
+      <div className="mb-8">
+        <p className="mb-2 text-[12px] font-medium uppercase tracking-[0.12em] text-(--accent-purple)">
+          Skills
+        </p>
+        <h3 className="text-[22px] font-semibold tracking-[-0.025em] text-heading">
+          Technologies I work with
+        </h3>
+      </div>
+      <div className="grid gap-8 sm:grid-cols-2">
         {categories.map((category) => {
-          const skills = cvData.skills.filter(
-            (s) => s.category === category.key
-          );
+          const skills = cvData.skills.filter((s) => s.category === category.key);
           if (skills.length === 0) return null;
           return (
             <div key={category.key}>
-              <h4 className="mb-4 text-[12px] font-medium uppercase tracking-widest text-muted-foreground">
+              <h4 className="mb-3 text-[11px] font-medium uppercase tracking-widest text-muted-foreground/70">
                 {category.label}
               </h4>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-1.5">
                 {skills.map((skill, i) => (
-                  <motion.div
+                  <motion.span
                     key={skill.name}
-                    initial={{ opacity: 0, scale: 0.9 }}
+                    initial={{ opacity: 0, scale: 0.94 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
-                    transition={{ delay: i * 0.03, duration: 0.25 }}
+                    transition={{ delay: i * 0.025, duration: 0.2, ease: "easeOut" }}
+                    className="inline-flex items-center rounded-md border border-border/60 bg-card px-2.5 py-1 text-[12px] font-medium tracking-[-0.005em] text-muted-foreground transition-colors duration-150 hover:border-border hover:text-foreground"
                   >
-                    <Badge
-                      variant="outline"
-                      className="border-border px-3 py-1 text-sm font-normal transition-colors duration-200 hover:bg-accent hover:text-foreground"
-                    >
-                      {skill.name}
-                    </Badge>
-                  </motion.div>
+                    {skill.name}
+                  </motion.span>
                 ))}
               </div>
             </div>

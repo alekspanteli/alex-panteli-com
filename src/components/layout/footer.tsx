@@ -1,6 +1,5 @@
 import type { ComponentType, SVGProps } from "react";
 import { Mail } from "lucide-react";
-
 import { cvData } from "@/data/cv-data";
 
 function GitHubIcon(props: SVGProps<SVGSVGElement>) {
@@ -34,26 +33,23 @@ const socialLinks: SocialLink[] = [
   { href: "https://www.linkedin.com/in/alexpanteli/", label: "LinkedIn", icon: LinkedInIcon, external: true },
 ];
 
-const linkClass =
-  "group relative inline-flex h-9 w-9 items-center justify-center rounded-full bg-muted/70 text-foreground/80 ring-1 ring-border/70 transition-all duration-200 hover:-translate-y-0.5 hover:bg-muted hover:text-foreground hover:ring-border/80 hover:shadow-[0_8px_20px_rgba(15,23,42,0.12)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring dark:hover:shadow-[0_8px_20px_rgba(0,0,0,0.5)]";
-
 export function Footer() {
   return (
-    <footer className="border-t border-border">
-      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 py-8 sm:flex-row">
-        <p className="text-sm text-muted-foreground">
+    <footer className="border-t border-border/50">
+      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 py-6 sm:flex-row">
+        <p className="text-[12px] tracking-[-0.005em] text-muted-foreground/60">
           &copy; {new Date().getFullYear()} {cvData.personal.name}
         </p>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1.5">
           {socialLinks.map(({ href, label, icon: Icon, external }) => (
             <a
               key={label}
               href={href}
-              className={linkClass}
+              className="flex h-7 w-7 items-center justify-center rounded-lg border border-border/50 text-muted-foreground/60 transition-all duration-150 hover:border-border hover:text-foreground"
               aria-label={label}
               {...(external && { target: "_blank", rel: "noopener noreferrer" })}
             >
-              <Icon className="size-[18px] transition-transform duration-200 group-hover:scale-105" />
+              <Icon className="size-3.5" />
             </a>
           ))}
         </div>

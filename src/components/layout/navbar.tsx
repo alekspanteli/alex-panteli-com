@@ -12,23 +12,25 @@ export function Navbar() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-lg">
-      <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
+    <header className="sticky top-0 z-50 border-b border-border/50 bg-background/70 backdrop-blur-xl backdrop-saturate-150">
+      <nav className="mx-auto flex h-14 max-w-6xl items-center justify-between px-6">
+        {/* Logo */}
         <Link
           href="/"
-          className="transition-opacity hover:opacity-80"
+          className="flex items-center gap-2.5 transition-opacity duration-200 hover:opacity-70"
         >
           <Image
             src="/logo.svg"
             alt="Alex Panteli"
-            width={80}
-            height={28}
-            sizes="80px"
+            width={72}
+            height={24}
+            sizes="72px"
             className="transition-[filter] duration-200 dark:brightness-0 dark:invert"
           />
         </Link>
 
-        <div className="hidden items-center gap-1 md:flex">
+        {/* Center nav links */}
+        <div className="hidden items-center gap-0.5 md:flex">
           {NAV_LINKS.map((link) => {
             const isActive = pathname === link.href;
             return (
@@ -36,28 +38,25 @@ export function Navbar() {
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  "group rounded-md px-3 py-1.5 text-[14px] font-medium transition-colors duration-200",
+                  "relative rounded-md px-3 py-1.5 text-[13px] font-medium tracking-[-0.01em] transition-colors duration-150",
                   isActive
                     ? "text-foreground"
                     : "text-muted-foreground hover:text-foreground"
                 )}
               >
-                <span className="relative">
-                  {link.label}
+                {isActive && (
                   <span
-                    className={cn(
-                      "absolute left-0 -bottom-[5px] h-[2px] w-full origin-left bg-foreground transition-transform duration-300 ease-out",
-                      isActive
-                        ? "scale-x-100"
-                        : "scale-x-0 group-hover:scale-x-100"
-                    )}
+                    className="absolute inset-0 rounded-md bg-white/5 dark:bg-white/5"
+                    aria-hidden="true"
                   />
-                </span>
+                )}
+                <span className="relative">{link.label}</span>
               </Link>
             );
           })}
         </div>
 
+        {/* Right actions */}
         <div className="flex items-center gap-1">
           <ThemeToggle />
           <MobileNav />

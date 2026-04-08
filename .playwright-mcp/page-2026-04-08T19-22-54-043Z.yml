@@ -1,0 +1,88 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - link "Skip to content" [ref=e4] [cursor=pointer]:
+      - /url: "#main-content"
+    - banner [ref=e5]:
+      - navigation [ref=e6]:
+        - link "Alex Panteli" [ref=e7] [cursor=pointer]:
+          - /url: /
+          - img "Alex Panteli" [ref=e8]
+        - generic [ref=e9]:
+          - link "Home" [ref=e10] [cursor=pointer]:
+            - /url: /
+          - link "About" [ref=e11] [cursor=pointer]:
+            - /url: /about
+          - link "Experience" [ref=e12] [cursor=pointer]:
+            - /url: /experience
+          - link "Contact" [ref=e13] [cursor=pointer]:
+            - /url: /contact
+            - text: Contact
+        - button "Toggle theme" [ref=e16]:
+          - img
+          - generic [ref=e17]: Toggle theme
+    - main [ref=e18]:
+      - generic [ref=e20]:
+        - generic [ref=e21]:
+          - heading "Get In Touch" [level=2] [ref=e22]
+          - paragraph [ref=e23]: Let's build something great together
+        - generic [ref=e24]:
+          - generic [ref=e25]:
+            - generic [ref=e26]:
+              - paragraph [ref=e27]: Contact
+              - heading "Let's connect" [level=3] [ref=e28]
+              - paragraph [ref=e29]: Whether you need a frontend developer for your next project or want to explore a collaboration, I'd love to hear from you.
+            - generic [ref=e30]:
+              - generic [ref=e32]:
+                - img [ref=e34]
+                - generic [ref=e37]:
+                  - paragraph [ref=e38]: Email
+                  - link "alekspanteli@gmail.com" [ref=e39] [cursor=pointer]:
+                    - /url: mailto:alekspanteli@gmail.com
+              - generic [ref=e41]:
+                - img [ref=e43]
+                - generic [ref=e46]:
+                  - paragraph [ref=e47]: Location
+                  - paragraph [ref=e48]: Cyprus
+          - generic [ref=e50]:
+            - heading "Send a message" [level=3] [ref=e51]
+            - paragraph [ref=e52]: I'll get back to you as soon as possible.
+            - generic [ref=e54]:
+              - generic [ref=e55]:
+                - generic [ref=e56]:
+                  - generic [ref=e57]: Name
+                  - textbox "Name" [ref=e58]:
+                    - /placeholder: Your name
+                - generic [ref=e59]:
+                  - generic [ref=e60]: Email
+                  - textbox "Email" [ref=e61]:
+                    - /placeholder: your@email.com
+              - generic [ref=e62]:
+                - generic [ref=e63]: Subject
+                - textbox "Subject" [ref=e64]:
+                  - /placeholder: What's this about?
+              - generic [ref=e65]:
+                - generic [ref=e66]: Message
+                - textbox "Message" [ref=e67]:
+                  - /placeholder: Tell me about your project...
+              - generic [ref=e68]:
+                - generic [ref=e69]: Company
+                - textbox [ref=e70]
+              - button "Send Message" [ref=e71]:
+                - img
+                - text: Send Message
+    - contentinfo [ref=e72]:
+      - generic [ref=e73]:
+        - paragraph [ref=e74]: © 2026 Alex Panteli
+        - generic [ref=e75]:
+          - link "Email" [ref=e76] [cursor=pointer]:
+            - /url: mailto:alekspanteli@gmail.com
+            - img [ref=e77]
+          - link "GitHub" [ref=e80] [cursor=pointer]:
+            - /url: https://github.com/alekspanteli
+            - img [ref=e81]
+          - link "LinkedIn" [ref=e83] [cursor=pointer]:
+            - /url: https://www.linkedin.com/in/alexpanteli/
+            - img [ref=e84]
+  - button "Open Next.js Dev Tools" [ref=e91] [cursor=pointer]:
+    - img [ref=e92]
+  - alert [ref=e95]
