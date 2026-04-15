@@ -18,7 +18,7 @@ export function SkillsGrid() {
           Stack
         </p>
         <h3 className="font-display text-[28px] font-bold leading-[1.1] tracking-[-0.025em] text-heading">
-          <span className="text-(--phosphor) mr-2">//</span>technologies
+          <span className="text-(--phosphor) mr-2" aria-hidden="true">{"// "}</span>technologies
         </h3>
       </div>
       <div className="grid gap-8 sm:grid-cols-2">

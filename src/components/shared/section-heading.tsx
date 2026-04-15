@@ -23,7 +23,7 @@ export function SectionHeading({ label, title, subtitle }: SectionHeadingProps) 
         </p>
       )}
       <h2 className="font-display text-[36px] font-bold leading-[1.05] tracking-[-0.03em] text-heading sm:text-[46px]">
-        <span className="text-(--phosphor) mr-3">//</span>{title}
+        <span className="text-(--phosphor) mr-3" aria-hidden="true">{"// "}</span>{title}
       </h2>
       <div className="mt-5 h-px w-16 bg-(--phosphor)/40" aria-hidden="true" />
       {subtitle && (

@@ -4,10 +4,10 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import {
   Sheet,
   SheetContent,
+  SheetDescription,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
@@ -22,31 +22,54 @@ export function MobileNav() {
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
-        <Button variant="ghost" size="icon" className="md:hidden">
-          <Menu className="h-5 w-5" />
-          <span className="sr-only">Open menu</span>
-        </Button>
+        <button
+          type="button"
+          className="flex h-7 w-7 cursor-pointer items-center justify-center text-muted-foreground transition-colors duration-150 hover:text-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-(--phosphor) md:hidden"
+          aria-label="Open menu"
+        >
+          <Menu className="size-5" />
+        </button>
       </SheetTrigger>
-      <SheetContent side="right" className="w-64">
-        <SheetHeader>
-          <SheetTitle className="text-left text-sm font-medium">Navigation</SheetTitle>
+
+      <SheetContent
+        side="right"
+        className="w-64 border-l border-(--phosphor)/10 bg-background p-0"
+      >
+        <SheetHeader className="border-b border-(--phosphor)/10 px-6 py-4">
+          <SheetTitle className="font-display text-[14px] font-bold text-(--phosphor)">
+            ap.tsx
+          </SheetTitle>
+          <SheetDescription className="sr-only">
+            Site navigation menu
+          </SheetDescription>
         </SheetHeader>
-        <nav className="mt-6 flex flex-col gap-0.5">
-          {NAV_LINKS.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              onClick={() => setOpen(false)}
-              className={cn(
-                "rounded-md px-3 py-2.5 text-[14px] font-medium transition-colors duration-200 hover:bg-accent",
-                pathname === link.href
-                  ? "border-l-2 border-(--cobalt) pl-2 text-foreground"
-                  : "text-foreground"
-              )}
-            >
-              {link.label}
-            </Link>
-          ))}
+
+        <nav className="flex flex-col px-4 py-6">
+          {NAV_LINKS.map((link) => {
+            const isActive = pathname === link.href;
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setOpen(false)}
+                {...(isActive ? { "aria-current": "page" as const } : {})}
+                className={cn(
+                  "relative px-3 py-3 font-mono text-[11px] uppercase tracking-widest transition-colors duration-150",
+                  isActive
+                    ? "bg-(--phosphor)/8 text-(--phosphor)"
+                    : "text-muted-foreground hover:text-foreground"
+                )}
+              >
+                {link.label}
+                {isActive && (
+                  <span
+                    className="absolute inset-x-3 bottom-0 h-px bg-(--phosphor)/60"
+                    aria-hidden="true"
+                  />
+                )}
+              </Link>
+            );
+          })}
         </nav>
       </SheetContent>
     </Sheet>

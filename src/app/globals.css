@@ -158,6 +158,13 @@
     -moz-osx-font-smoothing: grayscale;
     letter-spacing: -0.01em;
   }
+  /* Radix locks body scroll by adding padding-right = scrollbar width.
+     Since html has overflow-y:scroll the scrollbar is always present,
+     so Radix double-counts it and content shifts. Zero it out. */
+  body[data-scroll-locked] {
+    padding-right: 0 !important;
+    margin-right: 0 !important;
+  }
   h1, h2, h3, h4, h5, h6 {
     color: var(--heading);
     font-family: var(--font-display);

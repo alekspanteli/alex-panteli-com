@@ -12,7 +12,7 @@ export function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-(--phosphor)/10 bg-background/90 backdrop-blur-xl">
-      <nav className="mx-auto grid h-14 max-w-6xl grid-cols-3 items-center px-6">
+      <nav aria-label="Main" className="mx-auto grid h-14 max-w-6xl grid-cols-3 items-center px-6">
 
         {/* Left: logo */}
         <Link
@@ -31,6 +31,7 @@ export function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
+                {...(isActive ? { "aria-current": "page" as const } : {})}
                 className={cn(
                   "relative px-3 py-1.5 font-mono text-[11px] uppercase tracking-widest transition-colors duration-150",
                   isActive
@@ -50,8 +51,9 @@ export function Navbar() {
           })}
         </div>
 
-        {/* Right: actions */}
-        <div className="flex items-center gap-1 justify-self-end">
+        {/* Right: actions — col-start-3 keeps this pinned to the right on mobile
+            even when the centre nav links are display:none */}
+        <div className="col-start-3 flex items-center gap-1 justify-self-end">
           <ThemeToggle />
           <MobileNav />
         </div>

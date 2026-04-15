@@ -24,10 +24,27 @@
       "mcp__plugin_playwright_playwright__browser_navigate",
       "mcp__plugin_playwright_playwright__browser_take_screenshot",
       "Bash(npx skills *)",
-      "mcp__playwright__browser_console_messages"
+      "mcp__playwright__browser_console_messages",
+      "Skill(shadcn)",
+      "Skill(shadcn:*)",
+      "mcp__playwright__browser_snapshot",
+      "mcp__playwright__browser_click",
+      "mcp__playwright__browser_resize",
+      "mcp__playwright__browser_close",
+      "mcp__plugin_playwright_playwright__browser_close",
+      "Bash(taskkill /F /IM chrome.exe)",
+      "Bash(taskkill /F /IM msedge.exe)",
+      "Bash(tasklist /FI \"IMAGENAME eq chrome.exe\")",
+      "Bash(tasklist /FI \"IMAGENAME eq chromium.exe\")",
+      "Bash(tasklist)",
+      "Bash(powershell -Command ' *)",
+      "Bash(taskkill /F /PID 59436 /PID 164832 /PID 109096 /PID 43432 /PID 136032 /PID 166700 /PID 162488)",
+      "Bash(powershell -Command \"Stop-Process -Id 59436,164832,109096,43432,136032,166700,162488 -Force -ErrorAction SilentlyContinue; Write-Host 'done'\")",
+      "Bash(grep -v \"^$\")"
     ],
     "additionalDirectories": [
-      "C:\\Users\\dudec\\.claude"
+      "C:\\Users\\dudec\\.claude",
+      "C:\\Users\\dudec\\AppData\\Local\\ms-playwright\\mcp-chrome-a62378d"
     ]
   }
 }

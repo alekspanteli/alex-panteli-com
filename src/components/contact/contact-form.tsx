@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Send, CheckCircle2, AlertCircle, RotateCcw } from "lucide-react";
 import { useRecaptcha } from "@/hooks/use-recaptcha";
+import { cn } from "@/lib/utils";
 
 const FORMSPREE_URL = process.env.NEXT_PUBLIC_FORMSPREE_URL ?? "";
 const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_FORMSPREE_RECAPTCHA_SITE_KEY ?? "";
@@ -93,15 +94,15 @@ export function ContactForm() {
         {/* Panel header */}
         <div className="flex items-center gap-2 border-b border-(--phosphor)/10 px-6 py-3">
           <span className="font-mono text-[10px] uppercase tracking-widest text-(--phosphor)">
-            // send_message
+            <span aria-hidden="true">{"// "}</span>send_message
           </span>
         </div>
 
         <div className="p-6 sm:p-8">
           {status === "success" ? (
-            <div className="flex flex-col items-start gap-4 py-6">
+            <div role="status" className="flex flex-col items-start gap-4 py-6">
               <div className="flex items-center gap-3">
-                <CheckCircle2 className="h-4 w-4 text-(--phosphor)" />
+                <CheckCircle2 className="size-4 text-(--phosphor)" />
                 <span className="font-mono text-[11px] uppercase tracking-widest text-(--phosphor)">
                   Message transmitted
                 </span>
@@ -119,12 +120,12 @@ export function ContactForm() {
                 }}
                 className="mt-2 inline-flex cursor-pointer items-center gap-2 border border-(--phosphor)/30 px-4 py-2 font-mono text-[10px] uppercase tracking-widest text-(--phosphor) transition-colors duration-150 hover:border-(--phosphor)/60 hover:bg-(--phosphor)/5"
               >
-                <RotateCcw className="h-3 w-3" />
+                <RotateCcw className="size-3" />
                 Send another
               </button>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="flex flex-col gap-6">
               <div className="grid gap-6 sm:grid-cols-2">
                 <div>
                   <label htmlFor="name" className={labelClass}>Name</label>
@@ -167,13 +168,13 @@ export function ContactForm() {
                   name="message"
                   placeholder="tell me about your project..."
                   rows={5}
-                  className={`${inputClass} h-auto resize-none`}
+                  className={cn(inputClass, "h-auto resize-none")}
                   required
                 />
               </div>
 
-              {/* Honeypot */}
-              <div className="sr-only" aria-hidden="true">
+              {/* Honeypot — hidden from everyone, bots fill it in */}
+              <div aria-hidden="true" style={{ display: "none" }}>
                 <label htmlFor="company">Company</label>
                 <Input id="company" name="company" autoComplete="off" tabIndex={-1} />
               </div>
@@ -183,7 +184,7 @@ export function ContactForm() {
               <div aria-live="polite">
                 {(status === "error" || guardError) && (
                   <div className="flex items-center gap-2 font-mono text-[12px] text-destructive">
-                    <AlertCircle className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
+                    <AlertCircle className="size-3.5 shrink-0" aria-hidden="true" />
                     {guardError ?? "Something went wrong. Please try again."}
                   </div>
                 )}
@@ -194,7 +195,7 @@ export function ContactForm() {
                 disabled={status === "submitting" || !FORMSPREE_URL}
                 className="inline-flex w-full cursor-pointer items-center justify-center gap-2 bg-(--phosphor) px-6 py-3 font-mono text-[11px] uppercase tracking-widest text-background transition-opacity duration-150 hover:opacity-85 disabled:cursor-not-allowed disabled:opacity-50"
               >
-                <Send className="h-3.5 w-3.5" />
+                <Send className="size-3.5" aria-hidden="true" />
                 {status === "submitting" ? "Transmitting..." : "Send Message"}
               </button>
             </form>

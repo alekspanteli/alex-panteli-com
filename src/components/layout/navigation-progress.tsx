@@ -85,9 +85,10 @@ export function NavigationProgress() {
   if (!visible) return null;
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-[100] h-[2.5px] bg-transparent">
+    /* Sits flush at the bottom edge of the 56px navbar */
+    <div className="fixed top-14 left-0 right-0 z-[100] h-px bg-(--phosphor)/10">
       <div
-        className="h-full bg-primary shadow-[0_0_8px_var(--color-primary)] transition-[width] duration-200 ease-out"
+        className="h-full bg-(--phosphor) transition-[width] duration-200 ease-out"
         style={{ width: `${progress}%` }}
       />
     </div>

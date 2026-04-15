@@ -66,7 +66,7 @@ export const cvData: CVData = {
     { name: "CSS3", category: "frontend" },
     { name: "Tailwind CSS", category: "frontend" },
     { name: "Angular", category: "frontend" },
-    { name: "Framer Motion", category: "frontend" },
+    { name: "Motion", category: "frontend" },
     { name: "Node.js", category: "backend" },
     { name: "GraphQL", category: "backend" },
     { name: "REST APIs", category: "backend" },
