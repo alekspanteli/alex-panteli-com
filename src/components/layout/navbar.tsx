@@ -17,7 +17,7 @@ export function Navbar() {
         {/* Left: logo */}
         <Link
           href="/"
-          aria-label="Alex Panteli — Home"
+          aria-label="ap.tsx — home"
           className="font-display font-bold text-[14px] tracking-tight text-(--phosphor) transition-opacity duration-200 hover:opacity-70 justify-self-start"
         >
           ap.tsx

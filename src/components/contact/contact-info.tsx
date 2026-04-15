@@ -36,7 +36,7 @@ export function ContactInfo() {
           Contact
         </p>
         <h3 className="font-display text-[32px] font-bold leading-[1.1] tracking-[-0.025em] text-heading">
-          <span className="text-(--phosphor) mr-2">$</span>connect --open
+          <span className="text-(--phosphor) mr-2" aria-hidden="true">$</span>connect --open
         </h3>
         <div className="mt-5 h-px w-12 bg-(--phosphor)/40" aria-hidden="true" />
         <p className="mt-6 max-w-sm text-[15px] leading-[1.7] tracking-[-0.01em] text-muted-foreground">

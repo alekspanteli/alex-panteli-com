@@ -57,6 +57,7 @@
 
 /* ─── Light — cold steel ─── */
 :root {
+  color-scheme: light;
   --radius: 0.125rem;
   --background: #EFF2F6;
   --foreground: #0C1018;
@@ -102,6 +103,7 @@
 
 /* ─── Dark — cold steel ─── */
 .dark {
+  color-scheme: dark;
   --background: #0A0C10;
   --foreground: #B8C8D8;
   --heading: #D8E4F0;
@@ -255,6 +257,13 @@
 
 .blink {
   animation: blink 1.1s step-end infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blink {
+    animation: none;
+    opacity: 1;
+  }
 }
 
 /* ─── Grid overlay — technical graph paper ─── */

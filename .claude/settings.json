@@ -40,7 +40,11 @@
       "Bash(powershell -Command ' *)",
       "Bash(taskkill /F /PID 59436 /PID 164832 /PID 109096 /PID 43432 /PID 136032 /PID 166700 /PID 162488)",
       "Bash(powershell -Command \"Stop-Process -Id 59436,164832,109096,43432,136032,166700,162488 -Force -ErrorAction SilentlyContinue; Write-Host 'done'\")",
-      "Bash(grep -v \"^$\")"
+      "Bash(grep -v \"^$\")",
+      "Bash(grep -E \"^\\\\s+[0-9]+:[0-9]+|^C:\\\\\\\\\")",
+      "Bash(npx lighthouse *)",
+      "Bash(node -e ' *)",
+      "Bash(npx kill-port *)"
     ],
     "additionalDirectories": [
       "C:\\Users\\dudec\\.claude",

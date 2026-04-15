@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ViewTransition, Suspense } from "react";
 import { IBM_Plex_Sans, Fira_Code } from "next/font/google";
+import { MotionConfig } from "motion/react";
 import { ThemeProvider } from "@/providers/theme-provider";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
@@ -15,12 +16,14 @@ const ibm = IBM_Plex_Sans({
   variable: "--font-ibm",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+  display: "swap",
 });
 
 const firaCode = Fira_Code({
   variable: "--font-fira",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -69,6 +72,7 @@ export default function RootLayout({
       <body
         className={`${ibm.variable} ${firaCode.variable} font-sans antialiased`}
       >
+        <MotionConfig reducedMotion="user">
         <ThemeProvider>
           <div className="relative min-h-svh">
             {/* Vertical scan columns — frequency grid */}
@@ -92,6 +96,7 @@ export default function RootLayout({
           </div>
           <CookieConsent />
         </ThemeProvider>
+        </MotionConfig>
         <Analytics />
         <SpeedInsights />
       </body>

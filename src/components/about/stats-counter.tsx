@@ -9,13 +9,16 @@ interface StatItemProps {
 }
 
 function StatItem({ stat }: StatItemProps) {
-  const { ref, display } = useCounterAnimation(stat.value);
+  const { ref } = useCounterAnimation(stat.value);
 
   return (
     <div className="border-t border-(--phosphor)/15 pt-6">
-      <p className="font-display text-[48px] font-bold leading-none tracking-[-0.03em] text-heading">
-        <span ref={ref}>{display}</span>
-        <span className="text-(--phosphor)">{stat.suffix}</span>
+      <p
+        className="font-display text-[48px] font-bold leading-none tracking-[-0.03em] text-heading"
+        aria-label={`${stat.value}${stat.suffix}`}
+      >
+        <span ref={ref} aria-hidden="true">0</span>
+        <span aria-hidden="true" className="text-(--phosphor)">{stat.suffix}</span>
       </p>
       <p className="mt-2 font-mono text-[10px] uppercase tracking-widest text-muted-foreground/75">
         {stat.label}

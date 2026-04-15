@@ -29,7 +29,7 @@ function savePreferences(prefs: CookiePreferences) {
 export function CookieConsent() {
   const [visible, setVisible] = useState(false);
   const [showManage, setShowManage] = useState(false);
-  const [analytics, setAnalytics] = useState(true);
+  const [analytics, setAnalytics] = useState(false);
 
   useEffect(() => {
     const stored = getStoredPreferences();
@@ -58,11 +58,14 @@ export function CookieConsent() {
     <AnimatePresence>
       {visible && (
         <motion.div
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="cookie-heading"
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 40 }}
           transition={{ duration: 0.4, ease: "easeOut" }}
-          className="fixed bottom-4 right-4 z-50 w-[calc(100vw-2rem)] max-w-sm rounded-xl border bg-background/95 p-5 shadow-lg backdrop-blur-md sm:bottom-6 sm:right-6"
+          className="fixed bottom-4 right-4 z-50 w-[calc(100vw-2rem)] max-w-sm rounded-sm border bg-background/95 p-5 shadow-sm backdrop-blur-md sm:bottom-6 sm:right-6"
         >
           <button
             onClick={handleDeclineAll}
@@ -74,9 +77,9 @@ export function CookieConsent() {
 
           <div className="mb-3 flex items-center gap-2">
             <Cookie className="size-5 text-primary" />
-            <h3 className="font-display text-sm font-semibold">
+            <h2 id="cookie-heading" className="font-display text-sm font-semibold">
               Cookie Preferences
-            </h3>
+            </h2>
           </div>
 
           <p className="mb-4 text-xs leading-relaxed text-muted-foreground">
@@ -86,7 +89,7 @@ export function CookieConsent() {
 
           {showManage ? (
             <div className="space-y-3">
-              <label className="flex items-center justify-between rounded-lg border px-3 py-2">
+              <label className="flex items-center justify-between rounded-sm border px-3 py-2">
                 <div>
                   <span className="text-xs font-medium">Necessary</span>
                   <p className="text-[11px] text-muted-foreground">
@@ -101,7 +104,7 @@ export function CookieConsent() {
                 />
               </label>
 
-              <label className="flex cursor-pointer items-center justify-between rounded-lg border px-3 py-2 transition-colors hover:bg-accent/50">
+              <label className="flex cursor-pointer items-center justify-between rounded-sm border px-3 py-2 transition-colors hover:bg-accent/50">
                 <div>
                   <span className="text-xs font-medium">Analytics</span>
                   <p className="text-[11px] text-muted-foreground">

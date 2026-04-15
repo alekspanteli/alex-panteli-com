@@ -2,30 +2,35 @@
 
 import { useEffect, useState, useRef, useCallback } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
+import { useMotionValue, useTransform, motion } from "motion/react";
 
 export function NavigationProgress() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const [progress, setProgress] = useState(0);
   const [visible, setVisible] = useState(false);
+  const progressMV = useMotionValue(0);
+  const widthPercent = useTransform(progressMV, (v) => `${v}%`);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const isNavigatingRef = useRef(false);
 
   const startProgress = useCallback(() => {
     isNavigatingRef.current = true;
     setVisible(true);
-    setProgress(0);
+    progressMV.set(0);
 
     // Rapidly move to ~30%, then slow down
-    let current = 0;
     if (intervalRef.current) clearInterval(intervalRef.current);
 
     intervalRef.current = setInterval(() => {
-      current += current < 30 ? 8 : current < 60 ? 3 : current < 80 ? 1 : 0.5;
-      if (current > 90) current = 90;
-      setProgress(current);
+      const current = progressMV.get();
+      const next =
+        current < 30 ? current + 8 :
+        current < 60 ? current + 3 :
+        current < 80 ? current + 1 :
+        current + 0.5;
+      progressMV.set(Math.min(next, 90));
     }, 100);
-  }, []);
+  }, [progressMV]);
 
   const completeProgress = useCallback(() => {
     if (intervalRef.current) {
@@ -33,14 +38,14 @@ export function NavigationProgress() {
       intervalRef.current = null;
     }
     isNavigatingRef.current = false;
-    setProgress(100);
+    progressMV.set(100);
 
     // Fade out after reaching 100%
     setTimeout(() => {
       setVisible(false);
-      setProgress(0);
+      progressMV.set(0);
     }, 300);
-  }, []);
+  }, [progressMV]);
 
   // Complete when route changes
   useEffect(() => {
@@ -87,9 +92,9 @@ export function NavigationProgress() {
   return (
     /* Sits flush at the bottom edge of the 56px navbar */
     <div className="fixed top-14 left-0 right-0 z-[100] h-px bg-(--phosphor)/10">
-      <div
-        className="h-full bg-(--phosphor) transition-[width] duration-200 ease-out"
-        style={{ width: `${progress}%` }}
+      <motion.div
+        className="h-full bg-(--phosphor)"
+        style={{ width: widthPercent }}
       />
     </div>
   );

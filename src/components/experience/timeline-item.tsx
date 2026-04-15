@@ -32,7 +32,7 @@ export function TimelineItem({
       {/* Left: period + location */}
       <div className="md:pt-1">
         <p className="font-mono text-[11px] font-medium uppercase tracking-widest text-(--phosphor)">
-          <span className="text-muted-foreground/30 mr-2">[{String(index + 1).padStart(2, "0")}]</span>
+          <span className="text-muted-foreground/30 mr-2" aria-hidden="true">[{String(index + 1).padStart(2, "0")}]</span>
           {period}
         </p>
         <p className="mt-1.5 font-mono text-[10px] uppercase tracking-widest text-muted-foreground/70">

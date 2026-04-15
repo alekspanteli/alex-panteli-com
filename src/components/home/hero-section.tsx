@@ -19,7 +19,7 @@ export function HeroSection({ personal, stats }: HeroSectionProps) {
     const rect = e.currentTarget.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
-    spotlightRef.current.style.background = `radial-gradient(600px circle at ${x}px ${y}px, rgba(56, 189, 248, 0.07), transparent 40%)`;
+    spotlightRef.current.style.background = `radial-gradient(600px circle at ${x}px ${y}px, color-mix(in srgb, var(--phosphor) 7%, transparent), transparent 40%)`;
     spotlightRef.current.style.opacity = "1";
   }, []);
 
@@ -87,7 +87,7 @@ export function HeroSection({ personal, stats }: HeroSectionProps) {
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(ellipse 55% 65% at 22% 50%, rgba(56,189,248,0.05), transparent)",
+            "radial-gradient(ellipse 55% 65% at 22% 50%, color-mix(in srgb, var(--phosphor) 5%, transparent), transparent)",
         }}
         aria-hidden="true"
       />
@@ -163,10 +163,11 @@ export function HeroSection({ personal, stats }: HeroSectionProps) {
 
         {/* Name — massive monospace, lowercase, blinking cursor */}
         <h1 className="font-display font-bold leading-[0.88] tracking-[-0.03em] text-heading
-                       text-[clamp(68px,10vw,132px)]">
+                       text-[clamp(68px,10vw,132px)]"
+            aria-label="Alex Panteli">
           <motion.span
             className="block"
-            initial={{ opacity: 0, y: 28 }}
+            initial={{ opacity: 1, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.15, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           >
@@ -174,11 +175,11 @@ export function HeroSection({ personal, stats }: HeroSectionProps) {
           </motion.span>
           <motion.span
             className="block"
-            initial={{ opacity: 0, y: 28 }}
+            initial={{ opacity: 1, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.28, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           >
-            panteli<span className="blink text-(--phosphor)">_</span>
+            panteli<span className="blink text-(--phosphor)" aria-hidden="true">_</span>
           </motion.span>
         </h1>
 

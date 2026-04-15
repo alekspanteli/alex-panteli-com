@@ -133,6 +133,7 @@ export function ContactForm() {
                     id="name"
                     name="name"
                     placeholder="your name"
+                    autoComplete="name"
                     className={inputClass}
                     required
                   />
@@ -144,6 +145,8 @@ export function ContactForm() {
                     name="email"
                     type="email"
                     placeholder="your@email.com"
+                    autoComplete="email"
+                    spellCheck={false}
                     className={inputClass}
                     required
                   />
@@ -156,6 +159,7 @@ export function ContactForm() {
                   id="subject"
                   name="subject"
                   placeholder="what's this about?"
+                  autoComplete="off"
                   className={inputClass}
                   required
                 />
@@ -166,7 +170,8 @@ export function ContactForm() {
                 <Textarea
                   id="message"
                   name="message"
-                  placeholder="tell me about your project..."
+                  placeholder="tell me about your project…"
+                  autoComplete="off"
                   rows={5}
                   className={cn(inputClass, "h-auto resize-none")}
                   required
@@ -193,6 +198,7 @@ export function ContactForm() {
               <button
                 type="submit"
                 disabled={status === "submitting" || !FORMSPREE_URL}
+                aria-busy={status === "submitting"}
                 className="inline-flex w-full cursor-pointer items-center justify-center gap-2 bg-(--phosphor) px-6 py-3 font-mono text-[11px] uppercase tracking-widest text-background transition-opacity duration-150 hover:opacity-85 disabled:cursor-not-allowed disabled:opacity-50"
               >
                 <Send className="size-3.5" aria-hidden="true" />

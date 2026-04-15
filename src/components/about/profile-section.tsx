@@ -20,12 +20,12 @@ export function ProfileSection() {
               src="/avatar3.avif"
               alt={cvData.personal.name}
               fill
-              sizes="280px"
+              priority
+              sizes="(max-width: 768px) calc(100vw - 48px), 280px"
               className="object-cover
                          brightness-[0.82] contrast-[1.18] saturate-[0.55]
                          transition-[filter] duration-700 ease-in-out
                          group-hover:brightness-[0.96] group-hover:contrast-[1.08] group-hover:saturate-100"
-              priority
             />
 
             {/* Scanlines — fade out on hover to reveal the photo */}

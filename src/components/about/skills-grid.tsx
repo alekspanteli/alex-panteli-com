@@ -42,7 +42,7 @@ export function SkillsGrid() {
                   <span key={s.name}>
                     {s.name}
                     {i < skills.length - 1 && (
-                      <span className="text-(--phosphor)/40"> ·</span>
+                      <span className="text-(--phosphor)/40" aria-hidden="true"> ·</span>
                     )}
                   </span>
                 ))}
