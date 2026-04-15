@@ -82,7 +82,7 @@ export function ContactForm() {
       transition={{ delay: 0.1, duration: 0.4, ease: "easeOut" }}
     >
       {recaptcha.script}
-      <div className="rounded-xl border border-border/60 bg-card p-6 sm:p-8">
+      <div className="border border-border/60 bg-card p-6 sm:p-8">
         <h3 className="text-[16px] font-semibold tracking-[-0.02em] text-heading">
           Send a message
         </h3>
@@ -94,7 +94,7 @@ export function ContactForm() {
           {status === "success" ? (
             <div className="flex flex-col items-center gap-3 py-10 text-center">
               <div className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-card">
-                <CheckCircle2 className="h-5 w-5 text-green-500" />
+                <CheckCircle2 className="h-5 w-5 text-(--cobalt)" />
               </div>
               <h4 className="text-[15px] font-semibold tracking-[-0.02em]">Message sent!</h4>
               <p className="text-[13px] text-muted-foreground">
@@ -103,7 +103,7 @@ export function ContactForm() {
               <Button
                 variant="outline"
                 size="sm"
-                className="mt-2 rounded-lg border-border/60 text-[13px] font-medium shadow-none hover:border-(--green)/50 hover:text-(--green)"
+                className="mt-2 rounded-lg border-border/60 text-[13px] font-medium shadow-none hover:border-(--cobalt)/50 hover:text-(--cobalt)"
                 onClick={() => {
                   recaptcha.resetWidgetId();
                   setStatus("idle");
@@ -125,7 +125,7 @@ export function ContactForm() {
                     id="name"
                     name="name"
                     placeholder="Your name"
-                    className="h-9 rounded-lg border-border/60 bg-background text-[13px] shadow-none placeholder:text-muted-foreground/40 focus-visible:border-(--green)/50 focus-visible:ring-0"
+                    className="h-9 rounded-lg border-border/60 bg-background text-[13px] shadow-none placeholder:text-muted-foreground/40 focus-visible:border-(--cobalt)/50 focus-visible:ring-0"
                     required
                   />
                 </div>
@@ -138,7 +138,7 @@ export function ContactForm() {
                     name="email"
                     type="email"
                     placeholder="your@email.com"
-                    className="h-9 rounded-lg border-border/60 bg-background text-[13px] shadow-none placeholder:text-muted-foreground/40 focus-visible:border-(--green)/50 focus-visible:ring-0"
+                    className="h-9 rounded-lg border-border/60 bg-background text-[13px] shadow-none placeholder:text-muted-foreground/40 focus-visible:border-(--cobalt)/50 focus-visible:ring-0"
                     required
                   />
                 </div>
@@ -151,7 +151,7 @@ export function ContactForm() {
                   id="subject"
                   name="subject"
                   placeholder="What's this about?"
-                  className="h-9 rounded-lg border-border/60 bg-background text-[13px] shadow-none placeholder:text-muted-foreground/40 focus-visible:border-(--green)/50 focus-visible:ring-0"
+                  className="h-9 rounded-lg border-border/60 bg-background text-[13px] shadow-none placeholder:text-muted-foreground/40 focus-visible:border-(--cobalt)/50 focus-visible:ring-0"
                   required
                 />
               </div>
@@ -164,7 +164,7 @@ export function ContactForm() {
                   name="message"
                   placeholder="Tell me about your project..."
                   rows={5}
-                  className="rounded-lg border-border/60 bg-background text-[13px] shadow-none placeholder:text-muted-foreground/40 focus-visible:border-(--green)/50 focus-visible:ring-0"
+                  className="rounded-lg border-border/60 bg-background text-[13px] shadow-none placeholder:text-muted-foreground/40 focus-visible:border-(--cobalt)/50 focus-visible:ring-0"
                   required
                 />
               </div>

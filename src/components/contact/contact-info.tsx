@@ -1,77 +1,64 @@
 "use client";
 
 import { motion } from "motion/react";
-import type { LucideIcon } from "lucide-react";
-import { Mail, MapPin } from "lucide-react";
 import { cvData } from "@/data/cv-data";
 
-interface ContactItem {
-  icon: LucideIcon;
-  label: string;
-  value: string;
-  href: string | undefined;
-}
-
-const contactItems: ContactItem[] = [
+const contactItems = [
   {
-    icon: Mail,
     label: "Email",
     value: cvData.personal.email,
     href: `mailto:${cvData.personal.email}`,
   },
   {
-    icon: MapPin,
     label: "Location",
     value: cvData.personal.location,
     href: undefined,
   },
-];
+] as const;
 
 export function ContactInfo() {
   return (
-    <div className="space-y-8">
+    <div className="space-y-12">
       <div>
-        <p className="mb-2 font-mono text-[11px] font-medium uppercase tracking-widest text-(--green)">
+        <p className="mb-4 font-mono text-[11px] uppercase tracking-widest text-(--cobalt)">
           Contact
         </p>
-        <h3 className="text-[22px] font-semibold tracking-[-0.025em] text-heading">
-          Let&apos;s connect
+        {/* Large italic Cormorant heading — distinctive and warm */}
+        <h3 className="font-display text-[44px] font-bold italic leading-[1.05] tracking-[-0.02em] text-heading sm:text-[52px]">
+          Let&apos;s connect.
         </h3>
-        <p className="mt-3 text-[14px] leading-[1.7] tracking-[-0.01em] text-muted-foreground">
+        <div className="mt-5 h-px w-12 bg-(--cobalt)" aria-hidden="true" />
+        <p className="mt-6 max-w-sm text-[15px] leading-[1.7] tracking-[-0.01em] text-muted-foreground">
           Whether you need a frontend developer for your next project or want to
           explore a collaboration, I&apos;d love to hear from you.
         </p>
       </div>
 
-      <div className="space-y-2">
+      <div className="space-y-8">
         {contactItems.map((item, i) => (
           <motion.div
             key={item.label}
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -12 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: i * 0.07, duration: 0.3, ease: "easeOut" }}
+            transition={{ delay: i * 0.1, duration: 0.4, ease: "easeOut" }}
+            className="border-t border-border/40 pt-5"
           >
-            <div className="flex items-center gap-3 rounded-xl border border-border/60 bg-card p-4 transition-colors duration-150 hover:border-(--green)/40">
-              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-border/60 bg-muted/50">
-                <item.icon className="h-3.5 w-3.5 text-muted-foreground" aria-hidden="true" />
-              </div>
-              <div>
-                <p className="font-mono text-[10px] font-medium uppercase tracking-widest text-muted-foreground/60">
-                  {item.label}
-                </p>
-                {item.href ? (
-                  <a
-                    href={item.href}
-                    className="text-[13px] font-medium tracking-[-0.01em] text-foreground transition-colors duration-150 hover:text-(--green)"
-                  >
-                    {item.value}
-                  </a>
-                ) : (
-                  <p className="text-[13px] font-medium tracking-[-0.01em]">{item.value}</p>
-                )}
-              </div>
-            </div>
+            <p className="mb-1.5 font-mono text-[10px] uppercase tracking-widest text-muted-foreground/45">
+              {item.label}
+            </p>
+            {item.href ? (
+              <a
+                href={item.href}
+                className="font-display text-[22px] italic font-medium text-heading transition-colors duration-150 hover:text-(--cobalt)"
+              >
+                {item.value}
+              </a>
+            ) : (
+              <p className="font-display text-[22px] italic font-medium text-heading">
+                {item.value}
+              </p>
+            )}
           </motion.div>
         ))}
       </div>

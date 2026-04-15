@@ -19,7 +19,7 @@ export function ThemeToggle() {
         <Button
           variant="ghost"
           size="icon"
-          className="group relative rounded-full bg-muted/70 text-foreground/80 ring-1 ring-border/70 transition-all duration-200 hover:-translate-y-0.5 hover:bg-muted hover:text-foreground hover:ring-border/80 hover:shadow-[0_8px_20px_rgba(15,23,42,0.12)] focus-visible:ring-2 focus-visible:ring-ring dark:hover:shadow-[0_8px_20px_rgba(0,0,0,0.5)]"
+          className="group relative rounded-full bg-muted/70 text-foreground/80 ring-1 ring-border/70 transition-[background-color,box-shadow,transform,color,ring-color] duration-200 hover:-translate-y-0.5 hover:bg-muted hover:text-foreground hover:ring-border/80 hover:shadow-[0_8px_20px_rgba(15,23,42,0.12)] focus-visible:ring-2 focus-visible:ring-ring dark:hover:shadow-[0_8px_20px_rgba(0,0,0,0.5)]"
         >
           <Sun
             className="h-5 w-5 scale-100 rotate-0 transition-all duration-200 group-hover:scale-105 dark:scale-0 dark:-rotate-90"

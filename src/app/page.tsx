@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { HeroSection } from "@/components/home/hero-section";
 import { SITE_CONFIG } from "@/lib/constants";
+import { cvData } from "@/data/cv-data";
 
 export const metadata: Metadata = {
   title: SITE_CONFIG.title,
@@ -9,5 +10,5 @@ export const metadata: Metadata = {
 };
 
 export default function HomePage() {
-  return <HeroSection />;
+  return <HeroSection personal={cvData.personal} stats={cvData.stats} />;
 }

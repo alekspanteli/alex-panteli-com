@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { NAV_LINKS } from "@/lib/constants";
@@ -12,21 +11,15 @@ export function Navbar() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border/50 bg-background/70 backdrop-blur-xl backdrop-saturate-150">
+    <header className="sticky top-0 z-50 border-b border-border/60 bg-background/85 backdrop-blur-xl">
       <nav className="mx-auto flex h-14 max-w-6xl items-center justify-between px-6">
-        {/* Logo */}
+        {/* Logo — "AP" monogram in Cormorant italic */}
         <Link
           href="/"
-          className="flex items-center gap-2.5 transition-opacity duration-200 hover:opacity-70"
+          aria-label="Alex Panteli — Home"
+          className="font-display text-[22px] italic font-semibold text-heading transition-opacity duration-200 hover:opacity-50"
         >
-          <Image
-            src="/logo.svg"
-            alt="Alex Panteli"
-            width={72}
-            height={24}
-            sizes="72px"
-            className="transition-[filter] duration-200 dark:brightness-0 dark:invert"
-          />
+          AP
         </Link>
 
         {/* Center nav links */}
@@ -38,19 +31,19 @@ export function Navbar() {
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  "relative rounded-md px-3 py-1.5 text-[13px] font-medium tracking-[-0.01em] transition-colors duration-150",
+                  "relative px-3 py-1.5 font-sans text-[11px] font-semibold uppercase tracking-widest transition-colors duration-150",
                   isActive
-                    ? "text-foreground font-medium"
+                    ? "text-foreground"
                     : "text-muted-foreground hover:text-foreground"
                 )}
               >
                 {isActive && (
                   <span
-                    className="absolute bottom-0 left-3 right-3 h-px bg-(--green)"
+                    className="absolute bottom-0 left-3 right-3 h-px bg-(--cobalt)"
                     aria-hidden="true"
                   />
                 )}
-                <span className="relative">{link.label}</span>
+                {link.label}
               </Link>
             );
           })}

@@ -1,6 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
-@import "shadcn/tailwind.css";
+@import "../../node_modules/shadcn/dist/tailwind.css";
 
 @view-transition {
   navigation: auto;
@@ -11,8 +11,8 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-bricolage);
-  --font-display: var(--font-bricolage);
+  --font-sans: var(--font-syne);
+  --font-display: var(--font-cormorant);
   --font-mono: var(--font-fira);
 
   --color-sidebar-ring: var(--sidebar-ring);
@@ -44,93 +44,99 @@
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-sm: calc(var(--radius) - 1px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 2px);
+  --radius-xl: calc(var(--radius) + 6px);
+  --radius-2xl: calc(var(--radius) + 10px);
   --color-link: var(--link);
   --color-link-hover: var(--link-hover);
   --color-heading: var(--heading);
 }
 
-/* Light — green-tinted paper */
+/* ─── Light — warm editorial cream ─── */
 :root {
-  --radius: 0.375rem;
-  --background: #F2FAF5;
-  --foreground: #0B1A10;
-  --heading: #071209;
-  --card: #E8F5ED;
-  --card-foreground: #0B1A10;
-  --popover: #E8F5ED;
-  --popover-foreground: #0B1A10;
-  --primary: #071209;
-  --primary-foreground: #F2FAF5;
-  --secondary: #DCF0E4;
-  --secondary-foreground: #0B1A10;
-  --muted: #DCF0E4;
-  --muted-foreground: #2D6644;
-  --accent: #DCF0E4;
-  --accent-foreground: #0B1A10;
+  --radius: 0.25rem;
+  --background: #F6F1E7;
+  --foreground: #18140C;
+  --heading: #0D0A06;
+  --card: #EDE8DA;
+  --card-foreground: #18140C;
+  --popover: #EDE8DA;
+  --popover-foreground: #18140C;
+  --primary: #1B4DFF;
+  --primary-foreground: #FFFFFF;
+  --secondary: #E4DDD0;
+  --secondary-foreground: #18140C;
+  --muted: #E4DDD0;
+  --muted-foreground: #7A7264;
+  --accent: #E4DDD0;
+  --accent-foreground: #18140C;
   --destructive: #DC2626;
-  --border: rgba(7, 18, 9, 0.1);
-  --input: rgba(7, 18, 9, 0.07);
-  --ring: #059669;
-  --link: #059669;
-  --link-hover: #047857;
-  --chart-1: #059669;
-  --chart-2: #047857;
-  --chart-3: #065F46;
-  --chart-4: #064E3B;
-  --chart-5: #022C22;
-  --sidebar: #E8F5ED;
-  --sidebar-foreground: #0B1A10;
-  --sidebar-primary: #071209;
-  --sidebar-primary-foreground: #F2FAF5;
-  --sidebar-accent: #DCF0E4;
-  --sidebar-accent-foreground: #0B1A10;
-  --sidebar-border: rgba(7, 18, 9, 0.1);
-  --sidebar-ring: #059669;
-  --green: #059669;
+  --border: rgba(24, 20, 12, 0.13);
+  --input: rgba(24, 20, 12, 0.08);
+  --ring: rgba(27, 77, 255, 0.3);
+  --link: #1B4DFF;
+  --link-hover: #0F35CC;
+  --chart-1: #1B4DFF;
+  --chart-2: #0F35CC;
+  --chart-3: #0828A8;
+  --chart-4: #061C80;
+  --chart-5: #040F55;
+  --sidebar: #EDE8DA;
+  --sidebar-foreground: #18140C;
+  --sidebar-primary: #0D0A06;
+  --sidebar-primary-foreground: #F6F1E7;
+  --sidebar-accent: #E4DDD0;
+  --sidebar-accent-foreground: #18140C;
+  --sidebar-border: rgba(24, 20, 12, 0.13);
+  --sidebar-ring: rgba(27, 77, 255, 0.3);
+  /* Brand tokens */
+  --cobalt: #1B4DFF;
+  --cobalt-dim: #0F35CC;
+  --green: var(--cobalt); /* backwards-compat alias for untouched components */
 }
 
-/* Dark — terminal trading aesthetic */
+/* ─── Dark — warm near-black ─── */
 .dark {
-  --background: #0A0F0C;
-  --foreground: #E4EDE7;
-  --heading: #F0FAF4;
-  --card: #111812;
-  --card-foreground: #E4EDE7;
-  --popover: #111812;
-  --popover-foreground: #E4EDE7;
-  --primary: #F0FAF4;
-  --primary-foreground: #0A0F0C;
-  --secondary: #192B1F;
-  --secondary-foreground: #E4EDE7;
-  --muted: #192B1F;
-  --muted-foreground: #7AAD8B;
-  --accent: #192B1F;
-  --accent-foreground: #E4EDE7;
+  --background: #0E0B07;
+  --foreground: #F0E9D7;
+  --heading: #F8F2E5;
+  --card: #141109;
+  --card-foreground: #F0E9D7;
+  --popover: #141109;
+  --popover-foreground: #F0E9D7;
+  --primary: #6B8FFF;
+  --primary-foreground: #0E0B07;
+  --secondary: #1E1A12;
+  --secondary-foreground: #F0E9D7;
+  --muted: #1E1A12;
+  --muted-foreground: #958E7B;
+  --accent: #1E1A12;
+  --accent-foreground: #F0E9D7;
   --destructive: #EF4444;
-  --border: rgba(0, 220, 130, 0.07);
-  --input: rgba(0, 220, 130, 0.06);
-  --ring: rgba(0, 220, 130, 0.35);
-  --link: #00DC82;
-  --link-hover: #34EF9A;
-  --chart-1: #00DC82;
-  --chart-2: #059669;
-  --chart-3: #047857;
-  --chart-4: #065F46;
-  --chart-5: #064E3B;
-  --sidebar: #111812;
-  --sidebar-foreground: #E4EDE7;
-  --sidebar-primary: #F0FAF4;
-  --sidebar-primary-foreground: #0A0F0C;
-  --sidebar-accent: #192B1F;
-  --sidebar-accent-foreground: #E4EDE7;
-  --sidebar-border: rgba(0, 220, 130, 0.07);
-  --sidebar-ring: rgba(0, 220, 130, 0.35);
-  --green: #00DC82;
+  --border: rgba(240, 233, 215, 0.1);
+  --input: rgba(240, 233, 215, 0.07);
+  --ring: rgba(107, 143, 255, 0.35);
+  --link: #6B8FFF;
+  --link-hover: #8FA8FF;
+  --chart-1: #6B8FFF;
+  --chart-2: #4D72FF;
+  --chart-3: #3357E5;
+  --chart-4: #1B4DFF;
+  --chart-5: #0F35CC;
+  --sidebar: #141109;
+  --sidebar-foreground: #F0E9D7;
+  --sidebar-primary: #F8F2E5;
+  --sidebar-primary-foreground: #0E0B07;
+  --sidebar-accent: #1E1A12;
+  --sidebar-accent-foreground: #F0E9D7;
+  --sidebar-border: rgba(240, 233, 215, 0.1);
+  --sidebar-ring: rgba(107, 143, 255, 0.35);
+  /* Brand tokens */
+  --cobalt: #6B8FFF;
+  --cobalt-dim: #4D72FF;
+  --green: var(--cobalt); /* backwards-compat alias */
 }
 
 @layer base {
@@ -145,19 +151,19 @@
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    letter-spacing: -0.015em;
+    letter-spacing: -0.01em;
   }
   h1, h2, h3, h4, h5, h6 {
     color: var(--heading);
     font-family: var(--font-display);
-    letter-spacing: -0.03em;
+    letter-spacing: -0.02em;
   }
   .lucide {
-    will-change: transform;
+    flex-shrink: 0;
   }
 }
 
-/* Spotlight card — green glow */
+/* ─── Spotlight card — cobalt glow ─── */
 .spotlight-card {
   position: relative;
   isolation: isolate;
@@ -171,7 +177,7 @@
   opacity: var(--spotlight-opacity, 0);
   background: radial-gradient(
     500px circle at var(--spotlight-x, 0px) var(--spotlight-y, 0px),
-    color-mix(in srgb, var(--green, var(--primary)) 10%, transparent),
+    color-mix(in srgb, var(--cobalt) 8%, transparent),
     transparent 40%
   );
   transition: opacity 0.3s;
@@ -186,7 +192,7 @@
   z-index: 10;
   border-radius: inherit;
   opacity: var(--spotlight-opacity, 0);
-  border: 1px solid color-mix(in srgb, var(--green, var(--primary)) 35%, transparent);
+  border: 1px solid color-mix(in srgb, var(--cobalt) 30%, transparent);
   mask-image: radial-gradient(
     350px circle at var(--spotlight-x, 0px) var(--spotlight-y, 0px),
     black,
@@ -201,34 +207,42 @@
   pointer-events: none;
 }
 
-/* Terminal scanline atmosphere — dark mode only */
-.scanline {
-  background-image:
-    repeating-linear-gradient(
-      0deg,
-      transparent,
-      transparent 3px,
-      rgba(0, 220, 130, 0.012) 3px,
-      rgba(0, 220, 130, 0.012) 4px
-    );
-}
 
-/* Subtle dot grid */
-.dot-grid {
-  background-image: radial-gradient(rgba(7, 18, 9, 0.08) 1px, transparent 1px);
-  background-size: 28px 28px;
-}
-.dark .dot-grid {
-  background-image: radial-gradient(rgba(0, 220, 130, 0.06) 1px, transparent 1px);
-  background-size: 28px 28px;
-}
-
-/* Fade-in keyframes */
+/* ─── Keyframes ─── */
 @keyframes fade-up {
-  from { opacity: 0; transform: translateY(16px); }
+  from { opacity: 0; transform: translateY(20px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes draw-x {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
 .animate-fade-up {
-  animation: fade-up 0.5s ease-out forwards;
+  animation: fade-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out forwards;
+}
+
+.animate-draw-x {
+  transform-origin: left center;
+  animation: draw-x 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ─── Dot grid (kept for compatibility) ─── */
+.dot-grid {
+  background-image: radial-gradient(rgba(24, 20, 12, 0.05) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+.dark .dot-grid {
+  background-image: radial-gradient(rgba(240, 233, 215, 0.03) 1px, transparent 1px);
+  background-size: 32px 32px;
 }

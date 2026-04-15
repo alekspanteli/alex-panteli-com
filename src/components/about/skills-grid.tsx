@@ -6,45 +6,41 @@ import { cvData } from "@/data/cv-data";
 const categories = [
   { key: "frontend" as const, label: "Frontend" },
   { key: "backend" as const, label: "Backend" },
-  { key: "tools" as const, label: "Tools & Testing" },
-  { key: "other" as const, label: "Other" },
+  { key: "tools" as const, label: "Tooling" },
+  { key: "other" as const, label: "Practices" },
 ];
 
 export function SkillsGrid() {
   return (
     <div>
-      <div className="mb-8">
-        <p className="mb-2 font-mono text-[11px] font-medium uppercase tracking-widest text-(--green)">
-          Skills
+      <div className="mb-10 border-t border-border/50 pt-8">
+        <p className="mb-2 font-mono text-[11px] uppercase tracking-widest text-(--cobalt)">
+          Stack
         </p>
-        <h3 className="text-[22px] font-semibold tracking-[-0.025em] text-heading">
-          Technologies I work with
+        <h3 className="font-display text-[32px] font-bold leading-[1.1] tracking-[-0.02em] text-heading">
+          Technologies
         </h3>
       </div>
       <div className="grid gap-8 sm:grid-cols-2">
-        {categories.map((category) => {
+        {categories.map((category, catIndex) => {
           const skills = cvData.skills.filter((s) => s.category === category.key);
           if (skills.length === 0) return null;
           return (
-            <div key={category.key}>
-              <h4 className="mb-3 font-mono text-[11px] font-medium uppercase tracking-widest text-muted-foreground/70">
+            <motion.div
+              key={category.key}
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: catIndex * 0.07, duration: 0.45, ease: "easeOut" }}
+              className="border-l-2 border-(--cobalt)/25 pl-5"
+            >
+              <h4 className="mb-3 font-mono text-[10px] uppercase tracking-widest text-muted-foreground/50">
                 {category.label}
               </h4>
-              <div className="flex flex-wrap gap-1.5">
-                {skills.map((skill, i) => (
-                  <motion.span
-                    key={skill.name}
-                    initial={{ opacity: 0, scale: 0.94 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.025, duration: 0.2, ease: "easeOut" }}
-                    className="inline-flex items-center rounded-md border border-border/60 bg-card px-2.5 py-1 text-[12px] font-medium tracking-[-0.005em] text-muted-foreground transition-colors duration-150 hover:border-(--green)/50 hover:text-foreground"
-                  >
-                    {skill.name}
-                  </motion.span>
-                ))}
-              </div>
-            </div>
+              <p className="text-[14px] leading-[1.85] text-foreground/75">
+                {skills.map((s) => s.name).join(" · ")}
+              </p>
+            </motion.div>
           );
         })}
       </div>

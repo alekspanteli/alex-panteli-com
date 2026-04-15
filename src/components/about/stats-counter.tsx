@@ -1,36 +1,35 @@
 "use client";
 
 import { useCounterAnimation } from "@/hooks/use-counter-animation";
-import { SpotlightContainer, SpotlightCard } from "@/components/shared/spotlight-card";
 import { cvData } from "@/data/cv-data";
 import type { Stat } from "@/data/cv-data";
 
-interface StatCardProps {
+interface StatItemProps {
   stat: Stat;
 }
 
-function StatCard({ stat }: StatCardProps) {
+function StatItem({ stat }: StatItemProps) {
   const { ref, display } = useCounterAnimation(stat.value);
 
   return (
-    <SpotlightCard className="rounded-xl border border-border/60 bg-card p-7 text-center transition-colors duration-200 hover:border-(--green)/40">
-      <p className="text-[38px] font-bold tracking-[-0.04em] text-heading">
-        <span ref={ref} className="text-(--green)">{display}</span>
-        <span className="text-muted-foreground">{stat.suffix}</span>
+    <div className="border-t border-border/50 pt-6">
+      <p className="font-display text-[54px] font-bold leading-none tracking-[-0.04em] text-heading">
+        <span ref={ref}>{display}</span>
+        <span className="text-(--cobalt)">{stat.suffix}</span>
       </p>
-      <p className="mt-1.5 font-mono text-[11px] uppercase tracking-widest text-muted-foreground/70">
+      <p className="mt-2 font-mono text-[10px] uppercase tracking-widest text-muted-foreground/55">
         {stat.label}
       </p>
-    </SpotlightCard>
+    </div>
   );
 }
 
 export function StatsCounter() {
   return (
-    <SpotlightContainer className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+    <div className="grid grid-cols-1 gap-0 sm:grid-cols-3">
       {cvData.stats.map((stat) => (
-        <StatCard key={stat.label} stat={stat} />
+        <StatItem key={stat.label} stat={stat} />
       ))}
-    </SpotlightContainer>
+    </div>
   );
 }

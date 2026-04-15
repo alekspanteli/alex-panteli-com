@@ -14,7 +14,16 @@
       "Bash(node -e \"const r = require\\('react'\\); console.log\\(r.version\\); console.log\\(Object.keys\\(r\\).filter\\(k => k.toLowerCase\\(\\).includes\\('view'\\) || k.toLowerCase\\(\\).includes\\('transition'\\)\\)\\)\")",
       "Bash(node -e \"const p = require\\('./node_modules/eslint/package.json'\\); console.log\\('eslint:', p.version\\)\")",
       "Bash(npm run *)",
-      "mcp__playwright__browser_wait_for"
+      "mcp__playwright__browser_wait_for",
+      "Bash(du -sh /c/myprojects/alex-panteli-com/*.png /c/myprojects/alex-panteli-com/.playwright-mcp)",
+      "Bash(rm -f about-dark.png experience-dark.png hero-current.png hero-dark-home.png hero-dark.png hero-final-dark.png hero-final.png screenshot-about.png screenshot-contact.png screenshot-experience.png screenshot-home-dark.png screenshot-home.png v2-about-dark.png v2-contact-dark.png v2-experience-dark.png v2-home-dark.png v2-home-light.png v3-home-dark.png v4-contact-light.png v4-experience-light.png v4-home-dark.png v4-home-light.png tsconfig.tsbuildinfo skills-lock.json)",
+      "Bash(rm -rf .playwright-mcp)",
+      "Read(//c/myprojects/**)",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\(json.dumps\\(d.get\\('exports',{}\\), indent=2\\)\\)\")",
+      "Bash(node -e \"const p=require\\('c:/myprojects/alex-panteli-com/node_modules/shadcn/package.json'\\);console.log\\(JSON.stringify\\(p.exports,null,2\\)\\)\")",
+      "mcp__plugin_playwright_playwright__browser_navigate",
+      "mcp__plugin_playwright_playwright__browser_take_screenshot",
+      "Bash(npx skills *)"
     ],
     "additionalDirectories": [
       "C:\\Users\\dudec\\.claude"

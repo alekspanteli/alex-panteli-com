@@ -1,124 +1,122 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { motion } from "motion/react";
 import { ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { cvData } from "@/data/cv-data";
+import type { PersonalInfo, Stat } from "@/data/cv-data";
 
-export function HeroSection() {
+type HeroSectionProps = {
+  personal: PersonalInfo;
+  stats: Stat[];
+};
+
+export function HeroSection({ personal, stats }: HeroSectionProps) {
   return (
-    <section className="relative flex min-h-[calc(100svh-56px)] items-center overflow-hidden">
+    <section className="relative flex min-h-[calc(100svh-56px)] flex-col justify-center overflow-hidden px-6 py-20 sm:px-12">
+      <div className="mx-auto w-full max-w-6xl">
 
-      <div className="relative z-10 mx-auto w-full max-w-6xl px-6 py-16 sm:px-12">
-        <div className="grid items-center gap-12 lg:grid-cols-[1fr_340px] xl:grid-cols-[1fr_380px]">
+        {/* Role label — first to appear */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.05, duration: 0.6, ease: "easeOut" }}
+          className="mb-10 font-mono text-[11px] uppercase tracking-widest text-(--cobalt)"
+        >
+          {personal.title}
+        </motion.p>
 
-          {/* Left: Text content */}
+        {/* Name — "Alex" roman, "Panteli" italic. Massive Cormorant display. */}
+        <h1 className="font-display font-bold leading-[0.88] tracking-[-0.025em] text-heading
+                       text-[clamp(72px,12vw,148px)]">
+          <motion.span
+            className="block"
+            initial={{ opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.15, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          >
+            Alex
+          </motion.span>
+          <motion.span
+            className="block italic"
+            initial={{ opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.28, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          >
+            Panteli
+          </motion.span>
+        </h1>
+
+        {/* Cobalt rule — draws in from left */}
+        <motion.div
+          initial={{ scaleX: 0 }}
+          animate={{ scaleX: 1 }}
+          style={{ transformOrigin: "left center" }}
+          transition={{ delay: 0.52, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+          className="my-10 h-0.75 w-full bg-(--cobalt)"
+          aria-hidden="true"
+        />
+
+        {/* Bottom row: description left, stats right */}
+        <div className="grid gap-12 md:grid-cols-[1fr_auto]">
+
+          {/* Left: description + CTAs */}
           <div>
-            {/* Mono label */}
             <motion.p
-              initial={{ opacity: 0, y: 8 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.05, duration: 0.4, ease: "easeOut" }}
-              className="mb-5 font-mono text-[11px] font-medium uppercase tracking-widest text-(--green)"
+              transition={{ delay: 0.66, duration: 0.5, ease: "easeOut" }}
+              className="mb-8 max-w-130 text-[17px] leading-[1.65] tracking-[-0.01em] text-muted-foreground"
             >
-              {cvData.personal.title}
+              A decade crafting precise, accessible interfaces — from design-system
+              foundations to real-time trading platforms. React, TypeScript, Next.js.
             </motion.p>
 
-            {/* Name */}
-            <motion.h1
-              initial={{ opacity: 0, y: 22 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.15, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-              className="mb-5 text-[52px] font-bold leading-none tracking-[-0.04em] text-heading sm:text-[64px] lg:text-[72px] xl:text-[84px]"
-            >
-              {cvData.personal.name}
-            </motion.h1>
-
-            {/* Subheading */}
-            <motion.p
-              initial={{ opacity: 0, y: 14 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.45, ease: "easeOut" }}
-              className="mb-8 max-w-md text-[16px] leading-[1.7] tracking-[-0.01em] text-muted-foreground"
-            >
-              A decade shipping production UIs — from design systems to trading
-              platforms. React, TypeScript, performance.
-            </motion.p>
-
-            {/* CTAs */}
             <motion.div
-              initial={{ opacity: 0, y: 10 }}
+              initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.45, duration: 0.4, ease: "easeOut" }}
-              className="mb-10 flex flex-wrap gap-3"
+              transition={{ delay: 0.8, duration: 0.45, ease: "easeOut" }}
+              className="flex flex-wrap gap-3"
             >
-              <Button
-                asChild
-                size="lg"
-                className="h-9 rounded-lg px-5 text-[13px] font-medium tracking-[-0.01em] shadow-none"
+              <Link
+                href="/experience"
+                className="inline-flex h-10 items-center rounded-sm bg-(--cobalt) px-5 text-[13px] font-semibold tracking-wide text-white transition-opacity duration-150 hover:opacity-80"
               >
-                <Link href="/experience">View Experience</Link>
-              </Button>
-              <Button
-                asChild
-                variant="outline"
-                size="lg"
-                className="group h-9 gap-1.5 rounded-lg border-border/50 px-5 text-[13px] font-medium tracking-[-0.01em] text-muted-foreground shadow-none hover:border-(--green)/50 hover:text-(--green)"
+                View Experience
+              </Link>
+              <Link
+                href="/contact"
+                className="group inline-flex h-10 items-center gap-1.5 rounded-sm border border-border/70 px-5 text-[13px] font-semibold tracking-wide text-muted-foreground transition-colors duration-150 hover:border-(--cobalt)/50 hover:text-(--cobalt)"
               >
-                <Link href="/contact">
-                  Get In Touch
-                  <ArrowRight className="h-3.5 w-3.5 transition-transform duration-150 group-hover:translate-x-0.5" />
-                </Link>
-              </Button>
-            </motion.div>
-
-            {/* Stats row */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.6, duration: 0.4, ease: "easeOut" }}
-              className="flex gap-8 border-t border-border/40 pt-6"
-            >
-              {cvData.stats.map((stat) => (
-                <div key={stat.label}>
-                  <p className="text-[22px] font-bold tracking-[-0.03em] text-heading">
-                    {stat.value}{stat.suffix}
-                  </p>
-                  <p className="mt-0.5 font-mono text-[10px] uppercase tracking-widest text-muted-foreground/60">
-                    {stat.label}
-                  </p>
-                </div>
-              ))}
+                Get In Touch
+                <ArrowRight className="h-3.5 w-3.5 transition-transform duration-150 group-hover:translate-x-0.5" />
+              </Link>
             </motion.div>
           </div>
 
-          {/* Right: Profile photo */}
+          {/* Right: stats — stacked, right-aligned */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.96 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.2, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="hidden lg:block"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.95, duration: 0.6, ease: "easeOut" }}
+            className="flex items-end gap-8 md:flex-col md:items-end md:gap-7"
           >
-            <div className="relative aspect-3/4 w-full overflow-hidden rounded-2xl border border-border/40 ring-1 ring-(--green)/10">
-              <Image
-                src="/avatar3.avif"
-                alt={cvData.personal.name}
-                fill
-                sizes="380px"
-                className="object-cover grayscale"
-                priority
-              />
-              {/* Bottom gradient fade */}
-              <div className="absolute inset-0 bg-linear-to-t from-background/50 via-transparent to-transparent" />
-            </div>
+            {stats.map((stat) => (
+              <div key={stat.label} className="text-right">
+                <p className="font-display text-[52px] font-bold leading-none tracking-[-0.04em] text-heading">
+                  {stat.value}
+                  <span className="text-(--cobalt)">{stat.suffix}</span>
+                </p>
+                <p className="mt-1.5 font-mono text-[9px] uppercase tracking-widest text-muted-foreground/50">
+                  {stat.label}
+                </p>
+              </div>
+            ))}
           </motion.div>
 
         </div>
       </div>
 
-      {/* Bottom fade */}
+      {/* Bottom gradient fade */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-linear-to-t from-background to-transparent"

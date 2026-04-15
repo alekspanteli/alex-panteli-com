@@ -40,3 +40,9 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# playwright mcp session files
+.playwright-mcp/
+
+# claude code tooling
+skills-lock.json
+
