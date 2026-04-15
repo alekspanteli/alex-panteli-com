@@ -31,7 +31,7 @@ export function ContactInfo() {
   return (
     <div className="space-y-8">
       <div>
-        <p className="mb-2 text-[12px] font-medium uppercase tracking-[0.12em] text-(--accent-purple)">
+        <p className="mb-2 font-mono text-[11px] font-medium uppercase tracking-widest text-(--green)">
           Contact
         </p>
         <h3 className="text-[22px] font-semibold tracking-[-0.025em] text-heading">
@@ -52,18 +52,18 @@ export function ContactInfo() {
             viewport={{ once: true }}
             transition={{ delay: i * 0.07, duration: 0.3, ease: "easeOut" }}
           >
-            <div className="flex items-center gap-3 rounded-xl border border-border/60 bg-card p-4 transition-colors duration-150 hover:border-border">
+            <div className="flex items-center gap-3 rounded-xl border border-border/60 bg-card p-4 transition-colors duration-150 hover:border-(--green)/40">
               <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-border/60 bg-muted/50">
                 <item.icon className="h-3.5 w-3.5 text-muted-foreground" aria-hidden="true" />
               </div>
               <div>
-                <p className="text-[11px] font-medium uppercase tracking-widest text-muted-foreground/60">
+                <p className="font-mono text-[10px] font-medium uppercase tracking-widest text-muted-foreground/60">
                   {item.label}
                 </p>
                 {item.href ? (
                   <a
                     href={item.href}
-                    className="text-[13px] font-medium tracking-[-0.01em] text-foreground transition-colors duration-150 hover:text-(--accent-purple)"
+                    className="text-[13px] font-medium tracking-[-0.01em] text-foreground transition-colors duration-150 hover:text-(--green)"
                   >
                     {item.value}
                   </a>

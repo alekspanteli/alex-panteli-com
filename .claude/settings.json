@@ -11,7 +11,10 @@
       "Bash(npm install:*)",
       "Bash(node -e \"const r = require\\('react'\\); console.log\\(Object.keys\\(r\\).filter\\(k => k.toLowerCase\\(\\).includes\\('view'\\) || k.toLowerCase\\(\\).includes\\('transition'\\)\\)\\)\")",
       "Bash(npm info:*)",
-      "Bash(node -e \"const r = require\\('react'\\); console.log\\(r.version\\); console.log\\(Object.keys\\(r\\).filter\\(k => k.toLowerCase\\(\\).includes\\('view'\\) || k.toLowerCase\\(\\).includes\\('transition'\\)\\)\\)\")"
+      "Bash(node -e \"const r = require\\('react'\\); console.log\\(r.version\\); console.log\\(Object.keys\\(r\\).filter\\(k => k.toLowerCase\\(\\).includes\\('view'\\) || k.toLowerCase\\(\\).includes\\('transition'\\)\\)\\)\")",
+      "Bash(node -e \"const p = require\\('./node_modules/eslint/package.json'\\); console.log\\('eslint:', p.version\\)\")",
+      "Bash(npm run *)",
+      "mcp__playwright__browser_wait_for"
     ],
     "additionalDirectories": [
       "C:\\Users\\dudec\\.claude"

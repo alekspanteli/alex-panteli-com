@@ -32,7 +32,7 @@ export function TimelineItem({
     >
       {/* Timeline spine */}
       <div className="relative flex flex-col items-center">
-        <div className="z-10 mt-1.5 h-2 w-2 shrink-0 rounded-full bg-border ring-4 ring-background" />
+        <div className="z-10 mt-1.5 h-2 w-2 shrink-0 rounded-full bg-(--green) ring-4 ring-background" />
         <div className="mt-2 flex-1 w-px bg-border/60" />
       </div>
 
@@ -50,11 +50,11 @@ export function TimelineItem({
         </div>
 
         {/* Card */}
-        <div className="rounded-xl border border-border/60 bg-card p-5 transition-colors duration-200 hover:border-border">
+        <div className="rounded-xl border border-border/60 bg-card p-5 transition-colors duration-200 hover:border-(--green)/40">
           <h3 className="text-[15px] font-semibold tracking-[-0.02em] text-heading">
             {title}
           </h3>
-          <p className="mt-0.5 text-[13px] tracking-[-0.01em] text-muted-foreground">
+          <p className="mt-0.5 font-mono text-[11px] font-medium uppercase tracking-widest text-(--green) opacity-80">
             {subtitle}
           </p>
           <p className="mt-3 text-[13px] leading-[1.65] tracking-[-0.005em] text-muted-foreground">
@@ -67,7 +67,7 @@ export function TimelineItem({
                   key={i}
                   className="flex items-start gap-2 text-[13px] leading-[1.6] text-muted-foreground"
                 >
-                  <span className="mt-1.75 h-1 w-1 shrink-0 rounded-full bg-muted-foreground/40" aria-hidden="true" />
+                  <span className="mt-1.75 h-1 w-1 shrink-0 rounded-full bg-(--green) opacity-50" aria-hidden="true" />
                   {highlight}
                 </li>
               ))}

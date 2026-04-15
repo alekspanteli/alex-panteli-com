@@ -18,7 +18,7 @@ export function SectionHeading({ label, title, subtitle }: SectionHeadingProps) 
       className="mb-12"
     >
       {label && (
-        <p className="mb-3 text-[12px] font-medium uppercase tracking-[0.12em] text-(--accent-purple)">
+        <p className="mb-3 font-mono text-[11px] font-medium uppercase tracking-widest text-(--green)">
           {label}
         </p>
       )}

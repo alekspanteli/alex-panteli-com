@@ -1,0 +1,53 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - link "Skip to content" [ref=e4] [cursor=pointer]:
+      - /url: "#main-content"
+    - banner [ref=e5]:
+      - navigation [ref=e6]:
+        - link "Alex Panteli" [ref=e7] [cursor=pointer]:
+          - /url: /
+          - img "Alex Panteli" [ref=e8]
+        - generic [ref=e9]:
+          - link "Home" [ref=e10] [cursor=pointer]:
+            - /url: /
+            - text: Home
+          - link "About" [ref=e12] [cursor=pointer]:
+            - /url: /about
+          - link "Experience" [ref=e13] [cursor=pointer]:
+            - /url: /experience
+          - link "Contact" [ref=e14] [cursor=pointer]:
+            - /url: /contact
+        - button "Toggle theme" [ref=e16]:
+          - img
+          - generic [ref=e17]: Toggle theme
+    - main [ref=e18]:
+      - generic [ref=e20]:
+        - generic [ref=e22]:
+          - text: Senior Frontend Developer
+          - img [ref=e25]
+          - text: Cyprus
+          - img "Cyprus flag" [ref=e28]
+        - heading "Alex Panteli" [level=1] [ref=e29]
+        - paragraph [ref=e30]: A decade shipping production UIs — from design systems to trading platforms. React, TypeScript, performance.
+        - generic [ref=e31]:
+          - link "View Experience" [ref=e32] [cursor=pointer]:
+            - /url: /experience
+          - link "Get In Touch" [ref=e33] [cursor=pointer]:
+            - /url: /contact
+            - text: Get In Touch
+            - img
+    - contentinfo [ref=e34]:
+      - generic [ref=e35]:
+        - paragraph [ref=e36]: © 2026 Alex Panteli
+        - generic [ref=e37]:
+          - link "Email" [ref=e38] [cursor=pointer]:
+            - /url: mailto:alekspanteli@gmail.com
+            - img [ref=e39]
+          - link "GitHub" [ref=e42] [cursor=pointer]:
+            - /url: https://github.com/alekspanteli
+            - img [ref=e43]
+          - link "LinkedIn" [ref=e45] [cursor=pointer]:
+            - /url: https://www.linkedin.com/in/alexpanteli/
+            - img [ref=e46]
+  - button "Open Next.js Dev Tools" [ref=e53] [cursor=pointer]:
+    - img [ref=e54]

@@ -40,13 +40,13 @@ export function Navbar() {
                 className={cn(
                   "relative rounded-md px-3 py-1.5 text-[13px] font-medium tracking-[-0.01em] transition-colors duration-150",
                   isActive
-                    ? "text-foreground"
+                    ? "text-foreground font-medium"
                     : "text-muted-foreground hover:text-foreground"
                 )}
               >
                 {isActive && (
                   <span
-                    className="absolute inset-0 rounded-md bg-white/5 dark:bg-white/5"
+                    className="absolute bottom-0 left-3 right-3 h-px bg-(--green)"
                     aria-hidden="true"
                   />
                 )}

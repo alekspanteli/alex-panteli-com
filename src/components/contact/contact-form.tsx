@@ -103,7 +103,7 @@ export function ContactForm() {
               <Button
                 variant="outline"
                 size="sm"
-                className="mt-2 rounded-lg border-border/60 text-[13px] font-medium shadow-none"
+                className="mt-2 rounded-lg border-border/60 text-[13px] font-medium shadow-none hover:border-(--green)/50 hover:text-(--green)"
                 onClick={() => {
                   recaptcha.resetWidgetId();
                   setStatus("idle");
@@ -125,7 +125,7 @@ export function ContactForm() {
                     id="name"
                     name="name"
                     placeholder="Your name"
-                    className="h-9 rounded-lg border-border/60 bg-background text-[13px] shadow-none placeholder:text-muted-foreground/40 focus-visible:border-border focus-visible:ring-0"
+                    className="h-9 rounded-lg border-border/60 bg-background text-[13px] shadow-none placeholder:text-muted-foreground/40 focus-visible:border-(--green)/50 focus-visible:ring-0"
                     required
                   />
                 </div>
@@ -138,7 +138,7 @@ export function ContactForm() {
                     name="email"
                     type="email"
                     placeholder="your@email.com"
-                    className="h-9 rounded-lg border-border/60 bg-background text-[13px] shadow-none placeholder:text-muted-foreground/40 focus-visible:border-border focus-visible:ring-0"
+                    className="h-9 rounded-lg border-border/60 bg-background text-[13px] shadow-none placeholder:text-muted-foreground/40 focus-visible:border-(--green)/50 focus-visible:ring-0"
                     required
                   />
                 </div>
@@ -151,7 +151,7 @@ export function ContactForm() {
                   id="subject"
                   name="subject"
                   placeholder="What's this about?"
-                  className="h-9 rounded-lg border-border/60 bg-background text-[13px] shadow-none placeholder:text-muted-foreground/40 focus-visible:border-border focus-visible:ring-0"
+                  className="h-9 rounded-lg border-border/60 bg-background text-[13px] shadow-none placeholder:text-muted-foreground/40 focus-visible:border-(--green)/50 focus-visible:ring-0"
                   required
                 />
               </div>
@@ -164,7 +164,7 @@ export function ContactForm() {
                   name="message"
                   placeholder="Tell me about your project..."
                   rows={5}
-                  className="rounded-lg border-border/60 bg-background text-[13px] shadow-none placeholder:text-muted-foreground/40 focus-visible:border-border focus-visible:ring-0"
+                  className="rounded-lg border-border/60 bg-background text-[13px] shadow-none placeholder:text-muted-foreground/40 focus-visible:border-(--green)/50 focus-visible:ring-0"
                   required
                 />
               </div>

@@ -45,7 +45,7 @@ export function Footer() {
             <a
               key={label}
               href={href}
-              className="flex h-7 w-7 items-center justify-center rounded-lg border border-border/50 text-muted-foreground/60 transition-all duration-150 hover:border-border hover:text-foreground"
+              className="flex h-7 w-7 items-center justify-center rounded-lg border border-border/50 text-muted-foreground/60 transition-all duration-150 hover:border-(--green)/60 hover:text-(--green)"
               aria-label={label}
               {...(external && { target: "_blank", rel: "noopener noreferrer" })}
             >

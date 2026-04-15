@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { Suspense, ViewTransition } from "react";
-import { Inter, Sora } from "next/font/google";
+import { ViewTransition } from "react";
+import { Bricolage_Grotesque, Fira_Code } from "next/font/google";
 import { ThemeProvider } from "@/providers/theme-provider";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
@@ -11,15 +11,16 @@ import { CookieConsent } from "@/components/shared/cookie-consent";
 import { SITE_CONFIG } from "@/lib/constants";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
+const bricolageGrotesque = Bricolage_Grotesque({
+  variable: "--font-bricolage",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
 });
 
-const sora = Sora({
-  variable: "--font-sora",
+const firaCode = Fira_Code({
+  variable: "--font-fira",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500"],
 });
 
 export const metadata: Metadata = {
@@ -66,14 +67,13 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.variable} ${sora.variable} font-sans antialiased`}
+        className={`${bricolageGrotesque.variable} ${firaCode.variable} font-sans antialiased`}
       >
         <ThemeProvider>
-          {/* NavigationProgress removed */}
           <div className="relative min-h-svh">
-            {/* Linear-style dot grid — visible in both modes */}
-            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(rgba(0,0,0,0.12)_1px,transparent_1px)] dark:bg-[radial-gradient(rgba(255,255,255,0.05)_1px,transparent_1px)] bg-size-[28px_28px]" />
-            {/* Edge vignette — fades grid at left/right edges, not center */}
+            {/* Subtle dot grid — visible in both modes */}
+            <div className="pointer-events-none absolute inset-0 dot-grid" />
+            {/* Edge vignette — fades grid at edges */}
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_100%_at_50%_50%,transparent_60%,var(--background)_100%)]" />
             <div className="relative z-10 flex min-h-svh flex-col">
               <a

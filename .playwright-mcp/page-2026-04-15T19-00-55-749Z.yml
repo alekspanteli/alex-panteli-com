@@ -1,0 +1,61 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - link "Skip to content" [ref=e4] [cursor=pointer]:
+      - /url: "#main-content"
+    - banner [ref=e5]:
+      - navigation [ref=e6]:
+        - link "Alex Panteli" [ref=e7] [cursor=pointer]:
+          - /url: /
+          - img "Alex Panteli" [ref=e8]
+        - generic [ref=e9]:
+          - link "Home" [ref=e10] [cursor=pointer]:
+            - /url: /
+            - text: Home
+          - link "About" [ref=e12] [cursor=pointer]:
+            - /url: /about
+          - link "Experience" [ref=e13] [cursor=pointer]:
+            - /url: /experience
+          - link "Contact" [ref=e14] [cursor=pointer]:
+            - /url: /contact
+        - button "Toggle theme" [ref=e16]:
+          - img
+          - generic [ref=e17]: Toggle theme
+    - main [ref=e18]:
+      - generic [ref=e21]:
+        - generic [ref=e22]:
+          - paragraph [ref=e23]: Senior Frontend Developer
+          - heading "Alex Panteli" [level=1] [ref=e24]
+          - paragraph [ref=e25]: A decade shipping production UIs — from design systems to trading platforms. React, TypeScript, performance.
+          - generic [ref=e26]:
+            - link "View Experience" [ref=e27] [cursor=pointer]:
+              - /url: /experience
+            - link "Get In Touch" [ref=e28] [cursor=pointer]:
+              - /url: /contact
+              - text: Get In Touch
+              - img
+          - generic [ref=e29]:
+            - generic [ref=e30]:
+              - paragraph [ref=e31]: 11+
+              - paragraph [ref=e32]: Years Experience
+            - generic [ref=e33]:
+              - paragraph [ref=e34]: "4"
+              - paragraph [ref=e35]: Companies
+            - generic [ref=e36]:
+              - paragraph [ref=e37]: 15+
+              - paragraph [ref=e38]: Technologies
+        - img "Alex Panteli" [ref=e41]
+    - contentinfo [ref=e43]:
+      - generic [ref=e44]:
+        - paragraph [ref=e45]: © 2026 Alex Panteli
+        - generic [ref=e46]:
+          - link "Email" [ref=e47] [cursor=pointer]:
+            - /url: mailto:alekspanteli@gmail.com
+            - img [ref=e48]
+          - link "GitHub" [ref=e51] [cursor=pointer]:
+            - /url: https://github.com/alekspanteli
+            - img [ref=e52]
+          - link "LinkedIn" [ref=e54] [cursor=pointer]:
+            - /url: https://www.linkedin.com/in/alexpanteli/
+            - img [ref=e55]
+  - button "Open Next.js Dev Tools" [ref=e62] [cursor=pointer]:
+    - img [ref=e63]
