@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
-import { ViewTransition, Suspense } from "react";
+import { ViewTransition } from "react";
 import { IBM_Plex_Sans, Fira_Code } from "next/font/google";
 import { MotionConfig } from "motion/react";
 import { ThemeProvider } from "@/providers/theme-provider";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
-import { NavigationProgress } from "@/components/layout/navigation-progress";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { CookieConsent } from "@/components/shared/cookie-consent";
@@ -84,10 +83,7 @@ export default function RootLayout({
               >
                 Skip to content
               </a>
-              <Suspense fallback={null}>
-                <NavigationProgress />
-              </Suspense>
-              <Navbar />
+<Navbar />
               <main id="main-content" className="flex flex-1 flex-col">
                 <ViewTransition>{children}</ViewTransition>
               </main>
