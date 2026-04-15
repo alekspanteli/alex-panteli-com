@@ -13,12 +13,12 @@ const categories = [
 export function SkillsGrid() {
   return (
     <div>
-      <div className="mb-10 border-t border-border/50 pt-8">
-        <p className="mb-2 font-mono text-[11px] uppercase tracking-widest text-(--cobalt)">
+      <div className="mb-10 border-t border-(--phosphor)/15 pt-8">
+        <p className="mb-2 font-mono text-[11px] uppercase tracking-widest text-(--phosphor)">
           Stack
         </p>
-        <h3 className="font-display text-[32px] font-bold leading-[1.1] tracking-[-0.02em] text-heading">
-          Technologies
+        <h3 className="font-display text-[28px] font-bold leading-[1.1] tracking-[-0.025em] text-heading">
+          <span className="text-(--phosphor) mr-2">//</span>technologies
         </h3>
       </div>
       <div className="grid gap-8 sm:grid-cols-2">
@@ -32,13 +32,20 @@ export function SkillsGrid() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: catIndex * 0.07, duration: 0.45, ease: "easeOut" }}
-              className="border-l-2 border-(--cobalt)/25 pl-5"
+              className="border-l-2 border-(--phosphor)/20 pl-5"
             >
-              <h4 className="mb-3 font-mono text-[10px] uppercase tracking-widest text-muted-foreground/50">
+              <h4 className="mb-3 font-mono text-[10px] uppercase tracking-widest text-muted-foreground/70">
                 {category.label}
               </h4>
-              <p className="text-[14px] leading-[1.85] text-foreground/75">
-                {skills.map((s) => s.name).join(" · ")}
+              <p className="text-[13px] leading-[1.9] text-foreground/70">
+                {skills.map((s, i) => (
+                  <span key={s.name}>
+                    {s.name}
+                    {i < skills.length - 1 && (
+                      <span className="text-(--phosphor)/40"> ·</span>
+                    )}
+                  </span>
+                ))}
               </p>
             </motion.div>
           );

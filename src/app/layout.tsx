@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { ViewTransition, Suspense } from "react";
-import { Cormorant_Garamond, Syne, Fira_Code } from "next/font/google";
+import { IBM_Plex_Sans, Fira_Code } from "next/font/google";
 import { ThemeProvider } from "@/providers/theme-provider";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
@@ -11,23 +11,16 @@ import { CookieConsent } from "@/components/shared/cookie-consent";
 import { SITE_CONFIG } from "@/lib/constants";
 import "./globals.css";
 
-const cormorant = Cormorant_Garamond({
-  variable: "--font-cormorant",
+const ibm = IBM_Plex_Sans({
+  variable: "--font-ibm",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
-  style: ["normal", "italic"],
-});
-
-const syne = Syne({
-  variable: "--font-syne",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
 });
 
 const firaCode = Fira_Code({
   variable: "--font-fira",
   subsets: ["latin"],
-  weight: ["400", "500"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -74,12 +67,12 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${cormorant.variable} ${syne.variable} ${firaCode.variable} font-sans antialiased`}
+        className={`${ibm.variable} ${firaCode.variable} font-sans antialiased`}
       >
         <ThemeProvider>
           <div className="relative min-h-svh">
-            {/* Subtle dot grid */}
-            <div className="pointer-events-none absolute inset-0 dot-grid" />
+            {/* Vertical scan columns — frequency grid */}
+            <div className="scanlines pointer-events-none fixed inset-0 z-0" aria-hidden="true" />
             <div className="relative z-10 flex min-h-svh flex-col">
               <a
                 href="#main-content"

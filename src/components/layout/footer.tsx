@@ -8,17 +8,20 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-border/50">
-      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 py-6 sm:flex-row">
-        <p className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground/40">
-          &copy; {new Date().getFullYear()} {cvData.personal.name}
-        </p>
+    <footer className="border-t border-(--phosphor)/10">
+      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 py-5 sm:flex-row">
+        <div className="flex items-center gap-3">
+          <span className="h-1.5 w-1.5 rounded-full bg-(--phosphor) animate-pulse" aria-hidden="true" />
+          <p className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground/65">
+            &copy; {new Date().getFullYear()} {cvData.personal.name}
+          </p>
+        </div>
         <div className="flex items-center gap-6">
           {socialLinks.map(({ href, label, external }) => (
             <a
               key={label}
               href={href}
-              className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground/40 transition-colors duration-150 hover:text-(--cobalt)"
+              className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground/65 transition-colors duration-150 hover:text-(--phosphor)"
               aria-label={label}
               {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
             >

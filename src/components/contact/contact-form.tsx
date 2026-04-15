@@ -2,17 +2,21 @@
 
 import { useRef, useState, type FormEvent } from "react";
 import { motion } from "motion/react";
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
-import { Send, CheckCircle2, AlertCircle } from "lucide-react";
+import { Send, CheckCircle2, AlertCircle, RotateCcw } from "lucide-react";
 import { useRecaptcha } from "@/hooks/use-recaptcha";
 
 const FORMSPREE_URL = process.env.NEXT_PUBLIC_FORMSPREE_URL ?? "";
 const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_FORMSPREE_RECAPTCHA_SITE_KEY ?? "";
 
 type Status = "idle" | "submitting" | "success" | "error";
+
+const inputClass =
+  "h-10 rounded-none border-x-0 border-t-0 border-b border-border/50 bg-transparent px-0 font-mono text-[13px] text-foreground shadow-none placeholder:text-muted-foreground/30 focus-visible:border-(--phosphor)/60 focus-visible:ring-0 focus-visible:outline-none transition-colors duration-150";
+
+const labelClass =
+  "mb-2 block font-mono text-[10px] uppercase tracking-widest text-muted-foreground/55";
 
 export function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
@@ -82,95 +86,95 @@ export function ContactForm() {
       transition={{ delay: 0.1, duration: 0.4, ease: "easeOut" }}
     >
       {recaptcha.script}
-      <div className="border border-border/60 bg-card p-6 sm:p-8">
-        <h3 className="text-[16px] font-semibold tracking-[-0.02em] text-heading">
-          Send a message
-        </h3>
-        <p className="mt-1 text-[13px] tracking-[-0.01em] text-muted-foreground">
-          I&apos;ll get back to you as soon as possible.
-        </p>
 
-        <div className="mt-6">
+      {/* Terminal panel — top accent bar + sharp border */}
+      <div className="border border-(--phosphor)/15 border-t-2 border-t-(--phosphor)/50 bg-card">
+
+        {/* Panel header */}
+        <div className="flex items-center gap-2 border-b border-(--phosphor)/10 px-6 py-3">
+          <span className="font-mono text-[10px] uppercase tracking-widest text-(--phosphor)">
+            // send_message
+          </span>
+        </div>
+
+        <div className="p-6 sm:p-8">
           {status === "success" ? (
-            <div className="flex flex-col items-center gap-3 py-10 text-center">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-card">
-                <CheckCircle2 className="h-5 w-5 text-(--cobalt)" />
+            <div className="flex flex-col items-start gap-4 py-6">
+              <div className="flex items-center gap-3">
+                <CheckCircle2 className="h-4 w-4 text-(--phosphor)" />
+                <span className="font-mono text-[11px] uppercase tracking-widest text-(--phosphor)">
+                  Message transmitted
+                </span>
               </div>
-              <h4 className="text-[15px] font-semibold tracking-[-0.02em]">Message sent!</h4>
-              <p className="text-[13px] text-muted-foreground">
-                Thanks for reaching out. I&apos;ll get back to you soon.
+              <p className="font-mono text-[13px] text-muted-foreground">
+                &gt; Thanks for reaching out. I&apos;ll get back to you soon.
               </p>
-              <Button
-                variant="outline"
-                size="sm"
-                className="mt-2 rounded-lg border-border/60 text-[13px] font-medium shadow-none hover:border-(--cobalt)/50 hover:text-(--cobalt)"
+              <button
+                type="button"
                 onClick={() => {
                   recaptcha.resetWidgetId();
                   setStatus("idle");
                   setGuardError(null);
                   startedAtRef.current = Date.now();
                 }}
+                className="mt-2 inline-flex cursor-pointer items-center gap-2 border border-(--phosphor)/30 px-4 py-2 font-mono text-[10px] uppercase tracking-widest text-(--phosphor) transition-colors duration-150 hover:border-(--phosphor)/60 hover:bg-(--phosphor)/5"
               >
-                Send another message
-              </Button>
+                <RotateCcw className="h-3 w-3" />
+                Send another
+              </button>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="grid gap-4 sm:grid-cols-2">
-                <div className="space-y-1.5">
-                  <Label htmlFor="name" className="text-[12px] font-medium tracking-[-0.005em] text-muted-foreground">
-                    Name
-                  </Label>
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid gap-6 sm:grid-cols-2">
+                <div>
+                  <label htmlFor="name" className={labelClass}>Name</label>
                   <Input
                     id="name"
                     name="name"
-                    placeholder="Your name"
-                    className="h-9 rounded-lg border-border/60 bg-background text-[13px] shadow-none placeholder:text-muted-foreground/40 focus-visible:border-(--cobalt)/50 focus-visible:ring-0"
+                    placeholder="your name"
+                    className={inputClass}
                     required
                   />
                 </div>
-                <div className="space-y-1.5">
-                  <Label htmlFor="email" className="text-[12px] font-medium tracking-[-0.005em] text-muted-foreground">
-                    Email
-                  </Label>
+                <div>
+                  <label htmlFor="email" className={labelClass}>Email</label>
                   <Input
                     id="email"
                     name="email"
                     type="email"
                     placeholder="your@email.com"
-                    className="h-9 rounded-lg border-border/60 bg-background text-[13px] shadow-none placeholder:text-muted-foreground/40 focus-visible:border-(--cobalt)/50 focus-visible:ring-0"
+                    className={inputClass}
                     required
                   />
                 </div>
               </div>
-              <div className="space-y-1.5">
-                <Label htmlFor="subject" className="text-[12px] font-medium tracking-[-0.005em] text-muted-foreground">
-                  Subject
-                </Label>
+
+              <div>
+                <label htmlFor="subject" className={labelClass}>Subject</label>
                 <Input
                   id="subject"
                   name="subject"
-                  placeholder="What's this about?"
-                  className="h-9 rounded-lg border-border/60 bg-background text-[13px] shadow-none placeholder:text-muted-foreground/40 focus-visible:border-(--cobalt)/50 focus-visible:ring-0"
-                  required
-                />
-              </div>
-              <div className="space-y-1.5">
-                <Label htmlFor="message" className="text-[12px] font-medium tracking-[-0.005em] text-muted-foreground">
-                  Message
-                </Label>
-                <Textarea
-                  id="message"
-                  name="message"
-                  placeholder="Tell me about your project..."
-                  rows={5}
-                  className="rounded-lg border-border/60 bg-background text-[13px] shadow-none placeholder:text-muted-foreground/40 focus-visible:border-(--cobalt)/50 focus-visible:ring-0"
+                  placeholder="what's this about?"
+                  className={inputClass}
                   required
                 />
               </div>
 
+              <div>
+                <label htmlFor="message" className={labelClass}>Message</label>
+                <Textarea
+                  id="message"
+                  name="message"
+                  placeholder="tell me about your project..."
+                  rows={5}
+                  className={`${inputClass} h-auto resize-none`}
+                  required
+                />
+              </div>
+
+              {/* Honeypot */}
               <div className="sr-only" aria-hidden="true">
-                <Label htmlFor="company">Company</Label>
+                <label htmlFor="company">Company</label>
                 <Input id="company" name="company" autoComplete="off" tabIndex={-1} />
               </div>
 
@@ -178,22 +182,21 @@ export function ContactForm() {
 
               <div aria-live="polite">
                 {(status === "error" || guardError) && (
-                  <div className="flex items-center gap-2 text-[13px] text-destructive">
+                  <div className="flex items-center gap-2 font-mono text-[12px] text-destructive">
                     <AlertCircle className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
                     {guardError ?? "Something went wrong. Please try again."}
                   </div>
                 )}
               </div>
 
-              <Button
+              <button
                 type="submit"
-                size="sm"
-                className="w-full gap-2 rounded-lg text-[13px] font-medium shadow-none"
                 disabled={status === "submitting" || !FORMSPREE_URL}
+                className="inline-flex w-full cursor-pointer items-center justify-center gap-2 bg-(--phosphor) px-6 py-3 font-mono text-[11px] uppercase tracking-widest text-background transition-opacity duration-150 hover:opacity-85 disabled:cursor-not-allowed disabled:opacity-50"
               >
                 <Send className="h-3.5 w-3.5" />
-                {status === "submitting" ? "Sending..." : "Send Message"}
-              </Button>
+                {status === "submitting" ? "Transmitting..." : "Send Message"}
+              </button>
             </form>
           )}
         </div>

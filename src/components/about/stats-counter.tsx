@@ -12,12 +12,12 @@ function StatItem({ stat }: StatItemProps) {
   const { ref, display } = useCounterAnimation(stat.value);
 
   return (
-    <div className="border-t border-border/50 pt-6">
-      <p className="font-display text-[54px] font-bold leading-none tracking-[-0.04em] text-heading">
+    <div className="border-t border-(--phosphor)/15 pt-6">
+      <p className="font-display text-[48px] font-bold leading-none tracking-[-0.03em] text-heading">
         <span ref={ref}>{display}</span>
-        <span className="text-(--cobalt)">{stat.suffix}</span>
+        <span className="text-(--phosphor)">{stat.suffix}</span>
       </p>
-      <p className="mt-2 font-mono text-[10px] uppercase tracking-widest text-muted-foreground/55">
+      <p className="mt-2 font-mono text-[10px] uppercase tracking-widest text-muted-foreground/75">
         {stat.label}
       </p>
     </div>

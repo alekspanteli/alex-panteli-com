@@ -23,7 +23,8 @@
       "Bash(node -e \"const p=require\\('c:/myprojects/alex-panteli-com/node_modules/shadcn/package.json'\\);console.log\\(JSON.stringify\\(p.exports,null,2\\)\\)\")",
       "mcp__plugin_playwright_playwright__browser_navigate",
       "mcp__plugin_playwright_playwright__browser_take_screenshot",
-      "Bash(npx skills *)"
+      "Bash(npx skills *)",
+      "mcp__playwright__browser_console_messages"
     ],
     "additionalDirectories": [
       "C:\\Users\\dudec\\.claude"

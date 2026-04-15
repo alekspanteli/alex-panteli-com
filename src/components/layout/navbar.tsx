@@ -11,19 +11,20 @@ export function Navbar() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border/60 bg-background/85 backdrop-blur-xl">
-      <nav className="mx-auto flex h-14 max-w-6xl items-center justify-between px-6">
-        {/* Logo — "AP" monogram in Cormorant italic */}
+    <header className="sticky top-0 z-50 border-b border-(--phosphor)/10 bg-background/90 backdrop-blur-xl">
+      <nav className="mx-auto grid h-14 max-w-6xl grid-cols-3 items-center px-6">
+
+        {/* Left: logo */}
         <Link
           href="/"
           aria-label="Alex Panteli — Home"
-          className="font-display text-[22px] italic font-semibold text-heading transition-opacity duration-200 hover:opacity-50"
+          className="font-display font-bold text-[14px] tracking-tight text-(--phosphor) transition-opacity duration-200 hover:opacity-70 justify-self-start"
         >
-          AP
+          ap.tsx
         </Link>
 
-        {/* Center nav links */}
-        <div className="hidden items-center gap-0.5 md:flex">
+        {/* Center: nav links — truly centered */}
+        <div className="hidden items-center justify-center gap-0.5 md:flex">
           {NAV_LINKS.map((link) => {
             const isActive = pathname === link.href;
             return (
@@ -31,26 +32,26 @@ export function Navbar() {
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  "relative px-3 py-1.5 font-sans text-[11px] font-semibold uppercase tracking-widest transition-colors duration-150",
+                  "relative px-3 py-1.5 font-mono text-[11px] uppercase tracking-widest transition-colors duration-150",
                   isActive
-                    ? "text-foreground"
+                    ? "bg-(--phosphor)/8 text-(--phosphor)"
                     : "text-muted-foreground hover:text-foreground"
                 )}
               >
+                {link.label}
                 {isActive && (
                   <span
-                    className="absolute bottom-0 left-3 right-3 h-px bg-(--cobalt)"
+                    className="absolute inset-x-3 bottom-0 h-px bg-(--phosphor)/60"
                     aria-hidden="true"
                   />
                 )}
-                {link.label}
               </Link>
             );
           })}
         </div>
 
-        {/* Right actions */}
-        <div className="flex items-center gap-1">
+        {/* Right: actions */}
+        <div className="flex items-center gap-1 justify-self-end">
           <ThemeToggle />
           <MobileNav />
         </div>

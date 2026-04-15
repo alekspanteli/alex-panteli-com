@@ -14,48 +14,62 @@ const contactItems = [
     value: cvData.personal.location,
     href: undefined,
   },
+  {
+    label: "GitHub",
+    value: "github.com/alekspanteli",
+    href: "https://github.com/alekspanteli",
+    external: true,
+  },
+  {
+    label: "LinkedIn",
+    value: "linkedin.com/in/alexpanteli",
+    href: "https://www.linkedin.com/in/alexpanteli/",
+    external: true,
+  },
 ] as const;
 
 export function ContactInfo() {
   return (
     <div className="space-y-12">
       <div>
-        <p className="mb-4 font-mono text-[11px] uppercase tracking-widest text-(--cobalt)">
+        <p className="mb-4 font-mono text-[11px] uppercase tracking-widest text-(--phosphor)">
           Contact
         </p>
-        {/* Large italic Cormorant heading — distinctive and warm */}
-        <h3 className="font-display text-[44px] font-bold italic leading-[1.05] tracking-[-0.02em] text-heading sm:text-[52px]">
-          Let&apos;s connect.
+        <h3 className="font-display text-[32px] font-bold leading-[1.1] tracking-[-0.025em] text-heading">
+          <span className="text-(--phosphor) mr-2">$</span>connect --open
         </h3>
-        <div className="mt-5 h-px w-12 bg-(--cobalt)" aria-hidden="true" />
+        <div className="mt-5 h-px w-12 bg-(--phosphor)/40" aria-hidden="true" />
         <p className="mt-6 max-w-sm text-[15px] leading-[1.7] tracking-[-0.01em] text-muted-foreground">
           Whether you need a frontend developer for your next project or want to
           explore a collaboration, I&apos;d love to hear from you.
         </p>
       </div>
 
-      <div className="space-y-8">
+      <div className="space-y-0">
         {contactItems.map((item, i) => (
           <motion.div
             key={item.label}
             initial={{ opacity: 0, x: -12 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: i * 0.1, duration: 0.4, ease: "easeOut" }}
-            className="border-t border-border/40 pt-5"
+            transition={{ delay: i * 0.08, duration: 0.4, ease: "easeOut" }}
+            className="border-t border-(--phosphor)/10 py-5"
           >
-            <p className="mb-1.5 font-mono text-[10px] uppercase tracking-widest text-muted-foreground/45">
+            <p className="mb-1.5 font-mono text-[10px] uppercase tracking-widest text-muted-foreground/70">
               {item.label}
             </p>
             {item.href ? (
               <a
                 href={item.href}
-                className="font-display text-[22px] italic font-medium text-heading transition-colors duration-150 hover:text-(--cobalt)"
+                {...("external" in item && item.external
+                  ? { target: "_blank", rel: "noopener noreferrer" }
+                  : {})}
+                className="font-mono text-[15px] font-medium text-heading transition-colors duration-150 hover:text-(--phosphor)"
               >
                 {item.value}
               </a>
             ) : (
-              <p className="font-display text-[22px] italic font-medium text-heading">
+              <p className="font-mono text-[15px] font-medium text-heading">
                 {item.value}
               </p>
             )}
