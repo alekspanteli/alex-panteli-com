@@ -16,59 +16,35 @@ export const metadata: Metadata = {
 export default function ExperiencePage() {
   return (
     <PageTransition>
-      {/* Measurement ruler — precision / chronology motif */}
-      <svg
-        className="pointer-events-none absolute right-4 top-0 h-full select-none opacity-[0.08]"
-        width="48" viewBox="0 0 48 800" preserveAspectRatio="xMidYMin meet" fill="none"
-        aria-hidden="true"
-      >
-        {/* Spine */}
-        <line x1="24" y1="0" x2="24" y2="800" stroke="var(--phosphor)" strokeWidth="0.75" />
-        {/* Major ticks every 80px */}
-        <line x1="14" y1="80"  x2="34" y2="80"  stroke="var(--phosphor)" strokeWidth="0.75" />
-        <line x1="14" y1="160" x2="34" y2="160" stroke="var(--phosphor)" strokeWidth="0.75" />
-        <line x1="14" y1="240" x2="34" y2="240" stroke="var(--phosphor)" strokeWidth="0.75" />
-        <line x1="14" y1="320" x2="34" y2="320" stroke="var(--phosphor)" strokeWidth="0.75" />
-        <line x1="14" y1="400" x2="34" y2="400" stroke="var(--phosphor)" strokeWidth="0.75" />
-        <line x1="14" y1="480" x2="34" y2="480" stroke="var(--phosphor)" strokeWidth="0.75" />
-        <line x1="14" y1="560" x2="34" y2="560" stroke="var(--phosphor)" strokeWidth="0.75" />
-        <line x1="14" y1="640" x2="34" y2="640" stroke="var(--phosphor)" strokeWidth="0.75" />
-        <line x1="14" y1="720" x2="34" y2="720" stroke="var(--phosphor)" strokeWidth="0.75" />
-        {/* Minor ticks every 20px */}
-        <line x1="19" y1="20"  x2="29" y2="20"  stroke="var(--phosphor)" strokeWidth="0.4" />
-        <line x1="19" y1="40"  x2="29" y2="40"  stroke="var(--phosphor)" strokeWidth="0.4" />
-        <line x1="19" y1="60"  x2="29" y2="60"  stroke="var(--phosphor)" strokeWidth="0.4" />
-        <line x1="19" y1="100" x2="29" y2="100" stroke="var(--phosphor)" strokeWidth="0.4" />
-        <line x1="19" y1="120" x2="29" y2="120" stroke="var(--phosphor)" strokeWidth="0.4" />
-        <line x1="19" y1="140" x2="29" y2="140" stroke="var(--phosphor)" strokeWidth="0.4" />
-        <line x1="19" y1="180" x2="29" y2="180" stroke="var(--phosphor)" strokeWidth="0.4" />
-        <line x1="19" y1="200" x2="29" y2="200" stroke="var(--phosphor)" strokeWidth="0.4" />
-        <line x1="19" y1="220" x2="29" y2="220" stroke="var(--phosphor)" strokeWidth="0.4" />
-        <line x1="19" y1="260" x2="29" y2="260" stroke="var(--phosphor)" strokeWidth="0.4" />
-        <line x1="19" y1="280" x2="29" y2="280" stroke="var(--phosphor)" strokeWidth="0.4" />
-        <line x1="19" y1="300" x2="29" y2="300" stroke="var(--phosphor)" strokeWidth="0.4" />
-        <line x1="19" y1="340" x2="29" y2="340" stroke="var(--phosphor)" strokeWidth="0.4" />
-        <line x1="19" y1="360" x2="29" y2="360" stroke="var(--phosphor)" strokeWidth="0.4" />
-        <line x1="19" y1="380" x2="29" y2="380" stroke="var(--phosphor)" strokeWidth="0.4" />
-        <line x1="19" y1="420" x2="29" y2="420" stroke="var(--phosphor)" strokeWidth="0.4" />
-        <line x1="19" y1="440" x2="29" y2="440" stroke="var(--phosphor)" strokeWidth="0.4" />
-        <line x1="19" y1="460" x2="29" y2="460" stroke="var(--phosphor)" strokeWidth="0.4" />
-        <line x1="19" y1="500" x2="29" y2="500" stroke="var(--phosphor)" strokeWidth="0.4" />
-        <line x1="19" y1="520" x2="29" y2="520" stroke="var(--phosphor)" strokeWidth="0.4" />
-        <line x1="19" y1="540" x2="29" y2="540" stroke="var(--phosphor)" strokeWidth="0.4" />
-        <line x1="19" y1="580" x2="29" y2="580" stroke="var(--phosphor)" strokeWidth="0.4" />
-        <line x1="19" y1="600" x2="29" y2="600" stroke="var(--phosphor)" strokeWidth="0.4" />
-        <line x1="19" y1="620" x2="29" y2="620" stroke="var(--phosphor)" strokeWidth="0.4" />
-        <line x1="19" y1="660" x2="29" y2="660" stroke="var(--phosphor)" strokeWidth="0.4" />
-        <line x1="19" y1="680" x2="29" y2="680" stroke="var(--phosphor)" strokeWidth="0.4" />
-        <line x1="19" y1="700" x2="29" y2="700" stroke="var(--phosphor)" strokeWidth="0.4" />
-        <line x1="19" y1="740" x2="29" y2="740" stroke="var(--phosphor)" strokeWidth="0.4" />
-        <line x1="19" y1="760" x2="29" y2="760" stroke="var(--phosphor)" strokeWidth="0.4" />
-        <line x1="19" y1="780" x2="29" y2="780" stroke="var(--phosphor)" strokeWidth="0.4" />
-        {/* Arrow caps */}
-        <path d="M20 8 L24 0 L28 8" stroke="var(--phosphor)" strokeWidth="0.75" fill="none" />
-        <path d="M20 792 L24 800 L28 792" stroke="var(--phosphor)" strokeWidth="0.75" fill="none" />
-      </svg>
+      {/* Measurement ruler — precision / chronology motif, container-bounded */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+        <div className="relative mx-auto h-full w-full max-w-[1400px] px-6 sm:px-12">
+          <svg
+            className="absolute right-6 sm:right-12 top-0 hidden h-full select-none opacity-[0.10] md:block"
+            width="56" viewBox="0 0 56 800" preserveAspectRatio="xMidYMin meet" fill="none"
+          >
+            {/* Spine */}
+            <line x1="28" y1="0" x2="28" y2="800" stroke="var(--phosphor)" strokeWidth="0.75" />
+            {/* Major ticks every 80px with labels */}
+            {[80, 160, 240, 320, 400, 480, 560, 640, 720].map((y, i) => (
+              <g key={y}>
+                <line x1="16" y1={y} x2="40" y2={y} stroke="var(--phosphor)" strokeWidth="0.85" />
+                <text x="44" y={y + 3} fill="var(--phosphor)" fontSize="7" fontFamily="monospace" letterSpacing="0.1em" opacity="0.7">
+                  {String(i + 1).padStart(2, "0")}
+                </text>
+              </g>
+            ))}
+            {/* Minor ticks every 20px */}
+            {Array.from({ length: 39 }, (_, i) => (i + 1) * 20).filter((y) => y % 80 !== 0).map((y) => (
+              <line key={y} x1="22" y1={y} x2="34" y2={y} stroke="var(--phosphor)" strokeWidth="0.4" />
+            ))}
+            {/* Phosphor signature cap — same pip motif as hero/about */}
+            <circle cx="28" cy="0" r="3" fill="var(--phosphor)" />
+            <circle cx="28" cy="0" r="7" stroke="var(--phosphor)" strokeWidth="0.6" />
+            <path d="M20 796 L28 808 L36 796" stroke="var(--phosphor)" strokeWidth="0.75" fill="none" />
+          </svg>
+        </div>
+      </div>
 
       <div className="mx-auto max-w-3xl px-6 py-16">
         <SectionHeading

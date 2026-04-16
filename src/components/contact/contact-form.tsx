@@ -14,10 +14,10 @@ const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_FORMSPREE_RECAPTCHA_SITE_KEY 
 type Status = "idle" | "submitting" | "success" | "error";
 
 const inputClass =
-  "h-10 rounded-none border-x-0 border-t-0 border-b border-border/50 bg-transparent px-0 font-mono text-[13px] text-foreground shadow-none placeholder:text-muted-foreground/30 focus-visible:border-(--phosphor)/60 focus-visible:ring-0 focus-visible:outline-none transition-colors duration-150";
+  "h-10 rounded-none border-x-0 border-t-0 border-b border-border bg-transparent px-0 font-mono text-[13px] text-foreground shadow-none placeholder:text-muted-foreground/70 focus-visible:border-(--phosphor)/60 focus-visible:ring-0 focus-visible:outline-none transition-colors duration-150";
 
 const labelClass =
-  "mb-2 block font-mono text-[10px] uppercase tracking-widest text-muted-foreground/55";
+  "mb-2 block font-mono text-[10px] uppercase tracking-widest text-muted-foreground";
 
 export function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");

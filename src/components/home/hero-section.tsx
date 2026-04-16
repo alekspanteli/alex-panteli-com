@@ -41,18 +41,18 @@ export function HeroSection({ personal, stats }: HeroSectionProps) {
         aria-hidden="true"
       />
 
-      {/* Dot matrix grid — fades radially from center-left */}
+      {/* Dot matrix grid — subtle viewport-wide bg, fades radially from center-left */}
       <svg
         className="pointer-events-none absolute inset-0 h-full w-full"
         aria-hidden="true"
       >
         <defs>
           <pattern id="hero-dots" x="0" y="0" width="28" height="28" patternUnits="userSpaceOnUse">
-            <circle cx="1" cy="1" r="1" fill="var(--phosphor)" fillOpacity="0.28" />
+            <circle cx="1" cy="1" r="1" fill="var(--phosphor)" fillOpacity="0.22" />
           </pattern>
           <radialGradient id="hero-dot-fade" cx="32%" cy="48%" r="62%" gradientUnits="objectBoundingBox">
             <stop offset="0%"   stopColor="white" stopOpacity="1" />
-            <stop offset="65%"  stopColor="white" stopOpacity="0.4" />
+            <stop offset="65%"  stopColor="white" stopOpacity="0.35" />
             <stop offset="100%" stopColor="white" stopOpacity="0" />
           </radialGradient>
           <mask id="hero-dot-mask">
@@ -60,26 +60,6 @@ export function HeroSection({ personal, stats }: HeroSectionProps) {
           </mask>
         </defs>
         <rect width="100%" height="100%" fill="url(#hero-dots)" mask="url(#hero-dot-mask)" />
-      </svg>
-
-      {/* Oscilloscope signal trace — lower third */}
-      <svg
-        className="pointer-events-none absolute bottom-[18%] left-0 h-20 w-full opacity-[0.13]"
-        viewBox="0 0 1440 80"
-        preserveAspectRatio="none"
-        aria-hidden="true"
-      >
-        {/* Baseline */}
-        <line x1="0" y1="40" x2="1440" y2="40" stroke="var(--phosphor)" strokeWidth="0.5" strokeDasharray="4 10" />
-        {/* Signal waveform */}
-        <path
-          d="M0,40 L140,40 L148,40 Q152,12 162,10 Q172,8 178,40 L300,40 L312,40 Q315,52 323,54 Q331,56 336,40 L500,40 L514,40 Q518,18 528,14 Q538,10 548,14 Q558,18 562,40 L700,40 L712,40 Q715,48 722,50 Q729,52 734,40 L880,40 L895,40 Q899,22 910,18 Q921,14 926,40 L1060,40 L1072,40 Q1075,50 1082,52 Q1089,54 1094,40 L1220,40 L1234,40 Q1238,28 1246,25 Q1254,22 1260,40 L1440,40"
-          stroke="var(--phosphor)"
-          strokeWidth="1.5"
-          fill="none"
-          strokeLinejoin="round"
-          strokeLinecap="round"
-        />
       </svg>
 
       {/* Ambient phosphor glow — left-center, very subtle */}
@@ -92,62 +72,47 @@ export function HeroSection({ personal, stats }: HeroSectionProps) {
         aria-hidden="true"
       />
 
-      {/* HUD corner brackets */}
-      <div className="pointer-events-none absolute inset-0" aria-hidden="true">
-        <span className="absolute top-4 left-4 h-6 w-6 border-t border-l border-(--phosphor)/30" />
-        <span className="absolute top-4 right-4 h-6 w-6 border-t border-r border-(--phosphor)/30" />
-        <span className="absolute bottom-4 left-4 h-6 w-6 border-b border-l border-(--phosphor)/30" />
-        <span className="absolute bottom-4 right-4 h-6 w-6 border-b border-r border-(--phosphor)/30" />
-      </div>
+      {/* Container-bounded decorations — anchor to content zone, not viewport */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+        <div className="relative mx-auto h-full w-full max-w-[1400px] px-6 sm:px-12">
 
-      {/* Technical annotations — developer telemetry at corners */}
-      <div
-        className="pointer-events-none absolute inset-0 select-none overflow-hidden"
-        aria-hidden="true"
-      >
-        <span className="absolute top-10 left-10 font-mono text-[9px] tracking-[0.18em] text-(--phosphor)/35">
-          rev.14285df
-        </span>
-        <span className="absolute top-10 right-10 font-mono text-[9px] tracking-[0.18em] text-(--phosphor)/35">
-          BUILD: PASSING
-        </span>
-        <span className="absolute bottom-10 left-10 font-mono text-[9px] tracking-[0.18em] text-(--phosphor)/35">
-          node@22 · next@16 · ts@5
-        </span>
-        <span className="absolute bottom-10 right-10 font-mono text-[9px] tracking-[0.18em] text-(--phosphor)/35">
-          react@19.1.0
-        </span>
-      </div>
+          {/* Technical annotations — developer telemetry */}
+          <span className="absolute top-6 left-6 sm:left-12 font-mono text-[9px] tracking-[0.18em] text-(--phosphor)/35">
+            rev.14285df
+          </span>
+          <span className="absolute top-6 right-6 sm:right-12 font-mono text-[9px] tracking-[0.18em] text-(--phosphor)/35">
+            BUILD: PASSING
+          </span>
+          <span className="absolute bottom-6 left-6 sm:left-12 font-mono text-[9px] tracking-[0.18em] text-(--phosphor)/35">
+            node@22 · next@16 · ts@5
+          </span>
+          <span className="absolute bottom-6 right-6 sm:right-12 font-mono text-[9px] tracking-[0.18em] text-(--phosphor)/35">
+            react@19.1.0
+          </span>
 
-      {/* Radar / schematic target — engineering drawing aesthetic */}
-      <svg
-        className="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 translate-x-[38%] select-none opacity-[0.11]"
-        width="560"
-        height="560"
-        viewBox="0 0 560 560"
-        fill="none"
-        aria-hidden="true"
-      >
-        <circle cx="280" cy="280" r="260" stroke="var(--phosphor)" strokeWidth="1" />
-        <circle cx="280" cy="280" r="200" stroke="var(--phosphor)" strokeWidth="0.75" />
-        <circle cx="280" cy="280" r="140" stroke="var(--phosphor)" strokeWidth="0.75" />
-        <circle cx="280" cy="280" r="80"  stroke="var(--phosphor)" strokeWidth="0.75" />
-        <circle cx="280" cy="280" r="20"  stroke="var(--phosphor)" strokeWidth="0.75" />
-        {/* Dashed crosshairs */}
-        <line x1="280" y1="0"   x2="280" y2="560" stroke="var(--phosphor)" strokeWidth="0.5"  strokeDasharray="3 10" />
-        <line x1="0"   y1="280" x2="560" y2="280" stroke="var(--phosphor)" strokeWidth="0.5"  strokeDasharray="3 10" />
-        {/* 45° diagonals */}
-        <line x1="0"   y1="0"   x2="560" y2="560" stroke="var(--phosphor)" strokeWidth="0.35" strokeDasharray="2 14" />
-        <line x1="560" y1="0"   x2="0"   y2="560" stroke="var(--phosphor)" strokeWidth="0.35" strokeDasharray="2 14" />
-        {/* Range tick marks at each ring */}
-        <line x1="280" y1="56"  x2="290" y2="56"  stroke="var(--phosphor)" strokeWidth="0.5" />
-        <line x1="280" y1="80"  x2="290" y2="80"  stroke="var(--phosphor)" strokeWidth="0.5" />
-        <line x1="280" y1="140" x2="292" y2="140" stroke="var(--phosphor)" strokeWidth="0.5" />
-        <line x1="280" y1="200" x2="292" y2="200" stroke="var(--phosphor)" strokeWidth="0.5" />
-        {/* Center pip */}
-        <circle cx="280" cy="280" r="3" fill="var(--phosphor)" />
-        <circle cx="280" cy="280" r="6" stroke="var(--phosphor)" strokeWidth="0.75" />
-      </svg>
+          {/* Radar / schematic target — single protagonist, right-anchored to container edge */}
+          <svg
+            className="absolute right-0 top-1/2 hidden -translate-y-1/2 translate-x-[30%] select-none opacity-[0.13] md:block"
+            width="520"
+            height="520"
+            viewBox="0 0 520 520"
+            fill="none"
+          >
+            {/* 3 concentric rings — removed 2 for breathing room */}
+            <circle cx="260" cy="260" r="240" stroke="var(--phosphor)" strokeWidth="0.85" />
+            <circle cx="260" cy="260" r="170" stroke="var(--phosphor)" strokeWidth="0.6" />
+            <circle cx="260" cy="260" r="100" stroke="var(--phosphor)" strokeWidth="0.6" />
+            {/* Dashed crosshairs only — removed 45° diagonals */}
+            <line x1="260" y1="0"   x2="260" y2="520" stroke="var(--phosphor)" strokeWidth="0.5" strokeDasharray="3 10" />
+            <line x1="0"   y1="260" x2="520" y2="260" stroke="var(--phosphor)" strokeWidth="0.5" strokeDasharray="3 10" />
+            {/* Bearing tick — single intentional mark instead of cluster */}
+            <line x1="260" y1="12" x2="260" y2="28" stroke="var(--phosphor)" strokeWidth="1" />
+            {/* Center pip with phosphor signature ring */}
+            <circle cx="260" cy="260" r="3" fill="var(--phosphor)" />
+            <circle cx="260" cy="260" r="9" stroke="var(--phosphor)" strokeWidth="0.6" />
+          </svg>
+        </div>
+      </div>
 
       <div className="mx-auto w-full max-w-6xl">
 

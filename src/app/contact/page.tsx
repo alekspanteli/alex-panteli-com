@@ -14,26 +14,29 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <PageTransition>
-      {/* Signal rings — transmission / broadcast motif */}
-      <svg
-        className="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 translate-x-[38%] select-none opacity-[0.09]"
-        width="480" height="480" viewBox="0 0 480 480" fill="none"
-        aria-hidden="true"
-      >
-        {/* Concentric rings */}
-        <circle cx="240" cy="240" r="55"  stroke="var(--phosphor)" strokeWidth="1"    strokeDasharray="4 8" />
-        <circle cx="240" cy="240" r="105" stroke="var(--phosphor)" strokeWidth="0.85" strokeDasharray="4 9" />
-        <circle cx="240" cy="240" r="155" stroke="var(--phosphor)" strokeWidth="0.75" strokeDasharray="3 10" />
-        <circle cx="240" cy="240" r="205" stroke="var(--phosphor)" strokeWidth="0.6"  strokeDasharray="3 11" />
-        <circle cx="240" cy="240" r="235" stroke="var(--phosphor)" strokeWidth="0.5"  strokeDasharray="2 14" />
-        {/* Crosshairs */}
-        <line x1="240" y1="0"   x2="240" y2="480" stroke="var(--phosphor)" strokeWidth="0.4" strokeDasharray="2 12" />
-        <line x1="0"   y1="240" x2="480" y2="240" stroke="var(--phosphor)" strokeWidth="0.4" strokeDasharray="2 12" />
-        {/* Centre pip */}
-        <circle cx="240" cy="240" r="4"  fill="var(--phosphor)" />
-        <circle cx="240" cy="240" r="9"  stroke="var(--phosphor)" strokeWidth="0.75" />
-        <circle cx="240" cy="240" r="18" stroke="var(--phosphor)" strokeWidth="0.4" strokeDasharray="2 5" />
-      </svg>
+      {/* Signal rings — broadcast motif, container-bounded */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+        <div className="relative mx-auto h-full w-full max-w-[1400px] px-6 sm:px-12">
+          <svg
+            className="absolute right-0 top-1/2 hidden -translate-y-1/2 translate-x-[28%] select-none opacity-[0.11] md:block"
+            width="440" height="440" viewBox="0 0 440 440" fill="none"
+          >
+            {/* 3 concentric rings — solid, tightened */}
+            <circle cx="220" cy="220" r="200" stroke="var(--phosphor)" strokeWidth="0.6" strokeDasharray="2 10" />
+            <circle cx="220" cy="220" r="140" stroke="var(--phosphor)" strokeWidth="0.7" strokeDasharray="3 9" />
+            <circle cx="220" cy="220" r="80"  stroke="var(--phosphor)" strokeWidth="0.85" strokeDasharray="4 7" />
+            {/* Crosshairs — shorter, anchored within outermost ring */}
+            <line x1="220" y1="8"   x2="220" y2="432" stroke="var(--phosphor)" strokeWidth="0.4" strokeDasharray="2 12" />
+            <line x1="8"   y1="220" x2="432" y2="220" stroke="var(--phosphor)" strokeWidth="0.4" strokeDasharray="2 12" />
+            {/* Transmission pulse — diagonal indicator */}
+            <line x1="220" y1="220" x2="300" y2="140" stroke="var(--phosphor)" strokeWidth="0.75" />
+            <circle cx="300" cy="140" r="2.5" fill="var(--phosphor)" />
+            {/* Centre pip — matches hero/about phosphor signature */}
+            <circle cx="220" cy="220" r="3" fill="var(--phosphor)" />
+            <circle cx="220" cy="220" r="9" stroke="var(--phosphor)" strokeWidth="0.6" />
+          </svg>
+        </div>
+      </div>
 
       <div className="mx-auto max-w-4xl px-6 py-16">
         <SectionHeading
