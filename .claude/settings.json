@@ -44,7 +44,8 @@
       "Bash(grep -E \"^\\\\s+[0-9]+:[0-9]+|^C:\\\\\\\\\")",
       "Bash(npx lighthouse *)",
       "Bash(node -e ' *)",
-      "Bash(npx kill-port *)"
+      "Bash(npx kill-port *)",
+      "Bash(grep -E \"\\\\.\\(png|jpg\\)$\")"
     ],
     "additionalDirectories": [
       "C:\\Users\\dudec\\.claude",

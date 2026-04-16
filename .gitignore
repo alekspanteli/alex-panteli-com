@@ -46,3 +46,10 @@ next-env.d.ts
 # claude code tooling
 skills-lock.json
 
+# dev screenshots in repo root (public/** and screenshots/** still tracked)
+/*.png
+/*.jpg
+/*.jpeg
+/*.webp
+/*.avif
+
