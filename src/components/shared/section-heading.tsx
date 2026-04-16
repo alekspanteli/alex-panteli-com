@@ -18,11 +18,11 @@ export function SectionHeading({ label, title, subtitle }: SectionHeadingProps) 
       className="mb-14"
     >
       {label && (
-        <p className="mb-4 font-mono text-[11px] uppercase tracking-widest text-(--phosphor)">
+        <p className="mb-4 font-mono text-[11px] uppercase tracking-[0.18em] text-(--phosphor)">
           {label}
         </p>
       )}
-      <h2 className="font-display text-[36px] font-bold leading-[1.05] tracking-[-0.03em] text-heading sm:text-[46px]">
+      <h2 className="font-display text-[34px] font-semibold leading-[1.05] tracking-[-0.035em] text-heading sm:text-[42px]">
         <span className="text-(--phosphor) mr-3" aria-hidden="true">{"// "}</span>{title}
       </h2>
       <span

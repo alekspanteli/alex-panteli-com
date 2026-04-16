@@ -29,7 +29,7 @@ export function HeroSection({ personal, stats }: HeroSectionProps) {
 
   return (
     <section
-      className="relative flex min-h-[calc(100svh-56px)] flex-col justify-center overflow-hidden px-6 py-20 sm:px-12"
+      className="relative flex min-h-[calc(100svh-56px)] flex-col justify-center overflow-hidden px-6 py-12 sm:px-12 sm:py-16"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
@@ -73,7 +73,7 @@ export function HeroSection({ personal, stats }: HeroSectionProps) {
       />
 
       {/* HUD corner brackets — viewfinder / precision instrument */}
-      <div className="pointer-events-none absolute inset-0" aria-hidden="true">
+      <div className="pointer-events-none absolute inset-0 hidden sm:block" aria-hidden="true">
         <span className="absolute top-4 left-4 h-6 w-6 border-t border-l border-(--phosphor)/30" />
         <span className="absolute top-4 right-4 h-6 w-6 border-t border-r border-(--phosphor)/30" />
         <span className="absolute bottom-4 left-4 h-6 w-6 border-b border-l border-(--phosphor)/30" />
@@ -81,20 +81,20 @@ export function HeroSection({ personal, stats }: HeroSectionProps) {
       </div>
 
       {/* Container-bounded decorations — anchor to content zone, not viewport */}
-      <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+      <div className="pointer-events-none absolute inset-0 hidden overflow-hidden sm:block" aria-hidden="true">
         <div className="relative mx-auto h-full w-full max-w-[1400px] px-6 sm:px-12">
 
           {/* Technical annotations — developer telemetry */}
-          <span className="absolute top-6 left-6 sm:left-12 font-mono text-[9px] tracking-[0.18em] text-(--phosphor)/35">
+          <span className="absolute top-6 left-6 sm:left-12 font-mono text-[9px] tracking-[0.18em] text-(--phosphor)/55 dark:text-(--phosphor)/35">
             rev.14285df
           </span>
-          <span className="absolute top-6 right-6 sm:right-12 font-mono text-[9px] tracking-[0.18em] text-(--phosphor)/35">
+          <span className="absolute top-6 right-6 sm:right-12 font-mono text-[9px] tracking-[0.18em] text-(--phosphor)/55 dark:text-(--phosphor)/35">
             BUILD: PASSING
           </span>
-          <span className="absolute bottom-6 left-6 sm:left-12 font-mono text-[9px] tracking-[0.18em] text-(--phosphor)/35">
+          <span className="absolute bottom-6 left-6 sm:left-12 font-mono text-[9px] tracking-[0.18em] text-(--phosphor)/55 dark:text-(--phosphor)/35">
             node@22 · next@16 · ts@5
           </span>
-          <span className="absolute bottom-6 right-6 sm:right-12 font-mono text-[9px] tracking-[0.18em] text-(--phosphor)/35">
+          <span className="absolute bottom-6 right-6 sm:right-12 font-mono text-[9px] tracking-[0.18em] text-(--phosphor)/55 dark:text-(--phosphor)/35">
             react@19.1.0
           </span>
 
@@ -147,14 +147,14 @@ export function HeroSection({ personal, stats }: HeroSectionProps) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.3, ease: "easeOut" }}
-          className="mb-10 font-mono text-[11px] uppercase tracking-widest text-(--phosphor)"
+          className="mb-10 font-mono text-[11px] uppercase tracking-[0.18em] text-(--phosphor)"
         >
           <span aria-hidden="true">{"// "}</span>{personal.title.toLowerCase().replace(/\s+/g, "_")}
         </motion.p>
 
         {/* Name — massive monospace, lowercase, blinking cursor */}
-        <h1 className="font-display font-bold leading-[0.88] tracking-[-0.03em] text-heading
-                       text-[clamp(68px,10vw,132px)]"
+        <h1 className="font-display font-semibold leading-[0.88] tracking-[-0.04em] text-heading
+                       text-[clamp(44px,13vw,124px)]"
             aria-label="Alex Panteli">
           <motion.span
             className="block"
@@ -213,7 +213,7 @@ export function HeroSection({ personal, stats }: HeroSectionProps) {
               </Link>
               <Link
                 href="/contact"
-                className="group inline-flex h-10 items-center gap-1.5 rounded-sm border border-border/70 px-5 text-[13px] font-semibold tracking-wide text-muted-foreground transition-colors duration-150 hover:border-(--phosphor)/50 hover:text-(--phosphor)"
+                className="group inline-flex h-10 items-center gap-1.5 rounded-sm border border-(--phosphor)/60 px-5 text-[13px] font-semibold tracking-wide text-foreground transition-colors duration-150 hover:border-(--phosphor) hover:text-(--phosphor) dark:border-(--phosphor)/50 dark:text-(--phosphor)"
               >
                 Get In Touch
                 <ArrowRight className="h-3.5 w-3.5 transition-transform duration-150 group-hover:translate-x-0.5" />
@@ -226,7 +226,7 @@ export function HeroSection({ personal, stats }: HeroSectionProps) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.35, ease: "easeOut" }}
-            className="flex items-end gap-8 md:flex-col md:items-end md:gap-7"
+            className="flex flex-wrap items-end gap-6 sm:gap-8 md:flex-col md:flex-nowrap md:items-end md:gap-7"
           >
             {stats.map((stat) => (
               <div key={stat.label} className="text-right">

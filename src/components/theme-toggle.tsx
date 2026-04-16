@@ -14,7 +14,7 @@ export function ThemeToggle() {
 
   // Stable placeholder — same size so layout doesn't shift
   if (!mounted) {
-    return <div className="h-7 w-7" aria-hidden="true" />;
+    return <div className="h-11 w-11" aria-hidden="true" />;
   }
 
   const isDark = resolvedTheme === "dark";
@@ -23,7 +23,7 @@ export function ThemeToggle() {
     <button
       type="button"
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      className="flex h-7 w-7 cursor-pointer items-center justify-center text-muted-foreground transition-colors duration-150 hover:text-(--phosphor) focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-(--phosphor)"
+      className="flex h-11 w-11 cursor-pointer items-center justify-center text-muted-foreground transition-colors duration-150 hover:text-(--phosphor) focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-(--phosphor)"
       aria-label={`Switch to ${isDark ? "light" : "dark"} mode`}
     >
       {isDark ? (

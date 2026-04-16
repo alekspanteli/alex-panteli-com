@@ -71,7 +71,7 @@
   --secondary: #D4DAE4;
   --secondary-foreground: #0C1018;
   --muted: #D4DAE4;
-  --muted-foreground: #4A5870;
+  --muted-foreground: #384255;
   --accent: #D4DAE4;
   --accent-foreground: #0C1018;
   --destructive: #DC2626;
@@ -116,7 +116,7 @@
   --secondary: #1A1E28;
   --secondary-foreground: #B8C8D8;
   --muted: #1A1E28;
-  --muted-foreground: #7B90A8;
+  --muted-foreground: #96A8BF;
   --accent: #1A1E28;
   --accent-foreground: #B8C8D8;
   --destructive: #EF4444;
@@ -263,6 +263,10 @@
   .blink {
     animation: none;
     opacity: 1;
+  }
+  .animate-pulse,
+  .animate-ping {
+    animation: none;
   }
 }
 

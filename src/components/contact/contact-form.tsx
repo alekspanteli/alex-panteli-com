@@ -4,7 +4,7 @@ import { useRef, useState, type FormEvent } from "react";
 import { motion } from "motion/react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Send, CheckCircle2, AlertCircle, RotateCcw } from "lucide-react";
+import { ArrowRight, CheckCircle2, AlertCircle, RotateCcw } from "lucide-react";
 import { useRecaptcha } from "@/hooks/use-recaptcha";
 import { cn } from "@/lib/utils";
 
@@ -14,10 +14,10 @@ const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_FORMSPREE_RECAPTCHA_SITE_KEY 
 type Status = "idle" | "submitting" | "success" | "error";
 
 const inputClass =
-  "h-10 rounded-none border-x-0 border-t-0 border-b border-border bg-transparent px-0 font-mono text-[13px] text-foreground shadow-none placeholder:text-muted-foreground/70 focus-visible:border-(--phosphor)/60 focus-visible:ring-0 focus-visible:outline-none transition-colors duration-150";
+  "h-11 rounded-none border-x-0 border-t-0 border-b-2 border-foreground/25 bg-foreground/[0.03] px-3 font-mono text-[13px] text-foreground shadow-none placeholder:text-muted-foreground/70 focus-visible:border-(--phosphor) focus-visible:bg-foreground/[0.06] focus-visible:ring-0 focus-visible:outline-none transition-colors duration-150 dark:border-foreground/15 dark:bg-foreground/[0.02] dark:focus-visible:bg-foreground/[0.04]";
 
 const labelClass =
-  "mb-2 block font-mono text-[10px] uppercase tracking-widest text-muted-foreground";
+  "mb-2 block font-mono text-[10px] uppercase tracking-[0.18em] text-foreground/80";
 
 export function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
@@ -118,10 +118,12 @@ export function ContactForm() {
                   setGuardError(null);
                   startedAtRef.current = Date.now();
                 }}
-                className="mt-2 inline-flex cursor-pointer items-center gap-2 border border-(--phosphor)/30 px-4 py-2 font-mono text-[10px] uppercase tracking-widest text-(--phosphor) transition-colors duration-150 hover:border-(--phosphor)/60 hover:bg-(--phosphor)/5"
+                className="mt-2 inline-flex cursor-pointer items-center gap-2.5 border border-(--phosphor)/40 bg-transparent px-5 py-2.5 font-mono text-[11px] lowercase tracking-[0.14em] text-(--phosphor) transition-colors duration-150 hover:bg-(--phosphor) hover:text-background"
               >
-                <RotateCcw className="size-3" />
-                Send another
+                <RotateCcw className="size-3.5" aria-hidden="true" />
+                <span>
+                  <span className="text-(--phosphor)/60 group-hover:text-background/60">$</span> send_another
+                </span>
               </button>
             </div>
           ) : (
@@ -132,7 +134,6 @@ export function ContactForm() {
                   <Input
                     id="name"
                     name="name"
-                    placeholder="your name"
                     autoComplete="name"
                     className={inputClass}
                     required
@@ -144,7 +145,6 @@ export function ContactForm() {
                     id="email"
                     name="email"
                     type="email"
-                    placeholder="your@email.com"
                     autoComplete="email"
                     spellCheck={false}
                     className={inputClass}
@@ -158,7 +158,6 @@ export function ContactForm() {
                 <Input
                   id="subject"
                   name="subject"
-                  placeholder="what's this about?"
                   autoComplete="off"
                   className={inputClass}
                   required
@@ -170,7 +169,6 @@ export function ContactForm() {
                 <Textarea
                   id="message"
                   name="message"
-                  placeholder="tell me about your project…"
                   autoComplete="off"
                   rows={5}
                   className={cn(inputClass, "h-auto resize-none")}
@@ -199,10 +197,18 @@ export function ContactForm() {
                 type="submit"
                 disabled={status === "submitting" || !FORMSPREE_URL}
                 aria-busy={status === "submitting"}
-                className="inline-flex w-full cursor-pointer items-center justify-center gap-2 bg-(--phosphor) px-6 py-3 font-mono text-[11px] uppercase tracking-widest text-background transition-opacity duration-150 hover:opacity-85 disabled:cursor-not-allowed disabled:opacity-50"
+                className="group inline-flex w-full cursor-pointer items-center justify-between gap-4 border border-(--phosphor) bg-(--phosphor) px-6 py-4 font-mono text-[12px] lowercase tracking-[0.14em] text-background transition-colors duration-150 hover:bg-transparent hover:text-(--phosphor) disabled:cursor-not-allowed disabled:border-(--phosphor)/30 disabled:bg-(--phosphor)/30 disabled:hover:bg-(--phosphor)/30 disabled:hover:text-background sm:w-auto sm:self-start sm:px-8"
               >
-                <Send className="size-3.5" aria-hidden="true" />
-                {status === "submitting" ? "Transmitting..." : "Send Message"}
+                <span className="flex items-center gap-2">
+                  <span className="opacity-60">$</span>
+                  <span>
+                    {status === "submitting" ? "transmitting" : "send_message"}
+                    {status === "submitting" && (
+                      <span className="blink" aria-hidden="true">_</span>
+                    )}
+                  </span>
+                </span>
+                <ArrowRight className="size-4" aria-hidden="true" />
               </button>
             </form>
           )}

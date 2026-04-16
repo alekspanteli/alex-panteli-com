@@ -81,9 +81,7 @@ export function useRecaptcha(siteKey: string) {
   ) : null;
 
   const widget: ReactNode = siteKey ? (
-    <div className="flex justify-center">
-      <div ref={callbackRef} />
-    </div>
+    <div ref={callbackRef} />
   ) : null;
 
   return { script, widget, reset, resetWidgetId };

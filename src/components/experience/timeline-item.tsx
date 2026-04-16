@@ -27,15 +27,15 @@ export function TimelineItem({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.5, delay: index * 0.07, ease: [0.16, 1, 0.3, 1] }}
-      className="grid gap-6 border-t border-(--phosphor)/30 py-10 md:grid-cols-[180px_1fr] dark:border-(--phosphor)/10"
+      className="grid gap-6 border-t border-(--phosphor)/30 py-10 lg:grid-cols-[220px_1fr] dark:border-(--phosphor)/10"
     >
       {/* Left: period + location */}
-      <div className="md:pt-1">
-        <p className="font-mono text-[11px] font-medium uppercase tracking-widest text-(--phosphor)">
+      <div className="lg:pt-1">
+        <p className="font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-(--phosphor)">
           <span className="text-muted-foreground/30 mr-2" aria-hidden="true">[{String(index + 1).padStart(2, "0")}]</span>
-          {period}
+          <span className="whitespace-nowrap">{period}</span>
         </p>
-        <p className="mt-1.5 font-mono text-[10px] uppercase tracking-widest text-muted-foreground/70">
+        <p className="mt-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-muted-foreground/80">
           {location}
         </p>
       </div>

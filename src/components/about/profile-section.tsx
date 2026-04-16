@@ -6,9 +6,17 @@ import { ScrollReveal } from "@/components/shared/scroll-reveal";
 import { cvData } from "@/data/cv-data";
 import { Download } from "lucide-react";
 
+const quickFacts = [
+  { label: "Based", value: "Cyprus" },
+  { label: "Focus", value: "React · TypeScript · Next.js" },
+  { label: "Experience", value: "10+ years shipping production UIs" },
+  { label: "Specialty", value: "Design systems · WCAG AA · Perf" },
+  { label: "Status", value: "Open to contract work" },
+];
+
 export function ProfileSection() {
   return (
-    <div className="grid gap-16 md:grid-cols-[280px_1fr] md:items-start">
+    <div className="grid gap-12 md:grid-cols-[220px_1fr] md:items-start md:gap-14 lg:grid-cols-[240px_1fr_220px] lg:gap-16">
       <ScrollReveal direction="left">
         <div className="relative w-full max-w-70">
 
@@ -86,6 +94,33 @@ export function ProfileSection() {
             download_cv.pdf
           </Link>
         </div>
+      </ScrollReveal>
+
+      <ScrollReveal direction="right" delay={0.2} className="md:col-span-2 lg:col-span-1">
+        <aside className="md:border-t md:border-(--phosphor)/20 md:pt-8 lg:mt-1 lg:border-t-0 lg:border-l lg:border-(--phosphor)/20 lg:pt-0 lg:pl-6">
+          <p className="mb-5 font-mono text-[10px] uppercase tracking-[0.18em] text-(--phosphor)">
+            <span aria-hidden="true">{"// "}</span>at_a_glance
+          </p>
+          <dl className="space-y-4 md:grid md:grid-cols-3 md:gap-x-6 md:gap-y-4 md:space-y-0 lg:block lg:space-y-4">
+            {quickFacts.map((fact) => (
+              <div key={fact.label} className="border-t border-(--phosphor)/15 pt-3">
+                <dt className="font-mono text-[9px] uppercase tracking-[0.18em] text-muted-foreground/80">
+                  {fact.label}
+                </dt>
+                <dd className="mt-1 font-mono text-[12px] leading-snug text-heading">
+                  {fact.value}
+                </dd>
+              </div>
+            ))}
+          </dl>
+          <div className="mt-5 flex items-center gap-2 border-t border-(--phosphor)/15 pt-3 font-mono text-[10px] uppercase tracking-[0.18em] text-(--phosphor)">
+            <span className="relative inline-flex size-1.5">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-(--phosphor) opacity-60" />
+              <span className="relative inline-flex size-1.5 rounded-full bg-(--phosphor)" />
+            </span>
+            Available
+          </div>
+        </aside>
       </ScrollReveal>
     </div>
   );

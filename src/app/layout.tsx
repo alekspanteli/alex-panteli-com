@@ -83,7 +83,7 @@ export default function RootLayout({
                 Skip to content
               </a>
 <Navbar />
-              <main id="main-content" className="flex flex-1 flex-col">
+              <main id="main-content" className="flex flex-1 flex-col overflow-x-clip">
                 {children}
               </main>
               <Footer />

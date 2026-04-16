@@ -3,11 +3,14 @@
 import { motion } from "motion/react";
 import { cvData } from "@/data/cv-data";
 
+const [emailLocal, emailDomain] = cvData.personal.email.split("@");
+
 const contactItems = [
   {
     label: "Email",
-    value: cvData.personal.email,
+    value: `${emailLocal} [at] ${emailDomain}`,
     href: `mailto:${cvData.personal.email}`,
+    obfuscated: true,
   },
   {
     label: "Location",

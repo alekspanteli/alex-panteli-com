@@ -14,6 +14,13 @@ import {
 } from "@/components/ui/sheet";
 import { NAV_LINKS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
+import { cvData } from "@/data/cv-data";
+
+const socialLinks = [
+  { href: `mailto:${cvData.personal.email}`, label: "Email", external: false },
+  { href: "https://github.com/alekspanteli", label: "GitHub", external: true },
+  { href: "https://www.linkedin.com/in/alexpanteli/", label: "LinkedIn", external: true },
+] as const;
 
 export function MobileNav() {
   const [open, setOpen] = useState(false);
@@ -24,7 +31,7 @@ export function MobileNav() {
       <SheetTrigger asChild>
         <button
           type="button"
-          className="flex h-7 w-7 cursor-pointer items-center justify-center text-muted-foreground transition-colors duration-150 hover:text-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-(--phosphor) md:hidden"
+          className="flex h-11 w-11 cursor-pointer items-center justify-center text-muted-foreground transition-colors duration-150 hover:text-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-(--phosphor) md:hidden"
           aria-label="Open menu"
         >
           <Menu className="size-5" />
@@ -33,7 +40,7 @@ export function MobileNav() {
 
       <SheetContent
         side="right"
-        className="w-64 border-l border-(--phosphor)/10 bg-background p-0"
+        className="flex w-72 flex-col border-l border-(--phosphor)/10 bg-background p-0"
       >
         <SheetHeader className="border-b border-(--phosphor)/10 px-6 py-4">
           <SheetTitle className="font-display text-[14px] font-bold text-(--phosphor)">
@@ -44,7 +51,7 @@ export function MobileNav() {
           </SheetDescription>
         </SheetHeader>
 
-        <nav className="flex flex-col px-4 py-6">
+        <nav className="flex flex-col px-4 py-4">
           {NAV_LINKS.map((link) => {
             const isActive = pathname === link.href;
             return (
@@ -54,7 +61,7 @@ export function MobileNav() {
                 onClick={() => setOpen(false)}
                 {...(isActive ? { "aria-current": "page" as const } : {})}
                 className={cn(
-                  "relative px-3 py-3 font-mono text-[11px] uppercase tracking-widest transition-colors duration-150",
+                  "relative flex min-h-12 items-center px-3 font-mono text-[12px] uppercase tracking-[0.18em] transition-colors duration-150",
                   isActive
                     ? "bg-(--phosphor)/8 text-(--phosphor)"
                     : "text-muted-foreground hover:text-foreground"
@@ -71,6 +78,25 @@ export function MobileNav() {
             );
           })}
         </nav>
+
+        <div className="mt-auto border-t border-(--phosphor)/10 px-4 py-4">
+          <p className="mb-2 px-3 font-mono text-[9px] uppercase tracking-[0.22em] text-muted-foreground/70">
+            <span aria-hidden="true">{"// "}</span>connect
+          </p>
+          <div className="flex flex-col">
+            {socialLinks.map(({ href, label, external }) => (
+              <a
+                key={label}
+                href={href}
+                onClick={() => setOpen(false)}
+                className="flex min-h-11 items-center px-3 font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground transition-colors duration-150 hover:text-(--phosphor)"
+                {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+              >
+                {label}
+              </a>
+            ))}
+          </div>
+        </div>
       </SheetContent>
     </Sheet>
   );
