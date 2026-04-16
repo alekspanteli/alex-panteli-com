@@ -281,14 +281,10 @@
 }
 
 /* ─── Vertical scan columns — frequency grid, oscilloscope-style ─── */
+/* Dark-mode only: the IDE/oscilloscope metaphor doesn't translate to
+   light backgrounds, where the columns read as gritty noise instead. */
 .scanlines {
-  background-image: repeating-linear-gradient(
-    90deg,
-    transparent 0px,
-    transparent 119px,
-    rgba(10, 24, 40, 0.05) 119px,
-    rgba(10, 24, 40, 0.05) 120px
-  );
+  background-image: none;
 }
 .dark .scanlines {
   background-image: repeating-linear-gradient(

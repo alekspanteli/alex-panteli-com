@@ -12,7 +12,7 @@ function StatItem({ stat }: StatItemProps) {
   const { ref } = useCounterAnimation(stat.value);
 
   return (
-    <div className="border-t border-(--phosphor)/15 pt-6">
+    <div className="border-t border-(--phosphor)/35 pt-6 dark:border-(--phosphor)/15">
       <p
         className="font-display text-[48px] font-bold leading-none tracking-[-0.03em] text-heading"
         aria-label={`${stat.value}${stat.suffix}`}

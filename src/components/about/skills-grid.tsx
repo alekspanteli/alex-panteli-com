@@ -13,7 +13,7 @@ const categories = [
 export function SkillsGrid() {
   return (
     <div>
-      <div className="mb-10 border-t border-(--phosphor)/15 pt-8">
+      <div className="mb-10 border-t border-(--phosphor)/35 pt-8 dark:border-(--phosphor)/15">
         <p className="mb-2 font-mono text-[11px] uppercase tracking-widest text-(--phosphor)">
           Stack
         </p>

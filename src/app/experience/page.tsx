@@ -56,7 +56,7 @@ export default function ExperiencePage() {
           <Timeline />
         </div>
 
-        <div className="mt-16 border-t border-(--phosphor)/15 pt-16">
+        <div className="mt-16 border-t border-(--phosphor)/35 pt-16 dark:border-(--phosphor)/15">
           <p className="mb-4 font-mono text-[11px] uppercase tracking-widest text-(--phosphor)">
             Education
           </p>
@@ -68,7 +68,7 @@ export default function ExperiencePage() {
             {cvData.education.map((edu) => (
               <div
                 key={edu.institution}
-                className="border-t border-(--phosphor)/10 py-6 transition-colors duration-150 hover:border-(--phosphor)/25"
+                className="border-t border-(--phosphor)/30 py-6 transition-colors duration-150 hover:border-(--phosphor)/50 dark:border-(--phosphor)/10 dark:hover:border-(--phosphor)/25"
               >
                 <div className="flex flex-wrap items-center gap-3 font-mono text-[11px] text-muted-foreground/70">
                   <GraduationCap className="h-3.5 w-3.5" aria-hidden="true" />

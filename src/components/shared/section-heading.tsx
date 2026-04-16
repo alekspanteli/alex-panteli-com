@@ -25,7 +25,12 @@ export function SectionHeading({ label, title, subtitle }: SectionHeadingProps) 
       <h2 className="font-display text-[36px] font-bold leading-[1.05] tracking-[-0.03em] text-heading sm:text-[46px]">
         <span className="text-(--phosphor) mr-3" aria-hidden="true">{"// "}</span>{title}
       </h2>
-      <div className="mt-5 h-px w-16 bg-(--phosphor)/40" aria-hidden="true" />
+      <span
+        className="mt-4 block font-mono text-[13px] leading-none text-(--phosphor)/70"
+        aria-hidden="true"
+      >
+        └──
+      </span>
       {subtitle && (
         <p className="mt-5 max-w-xl text-[16px] leading-[1.65] tracking-[-0.01em] text-muted-foreground">
           {subtitle}

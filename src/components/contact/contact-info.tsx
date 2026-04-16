@@ -38,7 +38,12 @@ export function ContactInfo() {
         <h3 className="font-display text-[32px] font-bold leading-[1.1] tracking-[-0.025em] text-heading">
           <span className="text-(--phosphor) mr-2" aria-hidden="true">$</span>connect --open
         </h3>
-        <div className="mt-5 h-px w-12 bg-(--phosphor)/40" aria-hidden="true" />
+        <span
+          className="mt-4 block font-mono text-[13px] leading-none text-(--phosphor)/70"
+          aria-hidden="true"
+        >
+          └──
+        </span>
         <p className="mt-6 max-w-sm text-[15px] leading-[1.7] tracking-[-0.01em] text-muted-foreground">
           Whether you need a frontend developer for your next project or want to
           explore a collaboration, I&apos;d love to hear from you.
@@ -53,7 +58,7 @@ export function ContactInfo() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.08, duration: 0.4, ease: "easeOut" }}
-            className="border-t border-(--phosphor)/10 py-5"
+            className="border-t border-(--phosphor)/30 py-5 dark:border-(--phosphor)/10"
           >
             <p className="mb-1.5 font-mono text-[10px] uppercase tracking-widest text-muted-foreground/70">
               {item.label}

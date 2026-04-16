@@ -180,7 +180,7 @@ export function HeroSection({ personal, stats }: HeroSectionProps) {
           animate={{ scaleX: 1 }}
           style={{ transformOrigin: "left center" }}
           transition={{ delay: 0.52, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-          className="my-10 h-px w-full bg-(--phosphor)/25"
+          className="my-10 h-0 w-full border-t border-dashed border-(--phosphor)/50 dark:border-(--phosphor)/30"
           aria-hidden="true"
         />
 

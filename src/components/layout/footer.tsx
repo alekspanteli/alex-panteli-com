@@ -8,7 +8,7 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-(--phosphor)/10">
+    <footer className="border-t border-(--phosphor)/30 dark:border-(--phosphor)/10">
       <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 py-5 sm:flex-row">
         <div className="flex items-center gap-3">
           <span className="h-1.5 w-1.5 rounded-full bg-(--phosphor) animate-pulse" aria-hidden="true" />

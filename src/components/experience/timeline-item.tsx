@@ -27,7 +27,7 @@ export function TimelineItem({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.5, delay: index * 0.07, ease: [0.16, 1, 0.3, 1] }}
-      className="grid gap-6 border-t border-(--phosphor)/10 py-10 md:grid-cols-[180px_1fr]"
+      className="grid gap-6 border-t border-(--phosphor)/30 py-10 md:grid-cols-[180px_1fr] dark:border-(--phosphor)/10"
     >
       {/* Left: period + location */}
       <div className="md:pt-1">
