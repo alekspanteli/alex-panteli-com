@@ -14,26 +14,45 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <PageTransition>
-      {/* Signal rings — broadcast motif, container-bounded */}
+      {/* Handshake — two endpoints connecting, packet in flight */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
         <div className="relative mx-auto h-full w-full max-w-[1400px] px-6 sm:px-12">
           <svg
-            className="absolute right-0 top-1/2 hidden -translate-y-1/2 translate-x-[28%] select-none opacity-[0.11] md:block"
+            className="absolute right-0 top-1/2 hidden -translate-y-1/2 translate-x-[25%] select-none opacity-[0.12] md:block"
             width="440" height="440" viewBox="0 0 440 440" fill="none"
           >
-            {/* 3 concentric rings — solid, tightened */}
-            <circle cx="220" cy="220" r="200" stroke="var(--phosphor)" strokeWidth="0.6" strokeDasharray="2 10" />
-            <circle cx="220" cy="220" r="140" stroke="var(--phosphor)" strokeWidth="0.7" strokeDasharray="3 9" />
-            <circle cx="220" cy="220" r="80"  stroke="var(--phosphor)" strokeWidth="0.85" strokeDasharray="4 7" />
-            {/* Crosshairs — shorter, anchored within outermost ring */}
-            <line x1="220" y1="8"   x2="220" y2="432" stroke="var(--phosphor)" strokeWidth="0.4" strokeDasharray="2 12" />
-            <line x1="8"   y1="220" x2="432" y2="220" stroke="var(--phosphor)" strokeWidth="0.4" strokeDasharray="2 12" />
-            {/* Transmission pulse — diagonal indicator */}
-            <line x1="220" y1="220" x2="300" y2="140" stroke="var(--phosphor)" strokeWidth="0.75" />
-            <circle cx="300" cy="140" r="2.5" fill="var(--phosphor)" />
-            {/* Centre pip — matches hero/about phosphor signature */}
-            <circle cx="220" cy="220" r="3" fill="var(--phosphor)" />
-            <circle cx="220" cy="220" r="9" stroke="var(--phosphor)" strokeWidth="0.6" />
+            {/* Registration marks — subtle frame */}
+            <line x1="20" y1="20" x2="34" y2="20" stroke="var(--phosphor)" strokeWidth="0.6" />
+            <line x1="20" y1="20" x2="20" y2="34" stroke="var(--phosphor)" strokeWidth="0.6" />
+            <line x1="420" y1="420" x2="406" y2="420" stroke="var(--phosphor)" strokeWidth="0.6" />
+            <line x1="420" y1="420" x2="420" y2="406" stroke="var(--phosphor)" strokeWidth="0.6" />
+
+            {/* Packet trail — dashed, gently curved */}
+            <path
+              d="M 90 110 Q 260 160 360 340"
+              stroke="var(--phosphor)"
+              strokeWidth="0.6"
+              strokeDasharray="3 6"
+              fill="none"
+            />
+
+            {/* In-flight packet — solid pip with dashed halo */}
+            <circle cx="242" cy="193" r="2.5" fill="var(--phosphor)" />
+            <circle cx="242" cy="193" r="7" stroke="var(--phosphor)" strokeWidth="0.5" strokeDasharray="1.5 2.5" />
+
+            {/* Node A — origin (TX) */}
+            <circle cx="90" cy="110" r="3" fill="var(--phosphor)" />
+            <circle cx="90" cy="110" r="9" stroke="var(--phosphor)" strokeWidth="0.6" />
+            <text x="106" y="102" fill="var(--phosphor)" fontSize="7" fontFamily="monospace" letterSpacing="0.15em" opacity="0.75">
+              TX
+            </text>
+
+            {/* Node B — destination (RX) */}
+            <circle cx="360" cy="340" r="3" fill="var(--phosphor)" />
+            <circle cx="360" cy="340" r="9" stroke="var(--phosphor)" strokeWidth="0.6" />
+            <text x="332" y="360" fill="var(--phosphor)" fontSize="7" fontFamily="monospace" letterSpacing="0.15em" opacity="0.75">
+              RX
+            </text>
           </svg>
         </div>
       </div>

@@ -72,6 +72,14 @@ export function HeroSection({ personal, stats }: HeroSectionProps) {
         aria-hidden="true"
       />
 
+      {/* HUD corner brackets — viewfinder / precision instrument */}
+      <div className="pointer-events-none absolute inset-0" aria-hidden="true">
+        <span className="absolute top-4 left-4 h-6 w-6 border-t border-l border-(--phosphor)/30" />
+        <span className="absolute top-4 right-4 h-6 w-6 border-t border-r border-(--phosphor)/30" />
+        <span className="absolute bottom-4 left-4 h-6 w-6 border-b border-l border-(--phosphor)/30" />
+        <span className="absolute bottom-4 right-4 h-6 w-6 border-b border-r border-(--phosphor)/30" />
+      </div>
+
       {/* Container-bounded decorations — anchor to content zone, not viewport */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
         <div className="relative mx-auto h-full w-full max-w-[1400px] px-6 sm:px-12">
@@ -90,26 +98,44 @@ export function HeroSection({ personal, stats }: HeroSectionProps) {
             react@19.1.0
           </span>
 
-          {/* Radar / schematic target — single protagonist, right-anchored to container edge */}
+          {/* Oscilloscope trace — live reading motif, right-anchored */}
           <svg
-            className="absolute right-0 top-1/2 hidden -translate-y-1/2 translate-x-[30%] select-none opacity-[0.13] md:block"
-            width="520"
-            height="520"
-            viewBox="0 0 520 520"
+            className="absolute right-0 top-1/2 hidden -translate-y-1/2 translate-x-[22%] select-none opacity-[0.13] md:block"
+            width="560"
+            height="320"
+            viewBox="0 0 560 320"
             fill="none"
           >
-            {/* 3 concentric rings — removed 2 for breathing room */}
-            <circle cx="260" cy="260" r="240" stroke="var(--phosphor)" strokeWidth="0.85" />
-            <circle cx="260" cy="260" r="170" stroke="var(--phosphor)" strokeWidth="0.6" />
-            <circle cx="260" cy="260" r="100" stroke="var(--phosphor)" strokeWidth="0.6" />
-            {/* Dashed crosshairs only — removed 45° diagonals */}
-            <line x1="260" y1="0"   x2="260" y2="520" stroke="var(--phosphor)" strokeWidth="0.5" strokeDasharray="3 10" />
-            <line x1="0"   y1="260" x2="520" y2="260" stroke="var(--phosphor)" strokeWidth="0.5" strokeDasharray="3 10" />
-            {/* Bearing tick — single intentional mark instead of cluster */}
-            <line x1="260" y1="12" x2="260" y2="28" stroke="var(--phosphor)" strokeWidth="1" />
-            {/* Center pip with phosphor signature ring */}
-            <circle cx="260" cy="260" r="3" fill="var(--phosphor)" />
-            <circle cx="260" cy="260" r="9" stroke="var(--phosphor)" strokeWidth="0.6" />
+            {/* Screen frame */}
+            <rect x="0.5" y="0.5" width="559" height="319" stroke="var(--phosphor)" strokeWidth="0.4" />
+            {/* Horizontal axis — stronger centerline */}
+            <line x1="0" y1="160" x2="560" y2="160" stroke="var(--phosphor)" strokeWidth="0.5" />
+            {/* Graticule — minor horizontal divisions */}
+            <line x1="0" y1="80"  x2="560" y2="80"  stroke="var(--phosphor)" strokeWidth="0.3" strokeDasharray="2 6" />
+            <line x1="0" y1="240" x2="560" y2="240" stroke="var(--phosphor)" strokeWidth="0.3" strokeDasharray="2 6" />
+            {/* Vertical time divisions */}
+            <line x1="140" y1="0" x2="140" y2="320" stroke="var(--phosphor)" strokeWidth="0.3" strokeDasharray="2 8" />
+            <line x1="280" y1="0" x2="280" y2="320" stroke="var(--phosphor)" strokeWidth="0.3" strokeDasharray="2 8" />
+            <line x1="420" y1="0" x2="420" y2="320" stroke="var(--phosphor)" strokeWidth="0.3" strokeDasharray="2 8" />
+            {/* Damped sine trace — amplitude decays left-to-right */}
+            <path
+              d="M 0 160 Q 35 60 70 160 T 140 160 Q 175 85 210 160 T 280 160 Q 315 115 350 160 T 420 160 Q 455 140 490 160 T 560 160"
+              stroke="var(--phosphor)"
+              strokeWidth="1.1"
+              fill="none"
+            />
+            {/* Scan head — phosphor signature at leading edge */}
+            <circle cx="560" cy="160" r="3" fill="var(--phosphor)" />
+            <circle cx="560" cy="160" r="9" stroke="var(--phosphor)" strokeWidth="0.6" />
+            {/* Corner registration marks */}
+            <line x1="0" y1="0" x2="10" y2="0" stroke="var(--phosphor)" strokeWidth="0.85" />
+            <line x1="0" y1="0" x2="0" y2="10" stroke="var(--phosphor)" strokeWidth="0.85" />
+            <line x1="0" y1="320" x2="10" y2="320" stroke="var(--phosphor)" strokeWidth="0.85" />
+            <line x1="0" y1="320" x2="0" y2="310" stroke="var(--phosphor)" strokeWidth="0.85" />
+            {/* Channel label */}
+            <text x="8" y="18" fill="var(--phosphor)" fontSize="7" fontFamily="monospace" letterSpacing="0.15em" opacity="0.7">
+              CH1 · 2V
+            </text>
           </svg>
         </div>
       </div>
