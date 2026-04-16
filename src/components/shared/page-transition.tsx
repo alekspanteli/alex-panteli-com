@@ -1,17 +1,6 @@
-"use client";
-
-import { motion, useReducedMotion } from "motion/react";
-
 export function PageTransition({ children }: { children: React.ReactNode }) {
-  const prefersReducedMotion = useReducedMotion();
-
   return (
-    <motion.div
-      className="relative"
-      initial={prefersReducedMotion ? false : { opacity: 0, y: 8 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={prefersReducedMotion ? { duration: 0 } : { duration: 0.35, ease: "easeOut" }}
-    >
+    <div className="relative">
       {/* Dot matrix — fades from top-center, dims into content */}
       <svg
         className="pointer-events-none absolute inset-0 h-full w-full"
@@ -40,6 +29,6 @@ export function PageTransition({ children }: { children: React.ReactNode }) {
       </div>
 
       {children}
-    </motion.div>
+    </div>
   );
 }

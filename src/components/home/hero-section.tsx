@@ -146,7 +146,7 @@ export function HeroSection({ personal, stats }: HeroSectionProps) {
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.05, duration: 0.6, ease: "easeOut" }}
+          transition={{ duration: 0.3, ease: "easeOut" }}
           className="mb-10 font-mono text-[11px] uppercase tracking-widest text-(--phosphor)"
         >
           <span aria-hidden="true">{"// "}</span>{personal.title.toLowerCase().replace(/\s+/g, "_")}
@@ -160,7 +160,7 @@ export function HeroSection({ personal, stats }: HeroSectionProps) {
             className="block"
             initial={{ opacity: 1, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.15, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
           >
             alex
           </motion.span>
@@ -168,7 +168,7 @@ export function HeroSection({ personal, stats }: HeroSectionProps) {
             className="block"
             initial={{ opacity: 1, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.28, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ delay: 0.08, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
           >
             panteli<span className="blink text-(--phosphor)" aria-hidden="true">_</span>
           </motion.span>
@@ -179,7 +179,7 @@ export function HeroSection({ personal, stats }: HeroSectionProps) {
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
           style={{ transformOrigin: "left center" }}
-          transition={{ delay: 0.52, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ delay: 0.18, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
           className="my-10 h-0 w-full border-t border-dashed border-(--phosphor)/50 dark:border-(--phosphor)/30"
           aria-hidden="true"
         />
@@ -192,7 +192,7 @@ export function HeroSection({ personal, stats }: HeroSectionProps) {
             <motion.p
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.66, duration: 0.5, ease: "easeOut" }}
+              transition={{ delay: 0.22, duration: 0.35, ease: "easeOut" }}
               className="mb-8 max-w-130 text-[17px] leading-[1.65] tracking-[-0.01em] text-muted-foreground"
             >
               A decade crafting precise, accessible interfaces — from design-system
@@ -202,7 +202,7 @@ export function HeroSection({ personal, stats }: HeroSectionProps) {
             <motion.div
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8, duration: 0.45, ease: "easeOut" }}
+              transition={{ delay: 0.28, duration: 0.3, ease: "easeOut" }}
               className="flex flex-wrap gap-3"
             >
               <Link
@@ -225,7 +225,7 @@ export function HeroSection({ personal, stats }: HeroSectionProps) {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.95, duration: 0.6, ease: "easeOut" }}
+            transition={{ delay: 0.2, duration: 0.35, ease: "easeOut" }}
             className="flex items-end gap-8 md:flex-col md:items-end md:gap-7"
           >
             {stats.map((stat) => (

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { ViewTransition } from "react";
 import { IBM_Plex_Sans, Fira_Code } from "next/font/google";
 import { MotionConfig } from "motion/react";
 import { ThemeProvider } from "@/providers/theme-provider";
@@ -85,7 +84,7 @@ export default function RootLayout({
               </a>
 <Navbar />
               <main id="main-content" className="flex flex-1 flex-col">
-                <ViewTransition>{children}</ViewTransition>
+                {children}
               </main>
               <Footer />
             </div>
