@@ -14,10 +14,10 @@ const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_FORMSPREE_RECAPTCHA_SITE_KEY 
 type Status = "idle" | "submitting" | "success" | "error";
 
 const inputClass =
-  "h-11 rounded-none border-x-0 border-t-0 border-b-2 border-foreground/25 bg-foreground/[0.03] px-3 font-mono text-[13px] text-foreground shadow-none placeholder:text-muted-foreground/70 focus-visible:border-(--phosphor) focus-visible:bg-foreground/[0.06] focus-visible:ring-0 focus-visible:outline-none transition-colors duration-150 dark:border-foreground/15 dark:bg-foreground/[0.02] dark:focus-visible:bg-foreground/[0.04]";
+  "h-11 rounded-none border-x-0 border-t-0 border-b-2 border-foreground/25 bg-foreground/[0.03] px-3 font-mono text-[13px] text-foreground shadow-none placeholder:text-muted-foreground/70 focus-visible:border-(--phosphor) focus-visible:bg-foreground/[0.06] focus-visible:ring-1 focus-visible:ring-(--phosphor)/60 focus-visible:outline-none transition-colors duration-150 dark:border-foreground/15 dark:bg-foreground/[0.02] dark:focus-visible:bg-foreground/[0.04]";
 
 const labelClass =
-  "mb-2 block font-mono text-[10px] uppercase tracking-[0.18em] text-foreground/80";
+  "mb-2 block font-mono text-[11px] uppercase tracking-[0.18em] text-foreground/85";
 
 export function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
@@ -44,7 +44,7 @@ export function ContactForm() {
       return;
     }
 
-    if (elapsedMs < 4000) {
+    if (elapsedMs < 2500) {
       setGuardError("Please take a moment before submitting.");
       return;
     }
@@ -93,7 +93,7 @@ export function ContactForm() {
 
         {/* Panel header */}
         <div className="flex items-center gap-2 border-b border-(--phosphor)/10 px-6 py-3">
-          <span className="font-mono text-[10px] uppercase tracking-widest text-(--phosphor)">
+          <span className="font-mono text-[11px] uppercase tracking-widest text-(--phosphor)">
             <span aria-hidden="true">{"// "}</span>send_message
           </span>
         </div>

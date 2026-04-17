@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { PageTransition } from "@/components/shared/page-transition";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { ProfileSection } from "@/components/about/profile-section";
+import { StatsCounter } from "@/components/about/stats-counter";
 import { SkillsGrid } from "@/components/about/skills-grid";
 import { cvData } from "@/data/cv-data";
 
@@ -57,7 +58,7 @@ export default function AboutPage() {
         </div>
       </div>
 
-      <div className="mx-auto max-w-5xl px-6 py-16">
+      <div className="mx-auto max-w-4xl px-6 py-24 lg:py-28">
         <SectionHeading
           title="About Me"
           subtitle="The person behind the pixels"
@@ -65,6 +66,7 @@ export default function AboutPage() {
 
         <div className="mt-14 space-y-20">
           <ProfileSection />
+          <StatsCounter />
           <SkillsGrid />
         </div>
       </div>

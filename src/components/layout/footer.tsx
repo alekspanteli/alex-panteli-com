@@ -12,7 +12,7 @@ export function Footer() {
       <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 py-5 sm:flex-row">
         <div className="flex items-center gap-3">
           <span className="h-1.5 w-1.5 rounded-full bg-(--phosphor) animate-pulse" aria-hidden="true" />
-          <p className="font-mono text-[10px] uppercase tracking-widest text-foreground/75 dark:text-muted-foreground">
+          <p className="font-mono text-[11px] uppercase tracking-widest text-foreground/85 dark:text-muted-foreground">
             &copy; {new Date().getFullYear()} {cvData.personal.name}
           </p>
         </div>
@@ -21,7 +21,7 @@ export function Footer() {
             <a
               key={label}
               href={href}
-              className="inline-flex min-h-11 items-center px-3 font-mono text-[10px] uppercase tracking-[0.18em] text-foreground/75 transition-colors duration-150 hover:text-(--phosphor) dark:text-muted-foreground"
+              className="inline-flex min-h-11 items-center px-3 font-mono text-[11px] uppercase tracking-[0.18em] text-foreground/85 transition-colors duration-150 hover:text-(--phosphor) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--phosphor) dark:text-muted-foreground"
               aria-label={label}
               {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
             >

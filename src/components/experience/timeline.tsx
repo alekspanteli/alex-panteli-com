@@ -13,6 +13,7 @@ export function Timeline() {
           location={exp.location}
           description={exp.description}
           highlights={exp.highlights}
+          stack={exp.stack}
           index={index}
         />
       ))}

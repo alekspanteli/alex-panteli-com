@@ -58,7 +58,7 @@
 /* ─── Light — cold steel ─── */
 :root {
   color-scheme: light;
-  --radius: 0.125rem;
+  --radius: 0.25rem;
   --background: #EFF2F6;
   --foreground: #0C1018;
   --heading: #080B12;
@@ -282,22 +282,6 @@
     linear-gradient(rgba(197, 216, 236, 0.028) 1px, transparent 1px),
     linear-gradient(90deg, rgba(197, 216, 236, 0.028) 1px, transparent 1px);
   background-size: 40px 40px;
-}
-
-/* ─── Vertical scan columns — frequency grid, oscilloscope-style ─── */
-/* Dark-mode only: the IDE/oscilloscope metaphor doesn't translate to
-   light backgrounds, where the columns read as gritty noise instead. */
-.scanlines {
-  background-image: none;
-}
-.dark .scanlines {
-  background-image: repeating-linear-gradient(
-    90deg,
-    transparent 0px,
-    transparent 119px,
-    rgba(197, 216, 236, 0.012) 119px,
-    rgba(197, 216, 236, 0.012) 120px
-  );
 }
 
 /* ─── Dot grid — alias for grid-overlay (backwards compat) ─── */

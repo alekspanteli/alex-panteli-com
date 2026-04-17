@@ -50,7 +50,8 @@
       "Bash(wmic process *)",
       "Bash(powershell -Command 'Get-CimInstance Win32_Process -Filter \"name='\\\\''chrome.exe'\\\\''\" | Where-Object { $_.CommandLine -like '\\\\''*mcp-chrome*'\\\\'' } | Select-Object ProcessId, CommandLine | Format-List')",
       "mcp__plugin_playwright_playwright__browser_snapshot",
-      "mcp__plugin_playwright_playwright__browser_evaluate"
+      "mcp__plugin_playwright_playwright__browser_evaluate",
+      "Bash(git checkout *)"
     ],
     "additionalDirectories": [
       "C:\\Users\\dudec\\.claude",

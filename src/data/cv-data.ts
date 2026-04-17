@@ -7,6 +7,12 @@ export interface PersonalInfo {
   summary: string;
 }
 
+export interface Currently {
+  role: string;
+  company: string;
+  availability: string;
+}
+
 export interface Skill {
   name: string;
   category: "frontend" | "backend" | "tools" | "other";
@@ -19,6 +25,7 @@ export interface Experience {
   location: string;
   description: string;
   highlights: string[];
+  stack?: string[];
 }
 
 export interface Education {
@@ -26,6 +33,14 @@ export interface Education {
   degree: string;
   period: string;
   location: string;
+}
+
+export interface Project {
+  title: string;
+  context: string;
+  outcome: string;
+  tags: string[];
+  href?: string;
 }
 
 export interface Stat {
@@ -36,14 +51,16 @@ export interface Stat {
 
 export interface CVData {
   personal: PersonalInfo;
+  currently: Currently;
   skills: Skill[];
   experience: Experience[];
   education: Education[];
+  projects: Project[];
   stats: Stat[];
 }
 
 const CAREER_START = new Date(2015, 3); // April 2015
-const yearsExperience = Math.floor(
+export const yearsExperience = Math.floor(
   (Date.now() - CAREER_START.getTime()) / (365.25 * 24 * 60 * 60 * 1000),
 );
 
@@ -56,6 +73,11 @@ export const cvData: CVData = {
 
     summary:
       "I craft fast, accessible web interfaces that users love and teams can scale. Over a decade of shipping production UIs — from design-system foundations to complex trading platforms — I bring deep expertise in React, TypeScript, and modern CSS, with a relentless focus on performance, WCAG compliance, and pixel-perfect execution.",
+  },
+  currently: {
+    role: "Frontend Developer",
+    company: "iGaming & Trading (contract)",
+    availability: "Available for new work",
   },
   skills: [
     { name: "React", category: "frontend" },
@@ -90,6 +112,7 @@ export const cvData: CVData = {
         "Architecting component libraries with full WCAG AA compliance and semantic markup, enabling rapid feature delivery across products.",
         "Driving frontend quality through close collaboration with designers and backend engineers, reducing UI bugs and accelerating release cycles.",
       ],
+      stack: ["React", "TypeScript", "Next.js", "Tailwind", "Motion"],
     },
     {
       company: "XM / Trading.com",
@@ -104,6 +127,7 @@ export const cvData: CVData = {
         "Established code-review culture, mentored junior developers, and drove adoption of Agile best practices",
         "Led technical interviews and shaped the hiring pipeline that grew the frontend team",
       ],
+      stack: ["React", "TypeScript", "Angular", "GraphQL", "Design Systems"],
     },
     {
       company: "easyMarkets",
@@ -117,6 +141,7 @@ export const cvData: CVData = {
         "Led the Bootstrap 3-to-4 migration, reducing CSS bundle size and improving long-term maintainability",
         "Boosted organic traffic through semantic markup overhaul and structured data implementation",
       ],
+      stack: ["JavaScript", "Bootstrap", "HTML Email", "SEO"],
     },
     {
       company: "FxPro",
@@ -129,6 +154,7 @@ export const cvData: CVData = {
         "Delivered custom WordPress themes end-to-end — from PSD comps to production-ready, mobile-first code",
         "Partnered with the SEO team to implement site-wide structural improvements that increased search visibility",
       ],
+      stack: ["JavaScript", "WordPress", "PHP", "Responsive Design"],
     },
   ],
   education: [
@@ -137,6 +163,34 @@ export const cvData: CVData = {
       degree: "BSc (Hons) Web Design & Development",
       period: "2010 – 2014",
       location: "Dundee, Scotland",
+    },
+  ],
+  // Selected Work — placeholder content to scaffold the homepage section.
+  // Replace context/outcome/tags with real case-study data when ready.
+  projects: [
+    {
+      title: "Real-time trading dashboard",
+      context: "XM / Trading.com",
+      outcome: "Sub-second rendering for live market data across 40+ widgets",
+      tags: ["React", "WebSockets", "Perf"],
+    },
+    {
+      title: "Cross-team design system",
+      context: "XM / Trading.com",
+      outcome: "Adopted by 4+ product teams; cut new-feature delivery time",
+      tags: ["Design Systems", "A11y", "TypeScript"],
+    },
+    {
+      title: "iGaming component library",
+      context: "NDA · Contract",
+      outcome: "WCAG AA-compliant primitives shipped across multiple products",
+      tags: ["Next.js", "Tailwind", "A11y"],
+    },
+    {
+      title: "Campaign microsites",
+      context: "easyMarkets",
+      outcome: "Conversion-optimised landing pages across 30+ email clients",
+      tags: ["JavaScript", "HTML Email", "SEO"],
     },
   ],
   stats: [

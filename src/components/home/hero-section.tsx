@@ -4,14 +4,14 @@ import { useRef, useCallback } from "react";
 import Link from "next/link";
 import { motion } from "motion/react";
 import { ArrowRight } from "lucide-react";
-import type { PersonalInfo, Stat } from "@/data/cv-data";
+import type { PersonalInfo, Currently } from "@/data/cv-data";
 
 type HeroSectionProps = {
   personal: PersonalInfo;
-  stats: Stat[];
+  currently: Currently;
 };
 
-export function HeroSection({ personal, stats }: HeroSectionProps) {
+export function HeroSection({ personal, currently }: HeroSectionProps) {
   const spotlightRef = useRef<HTMLDivElement>(null);
 
   const handleMouseMove = useCallback((e: React.MouseEvent<HTMLElement>) => {
@@ -41,27 +41,6 @@ export function HeroSection({ personal, stats }: HeroSectionProps) {
         aria-hidden="true"
       />
 
-      {/* Dot matrix grid — subtle viewport-wide bg, fades radially from center-left */}
-      <svg
-        className="pointer-events-none absolute inset-0 h-full w-full"
-        aria-hidden="true"
-      >
-        <defs>
-          <pattern id="hero-dots" x="0" y="0" width="28" height="28" patternUnits="userSpaceOnUse">
-            <circle cx="1" cy="1" r="1" fill="var(--phosphor)" fillOpacity="0.22" />
-          </pattern>
-          <radialGradient id="hero-dot-fade" cx="32%" cy="48%" r="62%" gradientUnits="objectBoundingBox">
-            <stop offset="0%"   stopColor="white" stopOpacity="1" />
-            <stop offset="65%"  stopColor="white" stopOpacity="0.35" />
-            <stop offset="100%" stopColor="white" stopOpacity="0" />
-          </radialGradient>
-          <mask id="hero-dot-mask">
-            <rect width="100%" height="100%" fill="url(#hero-dot-fade)" />
-          </mask>
-        </defs>
-        <rect width="100%" height="100%" fill="url(#hero-dots)" mask="url(#hero-dot-mask)" />
-      </svg>
-
       {/* Ambient phosphor glow — left-center, very subtle */}
       <div
         className="pointer-events-none absolute inset-0"
@@ -80,67 +59,7 @@ export function HeroSection({ personal, stats }: HeroSectionProps) {
         <span className="absolute bottom-4 right-4 h-6 w-6 border-b border-r border-(--phosphor)/30" />
       </div>
 
-      {/* Container-bounded decorations — anchor to content zone, not viewport */}
-      <div className="pointer-events-none absolute inset-0 hidden overflow-hidden sm:block" aria-hidden="true">
-        <div className="relative mx-auto h-full w-full max-w-[1400px] px-6 sm:px-12">
-
-          {/* Technical annotations — developer telemetry */}
-          <span className="absolute top-6 left-6 sm:left-12 font-mono text-[9px] tracking-[0.18em] text-(--phosphor)/55 dark:text-(--phosphor)/35">
-            rev.14285df
-          </span>
-          <span className="absolute top-6 right-6 sm:right-12 font-mono text-[9px] tracking-[0.18em] text-(--phosphor)/55 dark:text-(--phosphor)/35">
-            BUILD: PASSING
-          </span>
-          <span className="absolute bottom-6 left-6 sm:left-12 font-mono text-[9px] tracking-[0.18em] text-(--phosphor)/55 dark:text-(--phosphor)/35">
-            node@22 · next@16 · ts@5
-          </span>
-          <span className="absolute bottom-6 right-6 sm:right-12 font-mono text-[9px] tracking-[0.18em] text-(--phosphor)/55 dark:text-(--phosphor)/35">
-            react@19.1.0
-          </span>
-
-          {/* Oscilloscope trace — live reading motif, right-anchored */}
-          <svg
-            className="absolute right-0 top-1/2 hidden -translate-y-1/2 translate-x-[22%] select-none opacity-[0.13] md:block"
-            width="560"
-            height="320"
-            viewBox="0 0 560 320"
-            fill="none"
-          >
-            {/* Screen frame */}
-            <rect x="0.5" y="0.5" width="559" height="319" stroke="var(--phosphor)" strokeWidth="0.4" />
-            {/* Horizontal axis — stronger centerline */}
-            <line x1="0" y1="160" x2="560" y2="160" stroke="var(--phosphor)" strokeWidth="0.5" />
-            {/* Graticule — minor horizontal divisions */}
-            <line x1="0" y1="80"  x2="560" y2="80"  stroke="var(--phosphor)" strokeWidth="0.3" strokeDasharray="2 6" />
-            <line x1="0" y1="240" x2="560" y2="240" stroke="var(--phosphor)" strokeWidth="0.3" strokeDasharray="2 6" />
-            {/* Vertical time divisions */}
-            <line x1="140" y1="0" x2="140" y2="320" stroke="var(--phosphor)" strokeWidth="0.3" strokeDasharray="2 8" />
-            <line x1="280" y1="0" x2="280" y2="320" stroke="var(--phosphor)" strokeWidth="0.3" strokeDasharray="2 8" />
-            <line x1="420" y1="0" x2="420" y2="320" stroke="var(--phosphor)" strokeWidth="0.3" strokeDasharray="2 8" />
-            {/* Damped sine trace — amplitude decays left-to-right */}
-            <path
-              d="M 0 160 Q 35 60 70 160 T 140 160 Q 175 85 210 160 T 280 160 Q 315 115 350 160 T 420 160 Q 455 140 490 160 T 560 160"
-              stroke="var(--phosphor)"
-              strokeWidth="1.1"
-              fill="none"
-            />
-            {/* Scan head — phosphor signature at leading edge */}
-            <circle cx="560" cy="160" r="3" fill="var(--phosphor)" />
-            <circle cx="560" cy="160" r="9" stroke="var(--phosphor)" strokeWidth="0.6" />
-            {/* Corner registration marks */}
-            <line x1="0" y1="0" x2="10" y2="0" stroke="var(--phosphor)" strokeWidth="0.85" />
-            <line x1="0" y1="0" x2="0" y2="10" stroke="var(--phosphor)" strokeWidth="0.85" />
-            <line x1="0" y1="320" x2="10" y2="320" stroke="var(--phosphor)" strokeWidth="0.85" />
-            <line x1="0" y1="320" x2="0" y2="310" stroke="var(--phosphor)" strokeWidth="0.85" />
-            {/* Channel label */}
-            <text x="8" y="18" fill="var(--phosphor)" fontSize="7" fontFamily="monospace" letterSpacing="0.15em" opacity="0.7">
-              CH1 · 2V
-            </text>
-          </svg>
-        </div>
-      </div>
-
-      <div className="mx-auto w-full max-w-6xl">
+      <div className="mx-auto w-full max-w-5xl">
 
         {/* Role label */}
         <motion.p
@@ -154,7 +73,7 @@ export function HeroSection({ personal, stats }: HeroSectionProps) {
 
         {/* Name — massive monospace, lowercase, blinking cursor */}
         <h1 className="font-display font-semibold leading-[0.88] tracking-[-0.04em] text-heading
-                       text-[clamp(44px,13vw,124px)]"
+                       text-[clamp(44px,12vw,104px)]"
             aria-label="Alex Panteli">
           <motion.span
             className="block"
@@ -185,7 +104,7 @@ export function HeroSection({ personal, stats }: HeroSectionProps) {
         />
 
         {/* Bottom row */}
-        <div className="grid gap-12 md:grid-cols-[1fr_auto]">
+        <div className="grid gap-10 md:grid-cols-[1fr_auto] md:gap-16">
 
           {/* Left: description + CTAs */}
           <div>
@@ -206,14 +125,14 @@ export function HeroSection({ personal, stats }: HeroSectionProps) {
               className="flex flex-wrap gap-3"
             >
               <Link
-                href="/experience"
-                className="inline-flex h-10 items-center rounded-sm bg-(--phosphor) px-5 text-[13px] font-semibold tracking-wide text-background transition-opacity duration-150 hover:opacity-80"
+                href="#selected-work"
+                className="inline-flex h-10 items-center rounded-sm bg-(--phosphor) px-5 text-[13px] font-semibold tracking-wide text-background transition-opacity duration-150 hover:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--phosphor)"
               >
-                View Experience
+                Selected Work
               </Link>
               <Link
                 href="/contact"
-                className="group inline-flex h-10 items-center gap-1.5 rounded-sm border border-(--phosphor)/60 px-5 text-[13px] font-semibold tracking-wide text-foreground transition-colors duration-150 hover:border-(--phosphor) hover:text-(--phosphor) dark:border-(--phosphor)/50 dark:text-(--phosphor)"
+                className="group inline-flex h-10 items-center gap-1.5 rounded-sm border border-(--phosphor)/60 px-5 text-[13px] font-semibold tracking-wide text-foreground transition-colors duration-150 hover:border-(--phosphor) hover:text-(--phosphor) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--phosphor) dark:border-(--phosphor)/50 dark:text-(--phosphor)"
               >
                 Get In Touch
                 <ArrowRight className="h-3.5 w-3.5 transition-transform duration-150 group-hover:translate-x-0.5" />
@@ -221,25 +140,33 @@ export function HeroSection({ personal, stats }: HeroSectionProps) {
             </motion.div>
           </div>
 
-          {/* Right: stats */}
-          <motion.div
+          {/* Right: Currently status — replaces weak stats */}
+          <motion.aside
+            aria-label="Currently"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.2, duration: 0.35, ease: "easeOut" }}
-            className="flex flex-wrap items-end gap-6 sm:gap-8 md:flex-col md:flex-nowrap md:items-end md:gap-7"
+            transition={{ delay: 0.24, duration: 0.35, ease: "easeOut" }}
+            className="border-l border-(--phosphor)/25 pl-6 md:min-w-[260px]"
           >
-            {stats.map((stat) => (
-              <div key={stat.label} className="text-right">
-                <p className="font-display text-[48px] font-bold leading-none tracking-[-0.03em] text-heading">
-                  {stat.value}
-                  <span className="text-(--phosphor)">{stat.suffix}</span>
-                </p>
-                <p className="mt-1.5 font-mono text-[9px] uppercase tracking-widest text-muted-foreground/70">
-                  {stat.label}
-                </p>
-              </div>
-            ))}
-          </motion.div>
+            <p className="mb-3 font-mono text-[11px] uppercase tracking-[0.18em] text-(--phosphor)">
+              <span aria-hidden="true">{"// "}</span>currently
+            </p>
+            <p className="font-display text-[18px] font-semibold leading-[1.25] text-heading">
+              {currently.role}
+            </p>
+            <p className="mt-1 font-mono text-[12px] text-muted-foreground">
+              {currently.company}
+            </p>
+            <div className="mt-5 flex items-center gap-2.5 border-t border-(--phosphor)/20 pt-4">
+              <span className="relative inline-flex size-1.5" aria-hidden="true">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-(--phosphor) opacity-60" />
+                <span className="relative inline-flex size-1.5 rounded-full bg-(--phosphor)" />
+              </span>
+              <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-(--phosphor)">
+                {currently.availability}
+              </span>
+            </div>
+          </motion.aside>
 
         </div>
       </div>

@@ -31,7 +31,7 @@ export function MobileNav() {
       <SheetTrigger asChild>
         <button
           type="button"
-          className="flex h-11 w-11 cursor-pointer items-center justify-center text-muted-foreground transition-colors duration-150 hover:text-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-(--phosphor) md:hidden"
+          className="flex h-12 w-12 cursor-pointer items-center justify-center text-muted-foreground transition-colors duration-150 hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--phosphor) md:hidden"
           aria-label="Open menu"
         >
           <Menu className="size-5" />
@@ -80,7 +80,7 @@ export function MobileNav() {
         </nav>
 
         <div className="mt-auto border-t border-(--phosphor)/10 px-4 py-4">
-          <p className="mb-2 px-3 font-mono text-[9px] uppercase tracking-[0.22em] text-muted-foreground/70">
+          <p className="mb-2 px-3 font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
             <span aria-hidden="true">{"// "}</span>connect
           </p>
           <div className="flex flex-col">

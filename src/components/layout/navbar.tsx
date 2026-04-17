@@ -18,7 +18,7 @@ export function Navbar() {
         <Link
           href="/"
           aria-label="ap.tsx — home"
-          className="font-display font-bold text-[14px] tracking-tight text-(--phosphor) transition-opacity duration-200 hover:opacity-70 justify-self-start"
+          className="font-display font-bold text-[14px] tracking-tight text-(--phosphor) transition-opacity duration-200 hover:opacity-70 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--phosphor) justify-self-start"
         >
           ap.tsx
         </Link>
@@ -33,7 +33,7 @@ export function Navbar() {
                 href={link.href}
                 {...(isActive ? { "aria-current": "page" as const } : {})}
                 className={cn(
-                  "relative px-3 py-1.5 font-mono text-[11px] uppercase tracking-widest transition-colors duration-150",
+                  "relative px-3 py-1.5 font-mono text-[11px] uppercase tracking-widest transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--phosphor)",
                   isActive
                     ? "bg-(--phosphor)/8 text-(--phosphor)"
                     : "text-muted-foreground hover:text-foreground"

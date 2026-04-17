@@ -58,95 +58,89 @@ export function CookieConsent() {
     <AnimatePresence>
       {visible && (
         <motion.div
-          role="region"
-          aria-label="Cookie preferences"
+          role="dialog"
+          aria-modal="true"
           aria-labelledby="cookie-heading"
-          initial={{ y: "100%" }}
-          animate={{ y: 0 }}
-          exit={{ y: "100%" }}
-          transition={{ duration: 0.35, ease: "easeOut" }}
-          className="fixed inset-x-0 bottom-0 z-50 border-t border-(--phosphor)/25 bg-background/95 backdrop-blur-md"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 40 }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
+          className="fixed bottom-4 right-4 z-50 w-[calc(100vw-2rem)] max-w-sm rounded-sm border bg-background/95 p-5 shadow-sm backdrop-blur-md sm:bottom-6 sm:right-6"
         >
+          <button
+            onClick={handleDeclineAll}
+            className="absolute right-3 top-3 text-muted-foreground transition-colors hover:text-foreground"
+            aria-label="Close cookie banner"
+          >
+            <X className="size-4" />
+          </button>
+
+          <div className="mb-3 flex items-center gap-2">
+            <Cookie className="size-5 text-primary" />
+            <h2 id="cookie-heading" className="font-display text-sm font-semibold">
+              Cookie Preferences
+            </h2>
+          </div>
+
+          <p className="mb-4 text-xs leading-relaxed text-muted-foreground">
+            This site uses cookies to analyse traffic and improve your
+            experience. You can choose which cookies to allow.
+          </p>
+
           {showManage ? (
-            <div className="mx-auto flex max-w-5xl flex-col gap-4 px-6 py-5">
-              <div className="flex items-start justify-between gap-4">
-                <div className="flex items-center gap-2">
-                  <Cookie className="size-4 text-(--phosphor)" />
-                  <h2 id="cookie-heading" className="font-mono text-[11px] uppercase tracking-[0.18em] text-(--phosphor)">
-                    Manage cookies
-                  </h2>
+            <div className="space-y-3">
+              <label className="flex items-center justify-between rounded-sm border px-3 py-2">
+                <div>
+                  <span className="text-xs font-medium">Necessary</span>
+                  <p className="text-[11px] text-muted-foreground">
+                    Required for the site to function
+                  </p>
                 </div>
-                <button
-                  onClick={handleDeclineAll}
-                  className="text-muted-foreground transition-colors hover:text-foreground"
-                  aria-label="Close cookie banner"
-                >
-                  <X className="size-4" />
-                </button>
-              </div>
+                <input
+                  type="checkbox"
+                  checked
+                  disabled
+                  className="size-4 accent-primary"
+                />
+              </label>
 
-              <div className="grid gap-3 sm:grid-cols-2">
-                <label className="flex items-center justify-between gap-3 rounded-sm border border-(--phosphor)/15 px-3 py-2">
-                  <div>
-                    <span className="font-mono text-[11px] uppercase tracking-[0.14em]">Necessary</span>
-                    <p className="text-[11px] text-muted-foreground">Required for the site to function</p>
-                  </div>
-                  <input type="checkbox" checked disabled className="size-4 accent-(--phosphor)" />
-                </label>
+              <label className="flex cursor-pointer items-center justify-between rounded-sm border px-3 py-2 transition-colors hover:bg-accent/50">
+                <div>
+                  <span className="text-xs font-medium">Analytics</span>
+                  <p className="text-[11px] text-muted-foreground">
+                    Help improve the site with anonymous usage data
+                  </p>
+                </div>
+                <input
+                  type="checkbox"
+                  checked={analytics}
+                  onChange={(e) => setAnalytics(e.target.checked)}
+                  className="size-4 accent-primary"
+                />
+              </label>
 
-                <label className="flex cursor-pointer items-center justify-between gap-3 rounded-sm border border-(--phosphor)/15 px-3 py-2 transition-colors hover:bg-accent/30">
-                  <div>
-                    <span className="font-mono text-[11px] uppercase tracking-[0.14em]">Analytics</span>
-                    <p className="text-[11px] text-muted-foreground">Help improve the site with anonymous usage data</p>
-                  </div>
-                  <input
-                    type="checkbox"
-                    checked={analytics}
-                    onChange={(e) => setAnalytics(e.target.checked)}
-                    className="size-4 accent-(--phosphor)"
-                  />
-                </label>
-              </div>
-
-              <div className="flex justify-end gap-2">
-                <Button onClick={handleDeclineAll} variant="ghost" size="sm">
-                  Decline
-                </Button>
-                <Button onClick={handleSavePreferences} size="sm">
-                  Save Preferences
-                </Button>
-              </div>
+              <Button
+                onClick={handleSavePreferences}
+                size="sm"
+                className="w-full"
+              >
+                Save Preferences
+              </Button>
             </div>
           ) : (
-            <div className="mx-auto flex max-w-5xl flex-col items-start gap-3 px-6 py-4 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
-              <div className="flex items-start gap-3">
-                <Cookie className="mt-0.5 size-4 shrink-0 text-(--phosphor)" />
-                <p id="cookie-heading" className="text-[12px] leading-snug text-muted-foreground">
-                  This site uses cookies to analyse traffic and improve your experience.
-                </p>
-              </div>
-
-              <div className="flex w-full shrink-0 gap-2 sm:w-auto">
-                <Button
-                  onClick={() => setShowManage(true)}
-                  variant="outline"
-                  size="sm"
-                  className="flex-1 sm:flex-none"
-                >
-                  <Settings className="size-3.5" />
-                  Manage
-                </Button>
-                <Button onClick={handleAcceptAll} size="sm" className="flex-1 sm:flex-none">
-                  Accept All
-                </Button>
-                <button
-                  onClick={handleDeclineAll}
-                  className="hidden text-muted-foreground transition-colors hover:text-foreground sm:inline-flex sm:items-center"
-                  aria-label="Close cookie banner"
-                >
-                  <X className="size-4" />
-                </button>
-              </div>
+            <div className="flex gap-2">
+              <Button onClick={handleAcceptAll} size="sm" className="flex-1">
+                Accept All
+              </Button>
+              <Button
+                onClick={() => setShowManage(true)}
+                variant="outline"
+                size="sm"
+                className="flex-1"
+              >
+                <Settings className="size-3.5" />
+                Manage
+              </Button>
             </div>
           )}
         </motion.div>

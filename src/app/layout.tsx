@@ -73,8 +73,6 @@ export default function RootLayout({
         <MotionConfig reducedMotion="user">
         <ThemeProvider>
           <div className="relative min-h-svh">
-            {/* Vertical scan columns — frequency grid */}
-            <div className="scanlines pointer-events-none fixed inset-0 z-0" aria-hidden="true" />
             <div className="relative z-10 flex min-h-svh flex-col">
               <a
                 href="#main-content"
